@@ -64,7 +64,8 @@ if(!window.JB && CFG && !/^REPLACE/.test(CFG.apiKey || '')){
       for(let i = 0; i < entries.length; i += 100){
         const b = writeBatch(fs), part = entries.slice(i, i + 100), log = makeLog ? makeLog(part.length) : null;
         logged(b, log);
-        for(const [path, data] of part) b.set(doc(fs, path), log ? Object.assign({}, data, { logId: log.id }) : data);
+        // a third value true merges into the saved document instead of replacing it (customer list)
+        for(const [path, data, merge] of part){ const d = log ? Object.assign({}, data, { logId: log.id }) : data; if(merge) b.set(doc(fs, path), d, { merge:true }); else b.set(doc(fs, path), d); }
         await wrap(b.commit());
         if(onProgress) onProgress(Math.min(entries.length, i + 100), entries.length);
       }
