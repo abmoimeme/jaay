@@ -286,6 +286,7 @@ const T_FR = /*FR*/{"Quote": "Devis", "Paid": "Payé", "Partial": "Partiel", "Un
 Object.assign(T_FR, {"Expenses": "Dépenses", "Insurance": "Assurance", "Bank charges": "Frais bancaires", "Office supplies": "Fournitures de bureau", "Security and cleaning": "Gardiennage et nettoyage", "Taxes and licences": "Impôts et patentes", "Monthly": "Mensuel", "Every 3 months": "Trimestriel", "Yearly": "Annuel", "Overdue": "En retard", "Due": "Échéance", "next": "prochaine", "Paused": "En pause", "Active": "Actif", "Record payment": "Enregistrer le paiement", "records": "enregistrements", "Budget": "Budget", "used": "utilisé", "No budget set": "Aucun budget défini", "Change": "Évolution", "vs": "vs", "last year": "l'an dernier", "previous month": "le mois précédent", "Share of sales": "Part des ventes", "of sales (before tax)": "des ventes (hors TVA)", "Monthly budget": "Budget mensuel", "Expenses by month": "Dépenses par mois", "By category": "Par catégorie", "Set budgets": "Définir les budgets", "Spent": "Dépensé", "Left": "Reste", "Total": "Total", "No expenses in this period.": "Aucune dépense sur la période.", "Recurring bills": "Charges récurrentes", "Recurring bill": "Charge récurrente", "Add rent, salaries and other regular bills to see what is due and what is late.": "Ajoutez le loyer, les salaires et les autres charges régulières pour voir ce qui est dû et ce qui est en retard.", "Expenses in this period": "Dépenses de la période", "Search payee, category or note": "Rechercher bénéficiaire, catégorie ou note", "No expense matches your search.": "Aucune dépense ne correspond.", "Expenses this month": "Dépenses du mois", "of budget": "du budget", "Bills due": "Charges à payer", "Payment for": "Paiement pour", "Paid to": "Payé à", "Landlord, staff member, company…": "Propriétaire, employé, société…", "Edit recurring bill": "Modifier la charge récurrente", "New recurring bill": "Nouvelle charge récurrente", "Shop rent": "Loyer de la boutique", "How often": "Fréquence", "Due on day": "Jour d'échéance", "First period": "Première période", "Status": "Statut", "Each period is marked paid when you record its payment. Periods before the first period are ignored.": "Chaque période est marquée payée quand vous enregistrez son paiement. Les périodes avant la première période sont ignorées.", "Monthly budgets": "Budgets mensuels", "How much you plan to spend each month, per category. Leave a category empty for no budget.": "Le montant prévu chaque mois, par catégorie. Laissez vide pour ne pas fixer de budget.", "Delete this recurring bill? Payments already recorded stay in your expenses.": "Supprimer cette charge récurrente ? Les paiements déjà enregistrés restent dans vos dépenses.", "The due day is a number from 1 to 31.": "Le jour d'échéance est un nombre de 1 à 31.", "Choose the first period.": "Choisissez la première période.", "Recorded by": "Enregistré par", "Net profit": "Résultat net"});
 Object.assign(T_FR, {"Rent and facility lease": "Location (loyer et local)", "Salaries and wages": "Salaires", "Utilities (Woyofal, Sen'Eau)": "Électricité et eau (Woyofal, Sen'Eau)", "Internet and telecom (Orange)": "Internet et téléphone (Orange)", "Office and admin supplies": "Fournitures de bureau et administratives", "Fuel and transport": "Carburant et transport", "Shop equipment and tools": "Équipement et outillage", "Parts and fluids for shop use": "Pièces et fluides (usage atelier)", "Taxes and government fees": "Impôts et taxes", "Marketing and advertising": "Marketing et publicité (Meta)", "Shop provisions and food": "Provisions et repas", "Repairs and maintenance": "Réparations et entretien", "Customs and freight": "Douane et fret", "Bank and mobile money fees": "Frais bancaires et mobile money", "Capital transfers and remittances": "Transferts de capitaux et envois", "Capital transfers (not in profit)": "Transferts de capitaux (hors résultat)", "Capital transfers and remittances this period": "Transferts de capitaux de la période", "Recorded, but not counted as an expense or in profit.": "Enregistrés, mais non comptés comme dépense ni dans le résultat."});
 Object.assign(T_FR, {"Approve": "Approuver", "Reject": "Rejeter", "Expenses to approve": "Dépenses à approuver", "to approve": "à approuver", "My expense requests": "Mes demandes de dépense", "Awaiting approval": "En attente d'approbation", "Rejected": "Rejetée", "by": "par", "Reason": "Motif", "Expense request": "Demande de dépense", "This goes to the manager or owner for approval. It counts in the books once approved.": "Envoyée au gérant ou au propriétaire pour approbation. Elle compte dans les comptes une fois approuvée.", "Expense request from": "Demande de dépense de", "awaiting approval.": "en attente d'approbation.", "What was it for?": "Pour quoi ?", "Sent for approval.": "Envoyée pour approbation.", "Expense approved.": "Dépense approuvée.", "Expense rejected.": "Dépense rejetée.", "Reject expense request": "Rejeter la demande de dépense", "The cashier sees this reason": "Le caissier verra ce motif", "Sales, purchases, payments, expenses and approving expense requests, items, reports, editing and deleting. No Setup.": "Ventes, achats, paiements, dépenses et approbation des demandes, articles, rapports, modification et suppression. Pas de Réglages.", "New sales and quotes, payments received, customers, stock lookup, expense requests for approval. No costs, profit, reports, editing or deleting.": "Nouvelles ventes et devis, encaissements, clients, consultation du stock, demandes de dépense à approuver. Pas de coûts, marge, rapports, modification ni suppression."});
+Object.assign(T_FR, {"Card": "Carte bancaire", "Last year": "L'an dernier", "the year before": "l'année précédente"});
 let lang = 'en';
 const t = s => (lang === 'fr' && T_FR[s]) || s;
 
@@ -336,14 +337,14 @@ let itemCat = '', itemStock = 'all', partyTab = 'all';
 let purchTab = 'purchase', closeDate = '', itemRows = [];
 const PREF_KEYS = ['period','salesTab','purchTab','moneyTab','itemStock','partyTab'];
 function savePrefs(){ try{ localStorage.setItem('jaay-ui', JSON.stringify({ period, salesTab, purchTab, moneyTab, itemStock, partyTab, expPeriod })); }catch(e){} }
-function loadPrefs(){ try{ const o = JSON.parse(localStorage.getItem('jaay-ui') || '{}'); if(o.period) period = o.period; if(o.salesTab) salesTab = o.salesTab; if(o.purchTab) purchTab = o.purchTab; if(o.moneyTab) moneyTab = o.moneyTab; if(o.itemStock) itemStock = o.itemStock; if(o.partyTab) partyTab = o.partyTab; if(['month','last','year'].includes(o.expPeriod)) expPeriod = o.expPeriod; }catch(e){} }
+function loadPrefs(){ try{ const o = JSON.parse(localStorage.getItem('jaay-ui') || '{}'); if(o.period) period = o.period; if(o.salesTab) salesTab = o.salesTab; if(o.purchTab) purchTab = o.purchTab; if(o.moneyTab) moneyTab = o.moneyTab; if(o.itemStock) itemStock = o.itemStock; if(o.partyTab) partyTab = o.partyTab; if(['month','last','year','lastyear'].includes(o.expPeriod)) expPeriod = o.expPeriod; }catch(e){} }
 const IDLE_MS = 30 * 60 * 1000;
 let lastAct = Date.now(), opener = null;
 let route = 'dashboard', q = '', salesTab = 'sale', moneyTab = 'all', period = 'month', F = null;
 let D = { stock:{}, bal:{}, linked:{}, avg:{}, conv:{} };
 let dataOn = false, dataUnsubs = [];
 let unsubs = [], mcpCap = null, importing = false, IMP = null;
-const METHODS = ['Cash','Wave','Orange Money','Bank transfer','Cheque'];
+const METHODS = ['Cash','Wave','Orange Money','Card','Bank transfer','Cheque','Other'];
 const EXP_CATS = ['Rent and facility lease','Salaries and wages','Utilities (Woyofal, Sen\'Eau)','Internet and telecom (Orange)','Office and admin supplies','Fuel and transport','Shop equipment and tools','Parts and fluids for shop use','Taxes and government fees','Marketing and advertising','Shop provisions and food','Repairs and maintenance','Customs and freight','Bank and mobile money fees','Capital transfers and remittances','Other'];
 // Money moved between the owners and the business: recorded, but not a running cost.
 const NON_OPEX = ['Capital transfers and remittances'];
@@ -778,6 +779,7 @@ function vMoney(){
   + (rows.length ? '<div class="tbl-wrap"><table><thead><tr><th>' + esc(t('Details')) + '</th><th class="r">' + esc(t('Amount')) + '</th></tr></thead><tbody>' + rows.map(txRow).join('') + '</tbody></table></div>' : '<div class="card empty">' + esc(t('No payments or expenses recorded.')) + '<div class="cta">' + btn('payIn', '+ ' + t('Payment in'), 'pri') + btn('newExpense', t('Expense')) + '</div></div>');
 }
 let expPeriod = 'month';
+const expYear = () => expPeriod === 'year' || expPeriod === 'lastyear';
 const pendingExp = () => sorted(S.txns, byDate).filter(x => x.type === 'expense' && x.status === 'pending');
 function pendRow(x){
   const sub = [fdate(x.date), t(x.category || 'Other'), x.by ? t('by') + ' ' + x.by : '', x.note].filter(Boolean).join(' · ');
@@ -807,9 +809,9 @@ function billRow(b, st){
   return '<tr class="row" data-a="editBill" data-id="' + esc(b.id) + '"><td><div class="who">' + ic('wallet', st.overdue.length ? 'r' : 'a') + '<div><b>' + esc(b.name) + '</b><div class="sub">' + esc(sub) + '</div></div></div></td><td class="r"><b class="num">' + esc(fmt(b.amount)) + '</b><div><span class="pill ' + pill[0] + '">' + esc(pill[1]) + '</span></div>' + (first && b.active !== false ? '<div style="margin-top:6px">' + btn('payBill', t('Record payment'), 'sm', b.id) + '</div>' : '') + '</td></tr>';
 }
 function opexData(){
-  const [from, to] = range(expPeriod), [pf, pt] = periodRange(expPeriod, 1);
+  const [from, to] = expPeriod === 'lastyear' ? periodRange('year', 1) : range(expPeriod), [pf, pt] = expPeriod === 'lastyear' ? periodRange('year', 2) : periodRange(expPeriod, 1);
   const cur0 = opexTotals(S.txns, from, to), prev = opexTotals(S.txns, pf, pt), rev = pnl(S, from, to).revenue;
-  const months = expPeriod === 'year' ? 12 : 1, bud = budgets();
+  const months = expYear() ? 12 : 1, bud = budgets();
   const budTotal = Object.values(bud).reduce((s, v) => s + num(v), 0) * months;
   const cats = [...new Set([...Object.keys(cur0.cats), ...Object.keys(bud).filter(c => num(bud[c]) > 0)])].map(c => ({ cat:c, spent:cur0.cats[c] || 0, budget:num(bud[c]) * months })).sort((a, b) => b.spent - a.spent || b.budget - a.budget);
   const list = sorted(S.txns, byDate).filter(x => x.type === 'expense' && countsExp(x) && x.date >= from && x.date <= to);
@@ -819,13 +821,13 @@ function vExpenses(){
   const o = opexData(), c = o.cur;
   const used = o.budTotal ? Math.round(c.total / o.budTotal * 100) : 0;
   const chg = o.prev.total ? Math.round((c.total - o.prev.total) / o.prev.total * 100) : null;
-  const prevLabel = expPeriod === 'year' ? t('last year') : t('previous month');
+  const prevLabel = expPeriod === 'lastyear' ? t('the year before') : expPeriod === 'year' ? t('last year') : t('previous month');
   const tiles = '<div class="tiles">' + tile(t('Expenses'), fmt(c.total), c.count + ' ' + t('records'), 'out')
     + tile(t('Budget'), o.budTotal ? fmt(o.budTotal) : '—', o.budTotal ? used + '% ' + t('used') : t('No budget set'), o.budTotal && used > 100 ? 'out' : o.budTotal && used > 90 ? 'w' : 'b')
     + tile(t('Change'), chg == null ? '—' : (chg > 0 ? '+' : '') + chg + '%', t('vs') + ' ' + prevLabel + (o.prev.total ? ' · ' + n0(o.prev.total) : ''), chg != null && chg > 10 ? 'w' : '')
     + tile(t('Share of sales'), o.rev ? Math.round(c.total / o.rev * 100) + '%' : '—', t('of sales (before tax)'), 'b') + '</div>';
   // monthly trend
-  const months = []; const base = expPeriod === 'year' ? new Date().getFullYear() + '-01' : addMonths(o.from.slice(0, 7), -5), n = expPeriod === 'year' ? 12 : 6;
+  const months = []; const base = expYear() ? o.from.slice(0, 4) + '-01' : addMonths(o.from.slice(0, 7), -5), n = expYear() ? 12 : 6;
   for(let i = 0; i < n; i++){ const k = addMonths(base, i); months.push({ k, v: opexTotals(S.txns, k + '-01', k + '-31').total }); }
   const mBud = Object.values(budgets()).reduce((s, v) => s + num(v), 0);
   const max = Math.max(1, mBud, ...months.map(x => x.v)), W = 560, H = 150, bw = W / n;
@@ -844,7 +846,7 @@ function vExpenses(){
   const tNote = (c.transfers ? '<div class="banner"><span>' + esc(t('Capital transfers and remittances this period')) + ': <b class="num">' + esc(fmt(c.transfers)) + '</b>. ' + esc(t('Recorded, but not counted as an expense or in profit.')) + '</span></div>' : '');
   const listCard = '<div class="card"><div class="grp"><h3>' + esc(t('Expenses in this period')) + '</h3>' + (o.list.length ? exp : '') + '</div><div class="tools">' + search(t('Search payee, category or note')) + '</div>' + (rows.length ? '<div class="tbl-wrap"><table><tbody>' + rows.slice(0, 300).map(txRow).join('') + '</tbody></table></div>' : '<div class="empty">' + esc(o.list.length ? t('No expense matches your search.') : t('No expenses in this period.')) + '</div>') + '</div>';
   return head(t('Expenses'), btn('newExpense', '+ ' + t('Expense'), 'pri') + btn('newBill', t('Recurring bill')))
-    + '<div class="tools">' + seg('expPeriod', expPeriod, [['month', t('This month')], ['last', t('Last month')], ['year', t('This year')]]) + '</div>'
+    + '<div class="tools">' + seg('expPeriod', expPeriod, [['month', t('This month')], ['last', t('Last month')], ['year', t('This year')], ['lastyear', t('Last year')]]) + '</div>'
     + pendCard() + tiles + tNote + '<div class="grid2">' + catTbl + billCard + '</div><div class="grid2">' + listCard + trend + '</div>';
 }
 function reportData(){
