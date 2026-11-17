@@ -38,6 +38,17 @@ The **Expenses** page shows operating costs for this month, last month or this y
 6. Open the site. The first visit to an unused store code offers **Create a store**; that person becomes the owner.
 7. To bring in data from the earlier hosted version: there, **Setup → Download backup**; here, **Setup → Load a backup file**.
 
+## Monitor (owner only)
+
+The **Monitor** page shows who did what and when: per person (first and last activity, sales, payments in, expenses, edits, deletions) and a timeline you can filter by person, type and search, with CSV export. Today, yesterday, last 7 days or this month.
+
+- Every change is saved in the same step as an entry in the `log` collection: person, access level, action, record, amount and the amount before an edit. Sign-ins, sign-outs and inactivity sign-outs are logged too.
+- The security rules make the log trustworthy:
+  - Only the owner can read it, and nobody can change or delete an entry.
+  - The time must be Google's server time, and the name and access level must be the person's own.
+  - A new record or change to an item, party, recurring bill/budget or transaction is refused unless it carries a new log entry by the same person, saved in the same step.
+- Limit: deletions are logged by the app in the same step, but the rules cannot require it. Only the owner and managers can delete.
+
 ## User guide (Guide)
 
 The **Guide** page (in the menu for every level, and under **More** on phones) is a French user guide with a **Caissier** tab and a **Gérant** tab. Cashiers see only their tab. It can be printed.

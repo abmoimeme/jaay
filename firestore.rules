@@ -13,6 +13,14 @@ service cloud.firestore {
     function hasRole(s, roles) { return isMember(s) && get(memberPath(s)).data.role in roles; }
     function isOwner(s) { return hasRole(s, ['owner']); }
     function validRole(r) { return r in ['owner', 'manager', 'cashier', 'stock', 'accountant']; }
+    function logPath(s, id) { return /databases/$(database)/documents/stores/$(s)/log/$(id); }
+    // Every new record and every change is saved together with a new activity-log entry
+    // written by the same person in the same step. Without it, the save is refused.
+    function logged(s) {
+      return request.resource.data.logId is string
+        && !exists(logPath(s, request.resource.data.logId))
+        && getAfter(logPath(s, request.resource.data.logId)).data.uid == request.auth.uid;
+    }
 
     match /stores/{s} {
       // The sign-in page shows the store's name, logo and contact details.
@@ -44,14 +52,28 @@ service cloud.firestore {
         allow delete: if isOwner(s) && uid != request.auth.uid;
       }
 
+      // Activity log: who did what and when. Only the owner can read it. Nobody can change or
+      // delete an entry, the time comes from Google's clock, and the name and access level must
+      // be the person's own.
+      match /log/{id} {
+        allow read: if isOwner(s);
+        allow create: if isMember(s)
+          && request.resource.data.uid == request.auth.uid
+          && request.resource.data.ts == request.time
+          && request.resource.data.name == get(memberPath(s)).data.name
+          && request.resource.data.role == get(memberPath(s)).data.role;
+        allow update, delete: if false;
+      }
+
       match /items/{id} {
         allow read: if isMember(s);
-        allow create, update, delete: if hasRole(s, ['owner', 'manager', 'stock']);
+        allow create, update: if hasRole(s, ['owner', 'manager', 'stock']) && logged(s);
+        allow delete: if hasRole(s, ['owner', 'manager', 'stock']);
       }
 
       match /parties/{id} {
         allow read: if isMember(s);
-        allow create, update: if hasRole(s, ['owner', 'manager', 'cashier', 'stock']);
+        allow create, update: if hasRole(s, ['owner', 'manager', 'cashier', 'stock']) && logged(s);
         allow delete: if hasRole(s, ['owner', 'manager']);
       }
 
@@ -59,12 +81,14 @@ service cloud.firestore {
       // Cashiers and stock keepers cannot see these figures.
       match /opex/{id} {
         allow read: if hasRole(s, ['owner', 'manager', 'accountant']);
-        allow create, update, delete: if hasRole(s, ['owner', 'manager']);
+        allow create, update: if hasRole(s, ['owner', 'manager']) && logged(s);
+        allow delete: if hasRole(s, ['owner', 'manager']);
       }
 
       match /txns/{id} {
         allow read: if isMember(s);
-        allow create: if request.resource.data.byUid == request.auth.uid
+        allow create: if logged(s)
+          && request.resource.data.byUid == request.auth.uid
           && request.resource.data.type is string
           && request.resource.data.date is string
           && (
@@ -74,7 +98,8 @@ service cloud.firestore {
             // Cashiers can only submit expense requests; the owner or a manager approves them.
             || (request.resource.data.type == 'expense' && request.resource.data.status == 'pending' && hasRole(s, ['cashier']))
           );
-        allow update, delete: if hasRole(s, ['owner', 'manager']);
+        allow update: if hasRole(s, ['owner', 'manager']) && logged(s);
+        allow delete: if hasRole(s, ['owner', 'manager']);
       }
     }
   }
