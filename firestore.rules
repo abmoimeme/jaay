@@ -1,0 +1,72 @@
+rules_version = '2';
+
+// Jaay security rules. Every read and write is checked here, on Google's servers,
+// so access levels cannot be bypassed from a browser.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() { return request.auth != null; }
+    function memberPath(s) { return /databases/$(database)/documents/stores/$(s)/members/$(request.auth.uid); }
+    function isMember(s) {
+      return signedIn() && exists(memberPath(s)) && get(memberPath(s)).data.active == true;
+    }
+    function hasRole(s, roles) { return isMember(s) && get(memberPath(s)).data.role in roles; }
+    function isOwner(s) { return hasRole(s, ['owner']); }
+    function validRole(r) { return r in ['owner', 'manager', 'cashier', 'stock', 'accountant']; }
+
+    match /stores/{s} {
+      // The sign-in page shows the store's name, logo and contact details.
+      allow get: if true;
+      allow list: if false;
+      allow create: if signedIn()
+        && s.matches('^[a-z0-9]{3,20}$')
+        && request.resource.data.ownerUid == request.auth.uid;
+      allow update: if isOwner(s)
+        && request.resource.data.ownerUid == resource.data.ownerUid;
+      allow delete: if false;
+
+      match /members/{uid} {
+        allow get: if signedIn() && (request.auth.uid == uid || isOwner(s));
+        allow list: if isOwner(s);
+        // The owner adds staff; the person who created the store becomes its first owner.
+        allow create: if (isOwner(s)
+              && validRole(request.resource.data.role)
+              && request.resource.data.active is bool)
+          || (signedIn() && request.auth.uid == uid
+              && request.resource.data.role == 'owner'
+              && request.resource.data.active == true
+              && get(/databases/$(database)/documents/stores/$(s)).data.ownerUid == request.auth.uid);
+        // An owner cannot demote or deactivate themselves (prevents a store with no owner).
+        allow update: if isOwner(s)
+          && validRole(request.resource.data.role)
+          && request.resource.data.active is bool
+          && (uid != request.auth.uid || (request.resource.data.role == 'owner' && request.resource.data.active == true));
+        allow delete: if isOwner(s) && uid != request.auth.uid;
+      }
+
+      match /items/{id} {
+        allow read: if isMember(s);
+        allow create, update, delete: if hasRole(s, ['owner', 'manager', 'stock']);
+      }
+
+      match /parties/{id} {
+        allow read: if isMember(s);
+        allow create, update: if hasRole(s, ['owner', 'manager', 'cashier', 'stock']);
+        allow delete: if hasRole(s, ['owner', 'manager']);
+      }
+
+      match /txns/{id} {
+        allow read: if isMember(s);
+        allow create: if request.resource.data.byUid == request.auth.uid
+          && request.resource.data.type is string
+          && request.resource.data.date is string
+          && (
+               (request.resource.data.type in ['sale', 'quote', 'payin'] && hasRole(s, ['owner', 'manager', 'cashier']))
+            || (request.resource.data.type in ['purchase', 'po', 'adjust'] && hasRole(s, ['owner', 'manager', 'stock']))
+            || (request.resource.data.type in ['return', 'payout', 'expense'] && hasRole(s, ['owner', 'manager']))
+          );
+        allow update, delete: if hasRole(s, ['owner', 'manager']);
+      }
+    }
+  }
+}
