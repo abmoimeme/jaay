@@ -287,6 +287,7 @@ Object.assign(T_FR, {"Expenses": "Dépenses", "Insurance": "Assurance", "Bank ch
 Object.assign(T_FR, {"Rent and facility lease": "Location (loyer et local)", "Salaries and wages": "Salaires", "Utilities (Woyofal, Sen'Eau)": "Électricité et eau (Woyofal, Sen'Eau)", "Internet and telecom (Orange)": "Internet et téléphone (Orange)", "Office and admin supplies": "Fournitures de bureau et administratives", "Fuel and transport": "Carburant et transport", "Shop equipment and tools": "Équipement et outillage", "Parts and fluids for shop use": "Pièces et fluides (usage atelier)", "Taxes and government fees": "Impôts et taxes", "Marketing and advertising": "Marketing et publicité (Meta)", "Shop provisions and food": "Provisions et repas", "Repairs and maintenance": "Réparations et entretien", "Customs and freight": "Douane et fret", "Bank and mobile money fees": "Frais bancaires et mobile money", "Capital transfers and remittances": "Transferts de capitaux et envois", "Capital transfers (not in profit)": "Transferts de capitaux (hors résultat)", "Capital transfers and remittances this period": "Transferts de capitaux de la période", "Recorded, but not counted as an expense or in profit.": "Enregistrés, mais non comptés comme dépense ni dans le résultat."});
 Object.assign(T_FR, {"Approve": "Approuver", "Reject": "Rejeter", "Expenses to approve": "Dépenses à approuver", "to approve": "à approuver", "My expense requests": "Mes demandes de dépense", "Awaiting approval": "En attente d'approbation", "Rejected": "Rejetée", "by": "par", "Reason": "Motif", "Expense request": "Demande de dépense", "This goes to the manager or owner for approval. It counts in the books once approved.": "Envoyée au gérant ou au propriétaire pour approbation. Elle compte dans les comptes une fois approuvée.", "Expense request from": "Demande de dépense de", "awaiting approval.": "en attente d'approbation.", "What was it for?": "Pour quoi ?", "Sent for approval.": "Envoyée pour approbation.", "Expense approved.": "Dépense approuvée.", "Expense rejected.": "Dépense rejetée.", "Reject expense request": "Rejeter la demande de dépense", "The cashier sees this reason": "Le caissier verra ce motif", "Sales, purchases, payments, expenses and approving expense requests, items, reports, editing and deleting. No Setup.": "Ventes, achats, paiements, dépenses et approbation des demandes, articles, rapports, modification et suppression. Pas de Réglages.", "New sales and quotes, payments received, customers, stock lookup, expense requests for approval. No costs, profit, reports, editing or deleting.": "Nouvelles ventes et devis, encaissements, clients, consultation du stock, demandes de dépense à approuver. Pas de coûts, marge, rapports, modification ni suppression."});
 Object.assign(T_FR, {"Card": "Carte bancaire", "Last year": "L'an dernier", "the year before": "l'année précédente"});
+Object.assign(T_FR, {"Signed out after 30 minutes without activity. Sign in again to continue.": "Déconnecté après 30 minutes d'inactivité. Reconnectez-vous pour continuer."});
 let lang = 'en';
 const t = s => (lang === 'fr' && T_FR[s]) || s;
 
@@ -563,30 +564,48 @@ function openStore(){
   watchMember();
   render();
 }
-function watchMember(){
-  if(meUnsub){ meUnsub(); meUnsub = null; } if(staffUnsub){ staffUnsub(); staffUnsub = null; }
+let memberGen = 0;
+function stopMember(){ memberGen++; if(meUnsub){ meUnsub(); meUnsub = null; } if(staffUnsub){ staffUnsub(); staffUnsub = null; } }
+// Watches the signed-in person's staff record. Right after a sign-in or sign-out the
+// database can briefly refuse while it switches accounts, so a refusal is retried before
+// anyone is told they have no access. Answers from an earlier sign-in are ignored.
+function watchMember(tries){
+  tries = tries || 0;
+  stopMember();
   S.me = null; S.staff = {};
   if(!authUser || !storeId){ staffLoaded = authKnown; render(); return; }
-  staffLoaded = false; const uid = authUser.uid, sid = storeId;
+  staffLoaded = false; const uid = authUser.uid, sid = storeId, gen = memberGen;
+  const stale = () => gen !== memberGen || !authUser || authUser.uid !== uid || storeId !== sid;
+  const deny = () => { S.me = null; staffLoaded = true; if(!creating){ accessNote = t('This account has no access to this store.'); stopMember(); JB.signOut().catch(() => {}); } render(); };
   meUnsub = db.doc('stores/' + sid + '/members/' + uid).onSnapshot(snap => {
+    if(stale()) return;
     if(snap.metadata && snap.metadata.fromCache && !snap.exists) return;
     if(snap.exists && snap.data().active !== false){
       S.me = Object.assign({ id: uid }, snap.data()); accessNote = '';
-      if(S.me.role === 'owner' && !staffUnsub) staffUnsub = db.collection('stores/' + sid + '/members').onSnapshot(sn => { const m = {}; sn.docs.forEach(d => { m[d.id] = d.data(); }); S.staff = m; render(); }, liveErr);
-    } else {
-      S.me = null;
-      if(!creating){ accessNote = t('This account has no access to this store.'); JB.signOut().catch(() => {}); }
-    }
-    staffLoaded = true; render();
-  }, e => { console.error(e); S.me = null; staffLoaded = true; if(!creating){ accessNote = t('This account has no access to this store.'); JB.signOut().catch(() => {}); } render(); });
+      if(S.me.role === 'owner' && !staffUnsub) staffUnsub = db.collection('stores/' + sid + '/members').onSnapshot(sn => { if(stale()) return; const m = {}; sn.docs.forEach(d => { m[d.id] = d.data(); }); S.staff = m; render(); }, liveErr);
+      staffLoaded = true; render();
+    } else deny();
+  }, e => {
+    if(stale()) return;
+    console.error(e);
+    if(tries < 3){ setTimeout(() => { if(!stale()) watchMember(tries + 1); }, 700 * (tries + 1)); return; }
+    if(e && e.code === 'permission-denied') return deny();
+    staffLoaded = true; toast(t('No connection. Try again when you are back online.')); render();
+  });
 }
 function closeData(){ dataUnsubs.forEach(u => u()); dataUnsubs = []; dataOn = false; S.items = {}; S.parties = {}; S.txns = {}; S.opex = {}; }
+// A listener refused while the database switches accounts stops for good, so start them again.
+let dataRetry = 0;
+function dataErr(e){
+  if(e && e.code === 'permission-denied' && me() && dataRetry < 3){ dataRetry++; const n = dataRetry; setTimeout(() => { if(me() && dataRetry === n){ closeData(); render(); } }, 1000 * n); return; }
+  liveErr(e);
+}
 function syncData(){
   const want = !!storeId && !!me();
   if(want && !dataOn){
     dataOn = true;
     const cols = seeOpex() ? ['items','parties','txns','opex'] : ['items','parties','txns'];
-    for(const c of cols) dataUnsubs.push(db.collection('stores/' + storeId + '/' + c).onSnapshot(snap => { const m = {}; snap.docs.forEach(d => { m[d.id] = d.data(); }); S[c] = m; render(); }, liveErr));
+    for(const c of cols) dataUnsubs.push(db.collection('stores/' + storeId + '/' + c).onSnapshot(snap => { dataRetry = 0; const m = {}; snap.docs.forEach(d => { m[d.id] = d.data(); }); S[c] = m; render(); }, dataErr));
   } else if(!want && dataOn) closeData();
 }
 let JB_ready = false;
@@ -1269,7 +1288,7 @@ function openBudgets(){
 /* ---------- actions ---------- */
 const A = {
   close: () => dlg.close(),
-  lock: () => { if(dlg.open) dlg.close(); route = 'dashboard'; accessNote = ''; ss('act', null); closeData(); S.me = null; JB.signOut().catch(fail); render(); },
+  lock: () => { if(dlg.open) dlg.close(); route = 'dashboard'; accessNote = ''; ss('act', null); stopMember(); closeData(); S.me = null; S.staff = {}; JB.signOut().catch(fail); render(); },
   loginMode: id => { loginMode = id; accessNote = ''; render(); },
   myPw: () => { F = { kind:'mypw' }; formModal(t('Change password'), 'changePw', '<input type="text" name="u" autocomplete="username" value="' + esc(me().username) + '" hidden>' + '<div class="fg">' + fld(t('Current password'), 'oldpw', '', 'type="password" autocomplete="current-password" required') + fld(t('New password'), 'newpw', '', 'type="password" autocomplete="new-password" required') + fld(t('Repeat password'), 'newpw2', '', 'type="password" autocomplete="new-password" required') + '</div><p class="sub">' + esc(t('Password: at least 8 characters, with a letter and a number.')) + '</p>'); },
   delStaff: id => { if(id === me().id) return; ask(t('Remove this person? They will no longer be able to sign in to this store.'), t('Remove'), () => del('members', id).then(() => toast(t('Removed.')), fail)); },
@@ -1325,8 +1344,9 @@ document.addEventListener('click', e => {
   const fn = A[tgt.dataset.a]; if(fn){ e.preventDefault(); const need = ACT[tgt.dataset.a]; if(need && !can(need)) return toast(t('Not allowed for your access level.')); fn(tgt.dataset.id); }
 });
 const touch = () => { lastAct = Date.now(); if(authUser) ss('act', String(lastAct)); };
-['pointerdown','keydown'].forEach(ev => document.addEventListener(ev, touch, { passive:true }));
-const idleT = setInterval(() => { if(me() && Date.now() - lastAct > IDLE_MS){ A.lock(); toast(t('Signed out after 30 minutes without activity.')); } }, 60000); if(idleT && idleT.unref) idleT.unref();
+['pointerdown','keydown','wheel','touchstart','input'].forEach(ev => document.addEventListener(ev, touch, { passive:true }));
+document.addEventListener('scroll', touch, { passive:true, capture:true });
+const idleT = setInterval(() => { if(me() && Date.now() - lastAct > IDLE_MS){ A.lock(); accessNote = t('Signed out after 30 minutes without activity. Sign in again to continue.'); render(); } }, 60000); if(idleT && idleT.unref) idleT.unref();
 window.addEventListener('unhandledrejection', e => { console.error(e.reason); toast(t('Something went wrong. Try again, or reload the page.')); });
 window.addEventListener('load', () => render());
 if(window.visualViewport){ const vv = () => document.documentElement.style.setProperty('--vvh', window.visualViewport.height + 'px'); window.visualViewport.addEventListener('resize', vv); vv(); }
