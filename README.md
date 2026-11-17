@@ -43,7 +43,7 @@ The **Expenses** page shows operating costs for this month, last month or this y
 | File | Purpose |
 | --- | --- |
 | `index.html` | The app |
-| `backend.js` | Firebase sign-in and data (with offline cache) |
+| `backend.js` | Firebase sign-in and data (each tab keeps its own copy; offline changes are sent when the connection returns, while the page stays open) |
 | `config.js` | Firebase project settings and default store code |
 | `firestore.rules` | Server-side security rules for the five levels |
 | `logos/` | Store logos |

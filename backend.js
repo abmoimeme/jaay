@@ -1,7 +1,7 @@
-// Jaay backend: Firebase Authentication + Cloud Firestore (with offline cache).
+// Jaay backend: Firebase Authentication + Cloud Firestore (per-tab memory cache).
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, setPersistence, browserSessionPersistence, inMemoryPersistence, updatePassword, EmailAuthProvider, reauthenticateWithCredential, deleteUser } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
-import { initializeFirestore, persistentLocalCache, persistentMultipleTabManager, memoryLocalCache, doc, collection, setDoc, deleteDoc, getDoc, onSnapshot, writeBatch } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+import { initializeFirestore, memoryLocalCache, doc, collection, setDoc, deleteDoc, getDoc, onSnapshot, writeBatch } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
 
 const CFG = window.JAAY_CONFIG && window.JAAY_CONFIG.firebase;
 if(!window.JB && CFG && !/^REPLACE/.test(CFG.apiKey || '')){
@@ -9,8 +9,11 @@ if(!window.JB && CFG && !/^REPLACE/.test(CFG.apiKey || '')){
   const app = initializeApp(cfg);
   const auth = getAuth(app);
   let fs;
-  try{ fs = initializeFirestore(app, { localCache: persistentLocalCache({ tabManager: persistentMultipleTabManager() }) }); }
-  catch(e){ console.warn('Offline cache unavailable, using memory cache', e); fs = initializeFirestore(app, { localCache: memoryLocalCache() }); }
+  // Each tab keeps its own copy of the data in memory. A copy shared between tabs lets one tab
+  // read the database for the others with its own sign-in; with one tab signed out (or signed in
+  // as someone else) that caused refusals and sign-outs. Changes made offline still wait in memory
+  // and are sent when the connection comes back, as long as the page stays open.
+  fs = initializeFirestore(app, { localCache: memoryLocalCache() });
   const norm = e => { const err = new Error(e && e.message || 'error'); err.code = String(e && e.code || 'unknown').replace(/^firestore\//, ''); err.raw = e; return err; };
   const wrap = p => p.catch(e => { throw norm(e); });
   const snapDoc = s => ({ id: s.id, exists: s.exists(), data: () => s.data(), metadata: s.metadata });
