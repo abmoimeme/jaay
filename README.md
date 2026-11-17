@@ -13,8 +13,8 @@ Staff sign in with a **store code** (for example `pah`), a **username** and a **
 | Level | Can do |
 | --- | --- |
 | Owner | Everything, including Setup, staff, backup and restore |
-| Manager | Sales, returns, purchases, payments, expenses, items, reports, editing and deleting. No Setup |
-| Cashier | New sales and quotes, payments received, customers, stock lookup |
+| Manager | Sales, returns, purchases, payments, expenses and approving expense requests, items, reports, editing and deleting. No Setup |
+| Cashier | New sales and quotes, payments received, customers, stock lookup, expense requests for approval |
 | Stock keeper | Items, import, stock adjustments, purchase orders, goods received, suppliers |
 | Accountant | Reads everything, including reports and exports. Cannot add, change or delete |
 
@@ -24,6 +24,7 @@ The **Expenses** page shows operating costs for this month, last month or this y
 
 - **Recurring bills** (rent, salaries, Woyofal, Orange…) have an amount, a frequency (monthly, every 3 months or yearly) and a due day. Each period shows as due, paid or overdue. **Record payment** creates the expense for the oldest unpaid period. Home lists bills that are overdue or due within 7 days.
 - **Budgets** are set per category, per month.
+- **Expense requests:** a Cashier can enter an expense (for example fuel or supplies paid from the till). It goes to the Owner and Manager as a request, shown on Home and on Expenses with a count in the menu. They approve it or reject it with a reason, which the Cashier sees. Only approved expenses count in OpEx, budgets and profit. Day closing counts pending and approved cash out, because the money has left the drawer. The security rules only let a Cashier create expenses with status `pending`.
 - **Capital transfers and remittances** are recorded, but they are not counted as an expense, in budgets or in net profit.
 - Bills and budgets are in the `opex` collection. Only Owner, Manager and Accountant can read them, and only Owner and Manager can change them.
 

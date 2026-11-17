@@ -71,6 +71,8 @@ service cloud.firestore {
                (request.resource.data.type in ['sale', 'quote', 'payin'] && hasRole(s, ['owner', 'manager', 'cashier']))
             || (request.resource.data.type in ['purchase', 'po', 'adjust'] && hasRole(s, ['owner', 'manager', 'stock']))
             || (request.resource.data.type in ['return', 'payout', 'expense'] && hasRole(s, ['owner', 'manager']))
+            // Cashiers can only submit expense requests; the owner or a manager approves them.
+            || (request.resource.data.type == 'expense' && request.resource.data.status == 'pending' && hasRole(s, ['cashier']))
           );
         allow update, delete: if hasRole(s, ['owner', 'manager']);
       }
