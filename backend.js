@@ -58,7 +58,7 @@ if(!window.JB && CFG && !/^REPLACE/.test(CFG.apiKey || '')){
       })
     },
     // ops: [{ path, data } | { path, del: true }]; log: { path, data } saved in the same step
-    commit: (ops, log) => { const b = writeBatch(fs); logged(b, log); for(const o of ops){ if(o.del) b.delete(doc(fs, o.path)); else b.set(doc(fs, o.path), o.data); } return wrap(b.commit()); },
+    commit: (ops, log) => { const b = writeBatch(fs); logged(b, log); for(const o of ops){ if(o.del) b.delete(doc(fs, o.path)); else if(o.merge) b.set(doc(fs, o.path), o.data, { merge:true }); else b.set(doc(fs, o.path), o.data); } return wrap(b.commit()); },
     // makeLog(n) returns the log entry for each group of up to 100 records; each record gets its logId
     batchSet: async (entries, onProgress, makeLog) => {
       for(let i = 0; i < entries.length; i += 100){

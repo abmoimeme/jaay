@@ -165,6 +165,7 @@ label.chk input{width:auto}
 @media print{#side,.fab,.mtop,.noprint,#toast,.banner{display:none!important}main{margin:0!important;padding:0!important;overflow:visible!important}body{background:#fff}.gd{break-inside:avoid;border:0;padding:0 0 8px}.guide{max-width:none}}
 .onlym{display:none!important}
 @media (max-width:820px){.onlym{display:flex!important}.onlyd{display:none!important}}
+.chips{display:flex;flex-wrap:wrap;gap:6px 14px}.actl{list-style:none;margin:6px 0;padding:0;display:flex;flex-direction:column;gap:6px}.actl li{border-left:3px solid var(--line);padding-left:8px}.linkbtn{background:none;border:0;color:var(--brand);text-decoration:underline;cursor:pointer;padding:0;font:inherit}
 .segw{display:flex;flex-wrap:wrap;max-width:100%}.segw>*{flex:0 0 auto}
 .meter{height:5px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:5px;max-width:220px}.meter i{display:block;height:100%;border-radius:3px}
 .strip{display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--muted);font-size:0.8438rem}
@@ -299,22 +300,24 @@ Object.assign(T_FR, {"Approve": "Approuver", "Reject": "Rejeter", "Expenses to a
 Object.assign(T_FR, {"Card": "Carte bancaire", "Last year": "L'an dernier", "the year before": "l'année précédente"});
 Object.assign(T_FR, {"Signed out after 30 minutes without activity. Sign in again to continue.": "Déconnecté après 30 minutes d'inactivité. Reconnectez-vous pour continuer."});
 Object.assign(T_FR, {"Today": "Aujourd'hui", "Monitor": "Suivi", "Created": "Création", "Edited": "Modification", "Deleted": "Suppression", "Approved": "Approbation", "Requested": "Demande", "Signed in": "Connexion", "Signed out": "Déconnexion", "Signed out (inactive)": "Déconnexion (inactivité)", "Changed settings": "Réglages modifiés", "Saved": "Enregistrement", "Imported": "Import", "Loaded a backup": "Sauvegarde chargée", "Stock adjustment": "Ajustement de stock", "Item": "Article", "items": "articles", "Staff": "Personnel", "was": "avant", "Store settings": "Réglages de la boutique", "changed": "modifié", "Only the owner can see this page.": "Seul le propriétaire peut voir cette page.", "Actions": "Actions", "people": "personnes", "Sales recorded": "Ventes enregistrées", "Edits": "Modifications", "changes to saved records": "sur des enregistrements existants", "Deletions": "Suppressions", "records deleted": "enregistrements supprimés", "By person": "Par personne", "Person": "Personne", "First / last activity": "Première / dernière activité", "Payments in": "Encaissements", "No activity in this period.": "Aucune activité sur la période.", "Loading…": "Chargement…", "Everyone": "Tout le monde", "Owner only": "Propriétaire uniquement", "Every change is recorded with the person, the time from Google's clock, and what changed. Nobody, including the owner, can change or delete these records. Activity before 17 November 2026 is not recorded.": "Chaque action est enregistrée avec la personne, l'heure (horloge de Google) et ce qui a changé. Personne, pas même le propriétaire, ne peut modifier ou supprimer ces enregistrements. L'activité avant le 17 novembre 2026 n'est pas enregistrée.", "Yesterday": "Hier", "Last 7 days": "7 derniers jours", "Activity": "Activité", "All": "Tout", "Money": "Trésorerie", "Stock": "Stock", "Edits and deletions": "Modifications et suppressions", "Sign-ins and staff": "Connexions et personnel", "Search name, number or action": "Rechercher nom, numéro ou action", "Showing the latest 500. Narrow the period or filters to see more.": "Affichage des 500 dernières. Réduisez la période ou les filtres pour voir plus.", "No activity matches.": "Aucune activité ne correspond.", "Time": "Heure", "Access level": "Niveau d'accès", "Action": "Action", "What": "Quoi", "Before": "Avant", "total": "total", "amount": "montant", "lines": "lignes", "paid": "payé", "date": "date", "price": "prix", "name": "nom", "note": "note", "partyId": "tiers", "discount": "remise", "category": "catégorie", "method": "mode", "payee": "bénéficiaire", "status": "statut", "qty": "quantité", "cost": "coût"});
+Object.assign(T_FR, {"Promotion": "Promotion", "contacts": "contacts", "Contact": "Contact", "Contacts": "Contacts", "from customer accounts": "issus des comptes clients", "SMS / WhatsApp": "SMS / WhatsApp", "with a mobile number": "avec un numéro mobile", "Email": "E-mail", "with an email address": "avec une adresse e-mail", "Active customers": "Clients actifs", "bought in the last 6 months": "achat dans les 6 derniers mois", "No SMS": "Pas de SMS", "no email": "pas d'e-mail", "New contact": "Nouveau contact", "Send a promotion": "Envoyer une promotion", "Search name, phone, email, area, tag": "Rechercher nom, téléphone, e-mail, quartier, étiquette", "All types": "Tous les types", "All sectors": "Tous les secteurs", "All vehicle brands": "Toutes les marques", "All stages": "Tous les statuts", "Can receive SMS / WhatsApp": "Joignable par SMS / WhatsApp", "Can receive email": "Joignable par e-mail", "Agreed to promotions": "A accepté les promotions", "Any channel": "Tous les canaux", "contacts match": "contacts correspondent", "Clear filters": "Effacer les filtres", "Mobile / email": "Mobile / e-mail", "Vehicle brands": "Marques de véhicule", "Show more": "Afficher plus", "No contact matches.": "Aucun contact ne correspond.", "No contacts yet. Add one, or load the cleaned customer list in Setup.": "Aucun contact. Ajoutez-en un, ou chargez la liste clients nettoyée dans Réglages.", "Saved on this device. It will be sent when the connection returns.": "Enregistré sur cet appareil. Il sera envoyé au retour de la connexion.", "Call": "Appeler", "last": "dernier", "No purchase yet": "Aucun achat", "Stage": "Statut", "Owes": "Doit", "Account": "Compte", "No customer account yet": "Pas encore de compte client", "Activity with us": "Historique avec nous", "What happened? (e.g. asked for brake pads for a Hilux)": "Que s'est-il passé ? (ex. a demandé des plaquettes pour un Hilux)", "Add": "Ajouter", "No activity recorded yet.": "Aucun historique pour l'instant.", "Sector": "Secteur", "Job title": "Fonction", "Mobile": "Mobile", "Phone 2": "Téléphone 2", "Email 2": "E-mail 2", "Area / city": "Quartier / ville", "SMS / WhatsApp promotions": "Promotions SMS / WhatsApp", "Email promotions": "Promotions par e-mail", "Tags (separated by commas)": "Étiquettes (séparées par des virgules)", "Fleet": "Flotte", "Source": "Origine", "Archive": "Archiver", "Send one by one on WhatsApp": "Envoyer un par un sur WhatsApp", "First 300 shown. For more, export the list to your SMS or WhatsApp sending service.": "300 premiers affichés. Au-delà, exportez la liste vers votre service d'envoi SMS ou WhatsApp.", "The audience is the customer list with your current filters. Contacts who refused are always left out.": "Les destinataires sont les clients de la liste avec vos filtres actuels. Ceux qui ont refusé sont toujours exclus.", "Only contacts who agreed": "Seulement ceux qui ont accepté", "Will receive": "Recevront", "of": "sur", "in the list": "dans la liste", "Left out (refused)": "Exclus (refus)", "Not asked yet": "Pas encore demandé", "include STOP in the message": "mettez STOP dans le message", "Message": "Message", "characters": "caractères", "over 160: counts as 2 SMS": "plus de 160 : compte pour 2 SMS", "Export list (CSV)": "Exporter la liste (CSV)", "Copy emails (for BCC)": "Copier les e-mails (pour Cci)", "Copy mobile numbers": "Copier les numéros mobiles", "Record as sent": "Marquer comme envoyée", "The CSV opens in Excel and imports into Brevo, Mailchimp or an SMS service (columns: First name, Last name, Company, Mobile, Email…).": "Le CSV s'ouvre dans Excel et s'importe dans Brevo, Mailchimp ou un service SMS (colonnes : Prénom, Nom, Entreprise, Mobile, E-mail…).", "Activity added.": "Historique ajouté.", "Archive this contact? It leaves the list and promotions. The record is kept.": "Archiver ce contact ? Il sort de la liste et des promotions. La fiche est conservée.", "copied": "copiés", "Record this promotion": "Enregistrer cette promotion", "Adds \"Promotion sent\" to the activity of": "Ajoute « Promotion envoyée » à l'historique de", "Promotion name": "Nom de la promotion", "e.g. Brake pads -15% December": "ex. Plaquettes -15 % décembre", "That email address does not look right.": "Cette adresse e-mail semble incorrecte.", "Phone numbers need 9 digits (e.g. 77 000 00 00).": "Les numéros doivent avoir 9 chiffres (ex. 77 000 00 00).", "Already in the list": "Déjà dans la liste", "Tap Save again to keep both.": "Touchez Enregistrer à nouveau pour garder les deux.", "Added in Jaay": "Ajouté dans Jaay", "Promotion recorded for": "Promotion enregistrée pour", "Agreed": "Accepté", "Refused: do not contact": "Refus : ne pas contacter", "Visit": "Visite", "WhatsApp": "WhatsApp", "SMS": "SMS", "Promotion sent": "Promotion envoyée", "Active customer": "Client actif", "Inactive customer": "Client inactif", "Prospect": "Prospect", "Promotion recorded": "Promotion enregistrée", "First name": "Prénom", "Last name": "Nom", "Company": "Entreprise", "City": "Ville", "Tags": "Étiquettes", "Customers": "Clients"});
+Object.assign(T_FR, {"Sales, purchases, payments, expenses and approving expense requests, items, customer list and promotions, reports, editing and deleting. No Setup.": "Ventes, achats, paiements, dépenses et approbation des demandes de dépense, articles, fichier clients et promotions, rapports, modification et suppression. Pas de Réglages.", "New sales and quotes, payments received, customers and the customer list, stock lookup, expense requests for approval. No costs, profit, reports, editing or deleting.": "Nouvelles ventes et devis, encaissements, clients et fichier clients, consultation du stock, demandes de dépense à approuver. Pas de coûts, marge, rapports, modification ni suppression.", "Sees everything except the customer list, including reports and exports. Cannot add, change or delete.": "Voit tout sauf le fichier clients, y compris rapports et exports. Ne peut rien ajouter, modifier ni supprimer."});
 let lang = 'en';
 const t = s => (lang === 'fr' && T_FR[s]) || s;
 
 /* ---------- state ---------- */
-const S = { stores:{}, items:{}, parties:{}, txns:{}, staff:{}, opex:{}, me:null };
+const S = { stores:{}, items:{}, parties:{}, txns:{}, staff:{}, opex:{}, crm:{}, me:null };
 let who = null, staffLoaded = false, lockSel = null;
-const ALLR = ['dashboard','items','parties','sales','purchases','money','expenses','reports','reorder'];
+const ALLR = ['dashboard','items','parties','customers','sales','purchases','money','expenses','reports','reorder'];
 const ROLES = {
   owner:{ label:'Owner' },
-  manager:{ label:'Manager', routes:ALLR, p:['sell','edit','del','buy','payin','payout','expense','approve','items','party','cost'] },
-  cashier:{ label:'Cashier', routes:['dashboard','items','parties','sales'], p:['sell','payin','party','expreq'] },
+  manager:{ label:'Manager', routes:ALLR, p:['sell','edit','del','buy','payin','payout','expense','approve','items','party','cost','crm','promo'] },
+  cashier:{ label:'Cashier', routes:['dashboard','items','parties','customers','sales'], p:['sell','payin','party','expreq','crm'] },
   stock:{ label:'Stock keeper', routes:['items','purchases','parties','reorder'], p:['buy','items','party','cost'] },
-  accountant:{ label:'Accountant', routes:ALLR, p:['cost'] }
+  accountant:{ label:'Accountant', routes:ALLR.filter(r => r !== 'customers'), p:['cost'] }
 };
-const ACT = { delStaff:'setup', backup:'setup', newPo:'buy', receivePo:'buy', createPo:'buy', returnDoc:'edit', assignCodes:'items', labels:'items', labelOne:'items', newSale:'sell', newQuote:'sell', convert:'sell', editTxn:'edit', editMoney:'edit', delTxn:'del', delItem:'del', delParty:'del', clearSample:'del', newPurchase:'buy', payIn:'payin', payInFor:'payin', payOut:'payout', payOutFor:'payout', newExpense:'expense', reqExpense:'expreq', approveExp:'approve', rejectExp:'approve', newBill:'expense', editBill:'expense', delBill:'expense', payBill:'expense', editBudgets:'expense', newItem:'items', editItem:'items', adjust:'items', importOpen:'items', impRun:'items', impSheet:'items', newParty:'party', editParty:'party', rmLogo:'setup', switchStore:'setup', delStaff:'setup', resetPin:'setup' };
-const ROLE_DESC = { owner:'Everything, including Setup and staff.', manager:'Sales, purchases, payments, expenses and approving expense requests, items, reports, editing and deleting. No Setup.', cashier:'New sales and quotes, payments received, customers, stock lookup, expense requests for approval. No costs, profit, reports, editing or deleting.', stock:'Items, import, stock adjustments, purchases, suppliers. No sales, money or reports.', accountant:'Sees everything, including reports and exports. Cannot add, change or delete.' };
+const ACT = { delStaff:'setup', backup:'setup', newPo:'buy', receivePo:'buy', createPo:'buy', returnDoc:'edit', assignCodes:'items', labels:'items', labelOne:'items', newSale:'sell', newQuote:'sell', convert:'sell', editTxn:'edit', editMoney:'edit', delTxn:'del', delItem:'del', delParty:'del', clearSample:'del', newPurchase:'buy', payIn:'payin', payInFor:'payin', payOut:'payout', payOutFor:'payout', newExpense:'expense', newContact:'crm', addAct:'crm', archiveContact:'promo', promo:'promo', promoCsv:'promo', promoCopy:'promo', promoRecord:'promo', saleFor:'sell', reqExpense:'expreq', approveExp:'approve', rejectExp:'approve', newBill:'expense', editBill:'expense', delBill:'expense', payBill:'expense', editBudgets:'expense', newItem:'items', editItem:'items', adjust:'items', importOpen:'items', impRun:'items', impSheet:'items', newParty:'party', editParty:'party', rmLogo:'setup', switchStore:'setup', delStaff:'setup', resetPin:'setup' };
+const ROLE_DESC = { owner:'Everything, including Setup and staff.', manager:'Sales, purchases, payments, expenses and approving expense requests, items, customer list and promotions, reports, editing and deleting. No Setup.', cashier:'New sales and quotes, payments received, customers and the customer list, stock lookup, expense requests for approval. No costs, profit, reports, editing or deleting.', stock:'Items, import, stock adjustments, purchases, suppliers. No sales, money or reports.', accountant:'Sees everything except the customer list, including reports and exports. Cannot add, change or delete.' };
 const staffOn = () => true;
 let authKnown = false, creating = false, authUser = null, storeMissing = false, loginMode = 'signin', accessNote = '', meUnsub = null, staffUnsub = null;
 const me = () => (S.me && S.me.active !== false && authUser && S.me.id === authUser.uid) ? S.me : null;
@@ -326,6 +329,7 @@ const PW_OK = v => v.length >= 8 && /[A-Za-z]/.test(v) && /\d/.test(v);
 const UN_OK = v => /^[a-z0-9._-]{3,20}$/.test(v);
 let fails = 0, lockUntil = 0;
 const seeOpex = () => ['owner','manager','accountant'].includes(role());
+const seeCrm = () => ['owner','manager','cashier'].includes(role());
 const can = p => { const r = role(); return !!r && (r === 'owner' || (ROLES[r] && ROLES[r].p.includes(p))); };
 const allowed = rt => { const r = role(); return !!r && (r === 'owner' || rt === 'more' || rt === 'guide' || (ROLES[r] && ROLES[r].routes.includes(rt))); };
 function ss(k, v){ try{ if(v === undefined) return sessionStorage.getItem('jaay-' + k); if(v === null) sessionStorage.removeItem('jaay-' + k); else sessionStorage.setItem('jaay-' + k, v); }catch(e){ return null; } }
@@ -364,8 +368,8 @@ const NON_OPEX = ['Capital transfers and remittances'];
 // Expense requests from cashiers count once the owner or a manager approves them.
 const countsExp = x => !x.status || x.status === 'approved';
 const SEGMENTS = ['Retail','Mechanic','Wholesaler','Fleet operator','NGO','Supplier'];
-const ROUTES = ['dashboard','items','parties','sales','purchases','money','expenses','reports','monitor','guide','setup','more','reorder'];
-const MHIDE = ['purchases','money','expenses','reports','monitor','guide','setup'];
+const ROUTES = ['dashboard','items','parties','customers','sales','purchases','money','expenses','reports','monitor','guide','setup','more','reorder'];
+const MHIDE = ['customers','purchases','money','expenses','reports','monitor','guide','setup'];
 const NAV = {
   dashboard:['Home','M3 11 12 3l9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z'],
   items:['Items','M3 7 12 2l9 5v10l-9 5-9-5zM3 7l9 5 9-5M12 12v10'],
@@ -377,6 +381,7 @@ const NAV = {
   reports:['Reports','M4 20V10M10 20V4M16 20v-7M21 20H3'],
   more:['More','M5 12h.01M12 12h.01M19 12h.01'],
   monitor:['Monitor','M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z'],
+  customers:['Customers','M16 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 17.5V19M10 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM20 19v-1.5a3.5 3.5 0 0 0-2.5-3.35M15.5 4.2a3.5 3.5 0 0 1 0 6.6'],
   guide:['Guide','M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5M8 7h7M8 11h7'],
   setup:['Setup','M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2']
 };
@@ -557,7 +562,8 @@ function logEntry(act, coll, id, before, after, extra){
   else if(coll === 'members'){ e.label = x.name || ''; e.role2 = x.role || ''; if(before && after && before.role !== after.role) e.prevRole = before.role || ''; }
   else if(coll === 'opex'){ e.label = id === 'budgets' ? 'budgets' : (x.name || ''); if(id !== 'budgets') e.amount = num(x.amount); }
   else if(coll === 'parties'){ e.label = x.name || ''; e.seg = x.segment || ''; }
-  if(before && after) e.changed = Object.keys(Object.assign({}, before, after)).filter(k => !['logId', 'updatedAt', 'byUid', 'id'].includes(k) && JSON.stringify(before[k]) !== JSON.stringify(after[k])).slice(0, 12);
+  else if(coll === 'crm'){ e.label = x.name || ''; }
+  if(before && after && coll !== 'crm') e.changed = Object.keys(Object.assign({}, before, after)).filter(k => !['logId', 'updatedAt', 'byUid', 'id'].includes(k) && JSON.stringify(before[k]) !== JSON.stringify(after[k])).slice(0, 12);
   return plainJSON(Object.assign(e, extra || {}));
 }
 const logRef = data => { const id = uid() + uid(); return { id, path:'stores/' + storeId + '/log/' + id, data }; };
@@ -639,7 +645,7 @@ function watchMember(tries){
     staffLoaded = true; toast(t('No connection. Try again when you are back online.')); render();
   });
 }
-function closeData(){ dataUnsubs.forEach(u => u()); dataUnsubs = []; dataOn = false; S.items = {}; S.parties = {}; S.txns = {}; S.opex = {}; stopLog(); }
+function closeData(){ dataUnsubs.forEach(u => u()); dataUnsubs = []; dataOn = false; S.items = {}; S.parties = {}; S.txns = {}; S.opex = {}; S.crm = {}; stopLog(); }
 // A listener refused while the database switches accounts stops for good, so start them again.
 let dataRetry = 0;
 function dataErr(e){
@@ -650,7 +656,7 @@ function syncData(){
   const want = !!storeId && !!me();
   if(want && !dataOn){
     dataOn = true;
-    const cols = seeOpex() ? ['items','parties','txns','opex'] : ['items','parties','txns'];
+    const cols = ['items','parties','txns'].concat(seeOpex() ? ['opex'] : [], seeCrm() ? ['crm'] : []);
     for(const c of cols) dataUnsubs.push(db.collection('stores/' + storeId + '/' + c).onSnapshot(snap => { dataRetry = 0; const m = {}; snap.docs.forEach(d => { m[d.id] = d.data(); }); S[c] = m; render(); }, dataErr));
   } else if(!want && dataOn) closeData();
 }
@@ -709,7 +715,7 @@ function paint(){
   else if(!storeId || storeMissing) html = vLogin();
   else if(!staffLoaded) html = '<div style="padding:24px">' + '<div aria-busy="true" style="display:flex;flex-direction:column;gap:12px"><span class="vh">' + esc(t('Opening your books…')) + '</span><span class="sk" style="height:34px;width:40%"></span><span class="sk" style="height:96px"></span><span class="sk" style="height:220px"></span></div>' + '</div>';
   else if(locked) html = vLogin();
-  else html = banner() + ({ dashboard:vDash, items:vItems, parties:vParties, sales:vSales, purchases:vPurch, money:vMoney, expenses:vExpenses, reports:vReports, monitor:vMonitor, guide:vGuide, setup:vSetup, more:vMore, reorder:vReorder }[route])();
+  else html = banner() + ({ dashboard:vDash, items:vItems, parties:vParties, sales:vSales, purchases:vPurch, money:vMoney, expenses:vExpenses, reports:vReports, monitor:vMonitor, guide:vGuide, customers:vCustomers, setup:vSetup, more:vMore, reorder:vReorder }[route])();
   v.innerHTML = html; gate(v);
   if(fid){ const el = document.getElementById(fid); if(el){ el.focus(); try{ el.setSelectionRange(pos, pos); }catch(e){} } }
 }
@@ -752,7 +758,7 @@ const hue = s => { let h = 7; for(const c of String(s || '')) h = (h * 31 + c.ch
 const ava = (text, key, round) => '<span class="ava' + (round ? ' rd' : '') + '" style="--h:' + hue(key) + '" aria-hidden="true">' + esc(text || '?') + '</span>';
 const initials = n => String(n || '').replace(/[^\p{L}\p{N} ]/gu, ' ').split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join('').toUpperCase();
 function vMore(){
-  return head(t('More')) + '<div class="tbl-wrap more">' + [['purchases','cart','',NAV.purchases[0]],['reorder','box','a','Reorder'],['money','wallet','a',NAV.money[0]],['expenses','wallet','r',NAV.expenses[0]],['reports','chart','',NAV.reports[0]],['monitor','user','r',NAV.monitor[0]],['guide','doc','m',NAV.guide[0]],['setup','gear','m',NAV.setup[0]]].filter(r => allowed(r[0])).map(r => '<a href="#' + r[0] + '">' + ic(r[1], r[2]) + esc(t(r[3])) + '</a>').join('') + '</div><div class="tools">' + btn('myPw', t('Change password')) + btn('lock', t('Sign out')) + '</div><div class="tools">' + btn('lang', 'English', lang === 'en' ? 'blue' : '', 'en') + btn('lang', 'Français', lang === 'fr' ? 'blue' : '', 'fr') + '</div>';
+  return head(t('More')) + '<div class="tbl-wrap more">' + [['customers','user','g',NAV.customers[0]],['purchases','cart','',NAV.purchases[0]],['reorder','box','a','Reorder'],['money','wallet','a',NAV.money[0]],['expenses','wallet','r',NAV.expenses[0]],['reports','chart','',NAV.reports[0]],['monitor','user','r',NAV.monitor[0]],['guide','doc','m',NAV.guide[0]],['setup','gear','m',NAV.setup[0]]].filter(r => allowed(r[0])).map(r => '<a href="#' + r[0] + '">' + ic(r[1], r[2]) + esc(t(r[3])) + '</a>').join('') + '</div><div class="tools">' + btn('myPw', t('Change password')) + btn('lock', t('Sign out')) + '</div><div class="tools">' + btn('lang', 'English', lang === 'en' ? 'blue' : '', 'en') + btn('lang', 'Français', lang === 'fr' ? 'blue' : '', 'fr') + '</div>';
 }
 function vDash(){
   const [from, to] = range('month'), p = pnl(S, from, to);
@@ -918,7 +924,8 @@ function vExpenses(){
    Button names, menus, what each level can do, categories and payment methods are read from the
    app itself, so the guide changes with the app. Add a line to GUIDE_NEWS with each change. */
 const GUIDE_NEWS = [
-  ['2026-11-17', ['Nouveau logo Jaay (un reçu avec des barres qui montent) et nouvelles couleurs indigo et or. Le logo apparaît dans le menu, sur la page de connexion et dans l\'onglet du navigateur.',
+  ['2026-11-17', ['Nouvelle page Clients : le fichier clients (4 156 contacts nettoyés), l\'historique de chaque client, ses achats, et l\'envoi de promotions par SMS, WhatsApp ou e-mail.',
+    'Nouveau logo Jaay (un reçu avec des barres qui montent) et nouvelles couleurs indigo et or. Le logo apparaît dans le menu, sur la page de connexion et dans l\'onglet du navigateur.',
     'Suivi (propriétaire) : chaque vente, paiement, dépense, modification, suppression et connexion est enregistrée avec le nom de la personne et l\'heure.',
     'Nouvelle page Dépenses : charges récurrentes (loyer, Orange, Woyofal), budgets mensuels, suivi par catégorie et par mois.',
     'Les caissiers peuvent saisir une dépense : elle part au gérant ou au propriétaire pour approbation.',
@@ -962,6 +969,12 @@ function vGuide(){
     sec('Encaisser un paiement d\'un client', steps(['Touchez ' + B('Payment in') + ' (accueil) ou ouvrez le client dans ' + B('Parties') + ' puis ' + B('Payment in') + '.',
         'Vérifiez le montant et le mode, puis ' + B('Save') + '. Le solde du client se met à jour.'])),
     sec('Ajouter un client', steps(['Touchez ' + B('New party') + ', saisissez le nom et le téléphone (avec l\'indicatif, ex. +221) puis ' + B('Save') + '.'])),
+    sec('Le fichier clients (' + L('Customers') + ')', steps(['Menu ' + B('Customers') + ' (sur téléphone : ' + B('More') + ', puis ' + B('Customers') + '). Cherchez par nom, téléphone, e-mail ou quartier, ou filtrez par type, secteur, marque de véhicule.',
+        'Touchez un nom pour ouvrir sa fiche : ' + B('Call') + ', WhatsApp, SMS, e-mail, ou ' + B('New sale') + ' directement pour ce client.',
+        'Après chaque échange (appel, visite, demande de pièce), notez-le dans ' + B('Activity with us') + ' et touchez ' + B('Add') + '. Exemple : « a demandé des plaquettes pour un Hilux ».',
+        'Mettez à jour le numéro, l\'e-mail, le quartier et les marques de véhicule quand le client vous les donne, puis ' + B('Save') + '.',
+        'Nouveau client : ' + B('New contact') + '. Si le numéro existe déjà, l\'application vous prévient pour éviter les doublons.'])
+      + tip('Demandez toujours au client s\'il accepte de recevoir nos promotions, et notez sa réponse dans ' + B('SMS / WhatsApp promotions') + ' et ' + B('Email promotions') + '. S\'il refuse ou répond STOP, choisissez ' + B('Refused: do not contact') + ' : il ne recevra plus rien.')),
     sec('Vérifier le stock et les prix', '<p>Menu ' + B('Items') + ' : cherchez par nom, référence, marque ou véhicule. La colonne ' + B('In stock') + ' indique la quantité restante.</p>'),
     sec('Demander une dépense (carburant, fournitures…)', steps(['Sur l\'accueil, touchez ' + B('Expense') + '.',
         'Choisissez la catégorie, saisissez le montant, la date, le mode de paiement et à qui vous avez payé.',
@@ -985,6 +998,13 @@ function vGuide(){
         'Autre dépense : ' + B('Expense') + ' en haut de la page. Vos propres dépenses sont approuvées directement.',
         B('Set budgets') + ' : montant prévu par mois et par catégorie. Les dépassements apparaissent en rouge.'])
       + tip('Les transferts de capitaux et envois sont enregistrés à part : ils ne comptent ni comme dépense ni dans le résultat.')),
+    sec('Envoyer une promotion', steps(['Menu ' + B('Customers') + ' : filtrez les destinataires (ex. secteur Garage / Réparateur, marque Toyota, ' + B('Active customers') + ').',
+        'Touchez ' + B('Send a promotion') + ', choisissez SMS / WhatsApp ou e-mail. Les clients qui ont refusé sont toujours exclus.',
+        'Écrivez le message. {prénom} est remplacé par le prénom du client. Gardez « Répondez STOP » à la fin.',
+        'Envoi : ' + B('Export list (CSV)') + ' pour Brevo, Mailchimp ou un service SMS ; ou ' + B('Copy emails (for BCC)') + ' ; ou WhatsApp un par un depuis la liste.',
+        'Ensuite, touchez ' + B('Record as sent') + ' et donnez un nom à la promotion : elle s\'ajoute à l\'historique de chaque client.'])
+      + tip('La loi sénégalaise sur les données personnelles demande l\'accord du client avant une promotion par SMS ou e-mail. Le fichier date de 2010-2011 : commencez par un message de bienvenue avec STOP, et marquez les refus et les numéros qui ne répondent plus.')
+      + '<p class="sub">Un contact en double ou qui n\'est plus valable : ouvrez-le et touchez ' + B('Archive') + '. Il sort de la liste et des promotions.</p>'),
     sec('Achats et fournisseurs', steps(['Commande : ' + B('Purchases') + ', puis ' + B('New purchase order') + '. À l\'arrivée de la marchandise, ouvrez la commande et touchez ' + B('Receive goods') + '.',
         'Achat sans commande : ' + B('Purchases') + ', puis ' + B('Goods received') + '. Le stock augmente automatiquement.',
         'Payer un fournisseur : ouvrez l\'achat ou le fournisseur et enregistrez le paiement, ou utilisez ' + B('Payment out') + '.',
@@ -1031,10 +1051,10 @@ function watchLog(){
   }, e => { logLoaded = true; liveErr(e); render(); });
 }
 const LOG_DOC = { sale:'Invoice', quote:'Quote', return:'Credit note', purchase:'Purchase', po:'Purchase order', payin:'Payment in', payout:'Payment out', expense:'Expense', adjust:'Stock adjustment' };
-const LOG_ACT = { create:['Created', 'mute'], update:['Edited', 'warn'], delete:['Deleted', 'bad'], approve:['Approved', 'good'], reject:['Rejected', 'warn'], request:['Requested', 'mute'], signin:['Signed in', 'mute'], signout:['Signed out', 'mute'], idle:['Signed out (inactive)', 'mute'], settings:['Changed settings', 'warn'], bulk:['Saved', 'mute'], import:['Imported', 'mute'], restore:['Loaded a backup', 'warn'] };
+const LOG_ACT = { create:['Created', 'mute'], update:['Edited', 'warn'], delete:['Deleted', 'bad'], approve:['Approved', 'good'], reject:['Rejected', 'warn'], request:['Requested', 'mute'], signin:['Signed in', 'mute'], signout:['Signed out', 'mute'], idle:['Signed out (inactive)', 'mute'], settings:['Changed settings', 'warn'], bulk:['Saved', 'mute'], import:['Imported', 'mute'], restore:['Loaded a backup', 'warn'], promo:['Promotion recorded', 'good'] };
 function logKind(e){
   if(['signin', 'signout', 'idle'].includes(e.act) || e.coll === 'members' || e.coll === 'store') return 'access';
-  if(e.coll === 'txns' && ['sale', 'quote', 'return'].includes(e.ttype)) return 'sales';
+  if(e.coll === 'crm' || e.coll === 'txns' && ['sale', 'quote', 'return'].includes(e.ttype)) return 'sales';
   if(e.coll === 'txns' && ['payin', 'payout', 'expense'].includes(e.ttype) || e.coll === 'opex') return 'money';
   return 'stock';
 }
@@ -1048,6 +1068,7 @@ function logText(e){
   else if(e.coll === 'opex') what = e.label === 'budgets' ? t('Monthly budgets') : t('Recurring bill') + ' ' + (e.label || '');
   else if(e.coll === 'members') what = t('Staff') + ' ' + (e.label || '') + ' · ' + t(ROLES[e.role2] ? ROLES[e.role2].label : e.role2 || '') + (e.prevRole ? ' (' + t('was') + ' ' + t(ROLES[e.prevRole] ? ROLES[e.prevRole].label : e.prevRole) + ')' : '');
   else if(e.coll === 'store') what = t('Store settings');
+  else if(e.coll === 'crm') what = act === 'promo' ? t('Promotion') + ' ' + (e.label || '') + ' · ' + e.n + ' ' + t('contacts') : t('Contact') + ' ' + (e.label || '');
   else if(act === 'restore') what = e.n + ' ' + t('records');
   if(act === 'bulk') what = e.n + ' ' + t('records');
   if(e.act === 'update' && e.changed && e.changed.length && e.coll !== 'members') what += ' · ' + t('changed') + ': ' + e.changed.map(k => t(k)).join(', ');
@@ -1101,6 +1122,113 @@ function vMonitor(){
     + '<div class="card"><div class="grp"><h3>' + esc(t('Activity')) + ' (' + rows.length + ')</h3>' + exp + '</div><div class="tools"><label class="f" style="margin:0;min-width:180px"><span class="sr">' + esc(t('Person')) + '</span><select id="mon-who" data-mon="who">' + staffOpts.map(o => '<option value="' + esc(o[0]) + '"' + (o[0] === monWho ? ' selected' : '') + '>' + esc(o[1]) + '</option>').join('') + '</select></label>'
     + seg('monKind', monKind, [['all', t('All')], ['sales', t('Sales')], ['money', t('Money')], ['stock', t('Stock')], ['changes', t('Edits and deletions')], ['access', t('Sign-ins and staff')]]).replace('class="seg"', 'class="seg segw"') + search(t('Search name, number or action')) + '</div>'
     + (rows.length ? '<div class="tbl-wrap"><table><tbody>' + tl + '</tbody></table></div>' + (rows.length > 500 ? '<p class="sub">' + esc(t('Showing the latest 500. Narrow the period or filters to see more.')) + '</p>' : '') : '<div class="empty">' + esc(logLoaded ? t('No activity matches.') : t('Loading…')) + '</div>') + '</div>';
+}
+/* ---------- customers: the customer database (CRM) ----------
+   Contacts are stored 250 to a document (crm/b001, b002…) so loading 4,000+ contacts costs about
+   17 reads. A change merges only that contact into its document, with its log entry. */
+const CRM_CHUNK = 250;
+const CRM_TYPES = ['Particulier', 'Entreprise', 'ONG / Association', 'Ambassade / Org. internationale', 'Organisme public'];
+const CRM_SECTORS = ['Particulier', 'Garage / Réparateur', 'Transport / Logistique / Location', 'BTP / Construction', 'Commerce / Distribution', 'Banque / Assurance', 'Ambassade / Org. internationale', 'ONG / Association / Culte', 'Santé / Pharmacie', 'Hôtellerie / Tourisme / Restauration', 'Télécom / Informatique / Médias', 'Industrie / Mines / Énergie / Agriculture', 'Éducation', 'Administration / Public', 'Services professionnels', 'Immobilier', 'Autre entreprise'];
+const CRM_BRANDS = ['Toyota', 'Peugeot', 'Hyundai', 'Kia', 'Renault', 'Nissan', 'Mitsubishi', 'Suzuki', 'Mercedes', 'Ford', 'Honda', 'Great Wall', 'Chery', 'Land Rover', 'BMW', 'Volkswagen', 'Isuzu', 'Yamaha'];
+const CONSENT = [['unknown', 'Not asked yet'], ['yes', 'Agreed'], ['no', 'Refused: do not contact']];
+const ACT_TYPES = [['call', 'Call'], ['visit', 'Visit'], ['whatsapp', 'WhatsApp'], ['sms', 'SMS'], ['email', 'Email'], ['promo', 'Promotion sent'], ['note', 'Note']];
+const STAGES = { active:['Active customer', 'good'], lapsed:['Inactive customer', 'warn'], prospect:['Prospect', 'mute'] };
+let crmType = '', crmSector = '', crmBrand = '', crmStage = '', crmChan = '', crmShow = 100;
+const pk = v => String(v || '').replace(/\D/g, '').slice(-9);
+let memo = {};
+const memoOn = (k, dep, fn) => { if(memo[k] && memo[k][0] === dep) return memo[k][1]; const v = fn(); memo[k] = [dep, v]; return v; };
+function crmList(){ return memoOn('crm', S.crm, () => { const out = []; for(const ch in S.crm){ const c = (S.crm[ch] || {}).c || {}; for(const id in c){ const x = c[id]; if(x && !x.archived) out.push(Object.assign({}, x, { id, chunk:ch })); } } return out.sort((a, b) => String(a.name).localeCompare(String(b.name))); }); }
+function crmGet(id){ for(const ch in S.crm){ const x = ((S.crm[ch] || {}).c || {})[id]; if(x) return Object.assign({}, x, { id, chunk:ch }); } return null; }
+function partyByPhone(){ return memoOn('pbp', S.parties, () => { const m = {}; for(const id in S.parties){ const p = S.parties[id]; if(p.segment !== 'Supplier' && pk(p.phone).length === 9) m[pk(p.phone)] = id; } return m; }); }
+function partyStats(){ return memoOn('pst', S.txns, () => { const m = {}; for(const id in S.txns){ const x = S.txns[id]; if(!x.partyId || (x.type !== 'sale' && x.type !== 'return')) continue; const st = m[x.partyId] || (m[x.partyId] = { n:0, total:0, last:'' }); if(x.type === 'sale'){ st.n++; st.total += num(x.total); if(x.date > st.last) st.last = x.date; } else st.total -= num(x.total); } return m; }); }
+const linkedParty = c => (c.partyId && S.parties[c.partyId]) ? c.partyId : (partyByPhone()[pk(c.mobile)] || partyByPhone()[pk(c.phone2)] || '');
+function stageOf(c){ const st = c.party && partyStats()[c.party]; if(!st || !st.n) return 'prospect'; return st.last >= iso(new Date(Date.now() - 180 * 864e5)) ? 'active' : 'lapsed'; }
+// Everyone: saved contacts, plus customer accounts (Parties) that have no contact yet.
+function crmRows(){ return (() => {
+  const rows = crmList().map(c => Object.assign(c, { party:linkedParty(c) })), used = new Set(rows.map(r => r.party).filter(Boolean));
+  for(const id in S.parties){ const p = S.parties[id]; if(p.segment === 'Supplier' || used.has(id)) continue;
+    rows.push({ id:'p:' + id, virtual:true, party:id, name:p.name, type:p.segment === 'Retail' ? 'Particulier' : 'Entreprise', sector:p.segment === 'Mechanic' ? 'Garage / Réparateur' : p.segment === 'Fleet operator' ? 'Transport / Logistique / Location' : p.segment === 'NGO' ? 'ONG / Association / Culte' : '', mobile:p.phone || '', city:p.city || '', brands:[], tags:[], sms:'unknown', emailOk:'unknown', activity:[] }); }
+  for(const r of rows) r.stage = stageOf(r);
+  return rows; })(); }
+function crmFiltered(){
+  return crmRows().filter(c => (!crmType || c.type === crmType) && (!crmSector || c.sector === crmSector) && (!crmBrand || (c.brands || []).includes(crmBrand)) && (!crmStage || c.stage === crmStage)
+    && (!crmChan || (crmChan === 'mobile' ? c.mobile && c.sms !== 'no' : crmChan === 'email' ? c.email && c.emailOk !== 'no' : crmChan === 'agreed' ? c.sms === 'yes' || c.emailOk === 'yes' : true))
+    && match(c.name, c.mobile, c.phone2, c.email, c.city, c.address, c.sector, c.job, (c.tags || []).join(' '), (c.brands || []).join(' ')));
+}
+const optSel = (id, cur, opts, label) => '<label class="f" style="margin:0;min-width:150px;flex:1"><span class="vh">' + esc(label) + '</span><select id="' + id + '" data-crm="' + id + '"><option value="">' + esc(label) + '</option>' + opts.map(o => { const v = Array.isArray(o) ? o[0] : o, l = Array.isArray(o) ? o[1] : o; return '<option value="' + esc(v) + '"' + (v === cur ? ' selected' : '') + '>' + esc(l) + '</option>'; }).join('') + '</select></label>';
+function vCustomers(){
+  const all = crmRows(), rows = crmFiltered();
+  const sms = all.filter(c => c.mobile && c.sms !== 'no').length, mail = all.filter(c => c.email && c.emailOk !== 'no').length, act = all.filter(c => c.stage === 'active').length;
+  const tiles = '<div class="tiles">' + tile(t('Contacts'), n0(all.length), n0(all.filter(c => c.virtual).length) + ' ' + t('from customer accounts'), 'b') + tile(t('SMS / WhatsApp'), n0(sms), t('with a mobile number'), 'g') + tile(t('Email'), n0(mail), t('with an email address'), 'b') + tile(t('Active customers'), n0(act), t('bought in the last 6 months'), 'g') + '</div>';
+  const st = partyStats();
+  const body = rows.slice(0, crmShow).map(c => { const ps = c.party && st[c.party], sg = STAGES[c.stage];
+    return '<tr class="row" data-a="openContact" data-id="' + esc(c.id) + '"><td><div class="who">' + ava(initials(c.name), c.name, true) + '<div><b>' + esc(c.name) + '</b><div class="sub">' + esc([c.job, c.sector && c.sector !== 'Particulier' ? c.sector : '', c.city || c.address].filter(Boolean).join(' · ')) + '</div></div></div></td>'
+      + '<td class="hm">' + esc(c.mobile || c.phone2 || '') + (c.sms === 'no' ? ' <span class="pill bad">' + esc(t('No SMS')) + '</span>' : '') + '<div class="sub">' + esc(c.email || '') + (c.email && c.emailOk === 'no' ? ' · ' + esc(t('no email')) : '') + '</div></td>'
+      + '<td class="hm">' + esc((c.brands || []).join(', ')) + '</td>'
+      + '<td class="r">' + (ps && ps.n ? '<b class="num">' + n0(ps.total) + '</b><div class="sub">' + ps.n + ' ' + esc(t(ps.n === 1 ? 'invoice' : 'invoices')) + ' · ' + esc(fdate(ps.last)) + '</div>' : '') + '<div><span class="pill ' + sg[1] + '">' + esc(t(sg[0])) + '</span></div></td></tr>'; }).join('');
+  const brands = [...new Set([...CRM_BRANDS, ...all.flatMap(c => c.brands || [])])].sort();
+  return head(t('Customers'), btn('newContact', '+ ' + t('New contact'), 'pri') + btn('promo', t('Send a promotion'), 'blue'))
+    + tiles
+    + '<div class="tools">' + search(t('Search name, phone, email, area, tag')) + '</div>'
+    + '<div class="tools" style="gap:8px">' + optSel('crm-type', crmType, CRM_TYPES, t('All types')) + optSel('crm-sector', crmSector, CRM_SECTORS, t('All sectors')) + optSel('crm-brand', crmBrand, brands, t('All vehicle brands'))
+    + optSel('crm-stage', crmStage, Object.keys(STAGES).map(k => [k, t(STAGES[k][0])]), t('All stages')) + optSel('crm-chan', crmChan, [['mobile', t('Can receive SMS / WhatsApp')], ['email', t('Can receive email')], ['agreed', t('Agreed to promotions')]], t('Any channel')) + '</div>'
+    + '<p class="sub">' + n0(rows.length) + ' ' + t('contacts match') + (crmType || crmSector || crmBrand || crmStage || crmChan || q ? ' · ' + '<button type="button" class="linkbtn" data-a="crmReset">' + esc(t('Clear filters')) + '</button>' : '') + '</p>'
+    + (rows.length ? '<div class="tbl-wrap"><table><thead><tr><th>' + esc(t('Name')) + '</th><th class="hm">' + esc(t('Mobile / email')) + '</th><th class="hm">' + esc(t('Vehicle brands')) + '</th><th class="r">' + esc(t('Purchases')) + '</th></tr></thead><tbody>' + body + '</tbody></table></div>'
+      + (rows.length > crmShow ? '<div class="tools" style="justify-content:center">' + btn('crmMore', t('Show more') + ' (' + n0(rows.length - crmShow) + ')') + '</div>' : '') : '<div class="empty">' + esc(all.length ? t('No contact matches.') : t('No contacts yet. Add one, or load the cleaned customer list in Setup.')) + '</div>');
+}
+function crmChunkFor(){
+  // New contacts go in b-documents only; the loaded list lives in l-documents, so loading it again never overwrites them.
+  const counts = {}; for(const ch in S.crm) if(ch[0] === 'b') counts[ch] = Object.keys((S.crm[ch] || {}).c || {}).length;
+  const open = Object.keys(counts).sort().reverse().find(ch => counts[ch] < CRM_CHUNK);
+  return open || 'b' + String(Object.keys(counts).length + 1).padStart(3, '0');
+}
+const crmFields = c => { const o = Object.assign({}, c); delete o.id; delete o.chunk; delete o.party; delete o.stage; delete o.virtual; return plainJSON(o); };
+async function crmPut(id, data, act){
+  const before = crmGet(id), chunk = before ? before.chunk : crmChunkFor(), clean = crmFields(data);
+  const log = logRef(logEntry(act || (before ? 'update' : 'create'), 'crm', id, before ? crmFields(before) : null, clean));
+  const p = JB.commit([{ path:dbPath('crm', chunk), data:{ kind:'contacts', c:{ [id]:clean }, logId:log.id }, merge:true }], log);
+  if(!navigator.onLine){ p.catch(fail); toast(t('Saved on this device. It will be sent when the connection returns.')); return; }
+  return p;
+}
+// CSV for outside tools: phone numbers keep their leading + (Brevo, SMS services need it); formulas are neutralised.
+const toCSV = rows => rows.map(r => r.map(c => { let v = String(c == null ? '' : c); if(/^[=@\-\t\r]/.test(v) || /^\+(?!\d+$)/.test(v)) v = "'" + v; return '"' + v.replace(/"/g, '""') + '"'; }).join(',')).join('\r\n');
+const copyText = txt => navigator.clipboard.writeText(txt).then(() => true, () => { toast(t('Copy was blocked by the browser.')); return false; });
+const waNum = v => { const d = String(v || '').replace(/\D/g, ''); return d.length === 9 ? '221' + d : d; };
+function openContact(id){
+  const virt = String(id).startsWith('p:'), r = virt ? crmRows().find(x => x.id === id) : crmRows().find(x => x.id === id) || crmGet(id);
+  const c = r || { name:'', type:'Particulier', sector:'Particulier', brands:[], tags:[], sms:'unknown', emailOk:'unknown', activity:[] };
+  F = { kind:'contact', id:virt ? '' : (r ? id : ''), party:r ? r.party || '' : '' };
+  const ps = c.party && partyStats()[c.party], bal = c.party ? D.bal[c.party] : 0, m = c.mobile || c.phone2;
+  const quick = r ? '<div class="tools" style="gap:6px;margin-bottom:8px">' + (m ? '<a class="btn sm" href="tel:+' + esc(waNum(m)) + '">' + esc(t('Call')) + '</a><a class="btn sm" target="_blank" rel="noopener" href="https://wa.me/' + esc(waNum(c.mobile || m)) + '">WhatsApp</a><a class="btn sm" href="sms:+' + esc(waNum(c.mobile || m)) + '">SMS</a>' : '') + (c.email ? '<a class="btn sm" href="mailto:' + esc(c.email) + '">' + esc(t('Email')) + '</a>' : '') + btn('saleFor', t('New sale'), 'sm pri', id) + '</div>' : '';
+  const stats = r ? '<div class="tiles">' + tile(t('Purchases'), ps && ps.n ? n0(ps.total) : '—', ps && ps.n ? ps.n + ' ' + t(ps.n === 1 ? 'invoice' : 'invoices') + ' · ' + t('last') + ' ' + fdate(ps.last) : t('No purchase yet'), ps && ps.n ? 'g' : '') + tile(t('Stage'), t(STAGES[c.stage || 'prospect'][0]), c.party ? (bal > 0 ? t('Owes') + ' ' + fmt(bal) : t('Account') + ': ' + (S.parties[c.party] || {}).name) : t('No customer account yet'), bal > 0 ? 'out' : '') + '</div>' : '';
+  const bcheck = '<fieldset class="f"><legend>' + esc(t('Vehicle brands')) + '</legend><div class="chips">' + [...new Set([...CRM_BRANDS, ...(c.brands || [])])].map((b, i) => '<label class="chk"><input type="checkbox" name="br_' + i + '" value="' + esc(b) + '"' + ((c.brands || []).includes(b) ? ' checked' : '') + '> ' + esc(b) + '</label>').join('') + '</div></fieldset>';
+  const acts = (c.activity || []).slice().sort((a, b) => String(b.d).localeCompare(String(a.d)));
+  const actBox = r && !virt ? '<h3>' + esc(t('Activity with us')) + '</h3><div class="tools" style="gap:6px"><select id="act-type" aria-label="' + esc(t('Type')) + '">' + ACT_TYPES.map(a => '<option value="' + a[0] + '">' + esc(t(a[1])) + '</option>').join('') + '</select><input id="act-note" placeholder="' + esc(t('What happened? (e.g. asked for brake pads for a Hilux)')) + '" style="flex:1;min-width:180px">' + btn('addAct', t('Add'), 'sm', id) + '</div>'
+    + (acts.length ? '<ul class="actl">' + acts.slice(0, 30).map(a => '<li><b>' + esc(fdate(a.d)) + ' · ' + esc(t((ACT_TYPES.find(x => x[0] === a.t) || ['', a.t])[1])) + '</b>' + (a.n ? ' — ' + esc(a.n) : '') + '<span class="sub"> · ' + esc(a.by || '') + '</span></li>').join('') + '</ul>' : '<p class="sub">' + esc(t('No activity recorded yet.')) + '</p>') : '';
+  const body = quick + stats
+    + '<div class="fg">' + fld(t('Name'), 'name', c.name, 'required') + sel(t('Type'), 'type', c.type || 'Particulier', CRM_TYPES) + sel(t('Sector'), 'sector', c.sector || '', ['', ...CRM_SECTORS.includes(c.sector) || !c.sector ? CRM_SECTORS : [...CRM_SECTORS, c.sector]]) + fld(t('Job title'), 'job', c.job)
+    + fld(t('Mobile'), 'mobile', c.mobile, 'inputmode="tel" placeholder="+221 77 000 00 00"') + fld(t('Phone 2'), 'phone2', c.phone2, 'inputmode="tel"') + fld(t('Email'), 'email', c.email, 'type="email"') + fld(t('Email 2'), 'email2', c.email2, 'type="email"')
+    + fld(t('Address'), 'address', c.address) + fld(t('Area / city'), 'city', c.city)
+    + sel(t('SMS / WhatsApp promotions'), 'sms', c.sms || 'unknown', CONSENT.map(x => [x[0], t(x[1])])) + sel(t('Email promotions'), 'emailOk', c.emailOk || 'unknown', CONSENT.map(x => [x[0], t(x[1])])) + '</div>'
+    + bcheck + fld(t('Tags (separated by commas)'), 'tags', (c.tags || []).join(', '), 'placeholder="VIP, ' + esc(t('Fleet')) + ', Liste 2011"') + '<label class="f"><span>' + esc(t('Notes')) + '</span><textarea name="notes" id="f-notes" rows="2">' + esc(c.notes || '') + '</textarea></label>'
+    + (c.source ? '<p class="sub">' + esc(t('Source')) + ': ' + esc(c.source) + '</p>' : '') + actBox;
+  formModal(r ? c.name : t('New contact'), 'contact', body, r && !virt && can('promo') ? btn('archiveContact', t('Archive'), 'danger', id) : '');
+}
+
+let promoChan = 'sms', promoOnlyYes = false;
+function promoAudience(){ return crmFiltered().filter(c => promoChan === 'email' ? c.email && c.emailOk !== 'no' && (!promoOnlyYes || c.emailOk === 'yes') : c.mobile && c.sms !== 'no' && (!promoOnlyYes || c.sms === 'yes')); }
+function openPromo(){
+  const f = crmFiltered(), a = promoAudience(), refused = f.filter(c => promoChan === 'email' ? c.email && c.emailOk === 'no' : c.mobile && c.sms === 'no').length, unknown = a.filter(c => (promoChan === 'email' ? c.emailOk : c.sms) !== 'yes').length;
+  const msg = ($('#promo-msg') || {}).value || (lang === 'fr' ? 'Bonjour {prénom}, ' + (store().name || '') + ' : -10% sur les plaquettes de frein jusqu\'au 31/12. ' + (store().phone || '') + '. Répondez STOP pour ne plus recevoir nos offres.' : 'Hello {first name}, ' + (store().name || '') + ': 10% off brake pads until 31/12. ' + (store().phone || '') + '. Reply STOP to stop receiving offers.');
+  const fill = c => msg.replace(/\{pr[ée]nom\}|\{first name\}/gi, c.type === 'Particulier' ? String(c.name).split(' ')[0] : c.name).replace(/\{nom\}|\{name\}/gi, c.name);
+  const wa = promoChan !== 'email' ? '<h3>' + esc(t('Send one by one on WhatsApp')) + '</h3><div class="tbl-wrap" style="max-height:260px;overflow:auto"><table><tbody>' + a.slice(0, 300).map(c => '<tr><td>' + esc(c.name) + '<div class="sub">' + esc(c.mobile) + '</div></td><td class="r"><a class="btn sm" target="_blank" rel="noopener" href="https://wa.me/' + esc(waNum(c.mobile)) + '?text=' + encodeURIComponent(fill(c)) + '">WhatsApp</a></td></tr>').join('') + '</tbody></table></div>' + (a.length > 300 ? '<p class="sub">' + esc(t('First 300 shown. For more, export the list to your SMS or WhatsApp sending service.')) + '</p>' : '') : '';
+  modal(t('Send a promotion'), '<p class="sub">' + esc(t('The audience is the customer list with your current filters. Contacts who refused are always left out.')) + '</p>'
+    + '<div class="tools">' + seg('promoChan', promoChan, [['sms', t('SMS / WhatsApp')], ['email', t('Email')]]) + '<label class="chk"><input type="checkbox" id="promo-yes"' + (promoOnlyYes ? ' checked' : '') + '> ' + esc(t('Only contacts who agreed')) + '</label></div>'
+    + '<div class="tiles">' + tile(t('Will receive'), n0(a.length), t('of') + ' ' + n0(f.length) + ' ' + t('in the list'), 'g') + tile(t('Left out (refused)'), n0(refused), '', refused ? 'w' : '') + tile(t('Not asked yet'), n0(unknown), t('include STOP in the message'), unknown ? 'w' : '') + '</div>'
+    + '<label class="f"><span>' + esc(t('Message')) + ' <span class="sub">({prénom}, {nom})</span></span><textarea id="promo-msg" rows="3">' + esc(msg) + '</textarea></label><p class="sub">' + msg.length + ' ' + esc(t('characters')) + (promoChan !== 'email' && msg.length > 160 ? ' · ' + esc(t('over 160: counts as 2 SMS')) : '') + '</p>'
+    + '<div class="tools" style="gap:6px">' + btn('promoCsv', t('Export list (CSV)'), 'pri') + btn('promoCopy', promoChan === 'email' ? t('Copy emails (for BCC)') : t('Copy mobile numbers')) + btn('promoRecord', t('Record as sent')) + '</div>'
+    + '<p class="sub">' + esc(t('The CSV opens in Excel and imports into Brevo, Mailchimp or an SMS service (columns: First name, Last name, Company, Mobile, Email…).')) + '</p>' + wa);
+  const y = $('#promo-yes'); if(y) y.onchange = () => { promoOnlyYes = y.checked; openPromo(); };
 }
 function reportData(){
   const [from, to] = range(period), p = pnl(S, from, to);
@@ -1547,6 +1675,20 @@ const A = {
   expPeriod: id => { expPeriod = id; savePrefs(); render(); },
   monPeriod: id => { monPeriod = id; render(); }, monKind: id => { monKind = id; render(); }, monWho: id => { monWho = monWho === id ? '' : id; render(); },
   guideTab: id => { guideTab = id; render(); }, printGuide: () => window.print(),
+  openContact: id => openContact(id), newContact: () => openContact(''), crmMore: () => { crmShow += 200; render(); },
+  crmReset: () => { crmType = crmSector = crmBrand = crmStage = crmChan = ''; q = ''; crmShow = 100; render(); },
+  addAct: async id => { const c = crmGet(id), n = ($('#act-note') || {}).value || '', ty = ($('#act-type') || {}).value || 'note'; if(!c) return;
+    const d = crmFields(c); d.activity = [...(d.activity || []), { d:today(), t:ty, n:n.trim(), by:(me() || {}).name }].slice(-20); if(ty === 'promo') d.lastPromo = today();
+    try{ await crmPut(id, d, 'update'); toast(t('Activity added.')); openContact(id); }catch(e){ fail(e); } },
+  archiveContact: id => ask(t('Archive this contact? It leaves the list and promotions. The record is kept.'), t('Archive'), async () => { const c = crmGet(id); if(!c) return; const d = crmFields(c); d.archived = true; try{ await crmPut(id, d, 'delete'); }catch(e){ fail(e); } }),
+  saleFor: async id => { let c = crmRows().find(x => x.id === id); if(!c) return; let pid = c.party;
+    if(!pid){ pid = uid(); try{ await put('parties', pid, { name:c.name, segment:c.type === 'Particulier' ? 'Retail' : c.sector === 'Garage / Réparateur' ? 'Mechanic' : 'Fleet operator', phone:c.mobile || c.phone2 || '', city:c.city || c.address || '', limit:0, opening:0, createdAt:Date.now() });
+      if(!c.virtual){ const d = crmFields(crmGet(id)); d.partyId = pid; await crmPut(id, d); } }catch(e){ return fail(e); } }
+    openTxn('sale', null, { partyId:pid, lines:[], discount:0, tax:false, paid:0, method:'Cash', note:'' }); },
+  promo: () => openPromo(), promoChan: id => { promoChan = id; openPromo(); },
+  promoCsv: () => { const a = promoAudience(); saveFile('promotion-' + promoChan + '-' + today() + '.csv', '﻿' + toCSV([['First name', 'Last name', 'Company', 'Mobile', 'Email', 'City', 'Sector', 'Vehicle brands', 'Tags'].map(t), ...a.map(c => { const per = c.type === 'Particulier', nm = String(c.name).split(' '); return [per ? nm[0] : '', per ? nm.slice(1).join(' ') : '', per ? '' : c.name, c.mobile || '', c.email || '', c.city || c.address || '', c.sector || '', (c.brands || []).join(' '), (c.tags || []).join(' ')]; })])); },
+  promoCopy: () => { const a = promoAudience(); copyText(a.map(c => promoChan === 'email' ? c.email : c.mobile).join(promoChan === 'email' ? '; ' : ', ')).then(ok => ok && toast(a.length + ' ' + t('copied'))); },
+  promoRecord: () => { const a = promoAudience().filter(c => !c.virtual); F = { kind:'promoRec', aud:a.map(c => c.id), chan:promoChan }; formModal(t('Record this promotion'), 'promoRec', '<p>' + esc(t('Adds "Promotion sent" to the activity of')) + ' <b>' + a.length + '</b> ' + esc(t('contacts')) + '.</p>' + fld(t('Promotion name'), 'campaign', '', 'required placeholder="' + esc(t('e.g. Brake pads -15% December')) + '"')); },
   reqExpense: () => openMoney('expense', { request:true }),
   approveExp: id => { const x = S.txns[id]; if(!x || x.status !== 'pending') return; const d = Object.assign({}, x, { status:'approved', approvedBy:me().name, approvedAt:Date.now() }); delete d.id;
     if(dlg.open) dlg.close(); put('txns', id, d).then(() => toast(t('Expense approved.')), fail); },
@@ -1562,7 +1704,7 @@ const A = {
   salesTab: id => { salesTab = id; savePrefs(); render(); }, moneyTab: id => { moneyTab = id; savePrefs(); render(); }, period: id => { period = id; savePrefs(); render(); },
   rmLogo: () => { const d = Object.assign({}, store()); delete d.logo; putStore(storeId, d).then(render, fail); },
   backup: () => { const st = Object.assign({}, store()); const strip = m => { const o = {}; for(const k in m) o[k] = m[k]; return o; };
-    const data = { app:'jaay', version:1, exportedAt:new Date().toISOString(), storeId, store:st, items:strip(S.items), parties:strip(S.parties), txns:strip(S.txns), opex:strip(S.opex) };
+    const data = { app:'jaay', version:1, exportedAt:new Date().toISOString(), storeId, store:st, items:strip(S.items), parties:strip(S.parties), txns:strip(S.txns), opex:strip(S.opex), crm:strip(S.crm) };
     saveFile('jaay-backup-' + storeId + '-' + today() + '.json', JSON.stringify(data)); },
 
   delItem: id => used('itemId', id) ? toast(t('This item appears in transactions and cannot be deleted.')) : ask(t('Delete this item?'), t('Delete'), () => del('items', id).catch(fail)),
@@ -1604,13 +1746,13 @@ async function setLogo(file){
 async function restoreFrom(file){
   let data; try{ data = JSON.parse(await file.text()); }catch(e){ return toast(t('That file is not a Jaay backup.')); }
   if(!data || data.app !== 'jaay' || typeof data.items !== 'object') return toast(t('That file is not a Jaay backup.'));
-  const n = Object.keys(data.items || {}).length + Object.keys(data.parties || {}).length + Object.keys(data.txns || {}).length + Object.keys(data.opex || {}).length;
+  const n = Object.keys(data.items || {}).length + Object.keys(data.parties || {}).length + Object.keys(data.txns || {}).length + Object.keys(data.opex || {}).length + Object.values(data.crm || {}).reduce((a, ch) => a + Object.keys(ch.c || {}).length, 0);
   ask(t('Load this backup?') + ' ' + n + ' ' + t('records') + '. ' + t('Existing records with the same ID are replaced; nothing is deleted.'), t('Load backup'), async () => {
     try{
       const keep = store(), prof = Object.assign({}, data.store || {}); delete prof.ownerUid; delete prof.sheetUrl;
       await putStore(storeId, Object.assign({}, keep, prof, { ownerUid: keep.ownerUid }));
       const uidNow = JB.uid(), entries = [];
-      for(const [c, m] of [['items', data.items], ['parties', data.parties], ['txns', data.txns], ['opex', data.opex]]) for(const id in (m || {})){ const d = clone(m[id]); if(c === 'txns') d.byUid = uidNow; entries.push([dbPath(c, id), d]); }
+      for(const [c, m] of [['items', data.items], ['parties', data.parties], ['txns', data.txns], ['opex', data.opex], ['crm', data.crm]]) for(const id in (m || {})){ const d = clone(m[id]); if(c === 'txns') d.byUid = uidNow; entries.push([dbPath(c, id), d]); }
       importing = true;
       await JB.batchSet(entries, (k, all) => toast(t('Saving') + ' ' + k + ' / ' + all), bulkLog('restore', ''));
       toast(t('Backup loaded') + ': ' + entries.length + ' ' + t('records'));
@@ -1621,6 +1763,7 @@ async function restoreFrom(file){
 document.addEventListener('change', e => {
   if(e.target.id === 'restore-file' && e.target.files[0]){ const f = e.target.files[0]; e.target.value = ''; if(!can('setup')) return toast(t('Not allowed for your access level.')); return restoreFrom(f); }
   if(e.target.dataset && e.target.dataset.mon === 'who'){ monWho = e.target.value; render(); return; }
+  if(e.target.dataset && e.target.dataset.crm){ const v = e.target.value, k = e.target.dataset.crm; if(k === 'crm-type') crmType = v; if(k === 'crm-sector') crmSector = v; if(k === 'crm-brand') crmBrand = v; if(k === 'crm-stage') crmStage = v; if(k === 'crm-chan') crmChan = v; crmShow = 100; render(); return; }
   if(e.target.dataset && e.target.dataset.staff){ const id = e.target.dataset.staff, x = S.staff[id]; if(!x || !can('setup')) return; const d = Object.assign({}, x, { role: e.target.value }); delete d.id; return put('members', id, d).then(() => toast(t('Level updated.')), fail); }
 });
 document.addEventListener('change', e => { if(e.target.id === 'closeDate'){ closeDate = e.target.value; return render(); } if(e.target.id === 'li-show'){ const el = $('#password'); if(el) el.type = e.target.checked ? 'text' : 'password'; return; } if(e.target.id === 'logo-file' && e.target.files[0]) return setLogo(e.target.files[0]); });
@@ -1634,6 +1777,8 @@ function formPerm(name){
   if(name === 'txn') return F.id || F.x.type === 'return' ? 'edit' : F.x.type === 'purchase' || F.x.type === 'po' ? 'buy' : 'sell';
   if(name === 'money') return F.id ? 'edit' : F.type === 'expense' ? (F.request ? 'expreq' : 'expense') : F.type;
   if(name === 'reject') return 'approve';
+  if(name === 'contact') return 'crm';
+  if(name === 'promoRec') return 'promo';
   if(name === 'bill' || name === 'budgets') return 'expense';
   return { item:'items', adjust:'items', party:'party' }[name] || 'setup';
 }
@@ -1705,6 +1850,28 @@ const SUBMIT = {
     if(F.type === 'expense'){ d.category = v.category; d.payee = v.payee || ''; if(F.billId){ d.billId = F.billId; d.period = F.period; } } else { d.partyId = v.partyId; if(F.refId) d.refId = F.refId; }
     if(!F.id){ d.createdAt = Date.now(); d.by = me() ? me().name : ''; if(F.type === 'expense'){ if(F.request) d.status = 'pending'; else { d.status = 'approved'; d.approvedBy = d.by; } } }
     const id = F.id || uid(), wasReq = F.request; dlg.close(); await put('txns', id, d); toast(wasReq ? t('Sent for approval.') : t('Saved.'));
+  },
+  async contact(v){
+    const phones = [v.mobile, v.phone2].map(x => String(x || '').trim()).filter(Boolean);
+    const em = String(v.email || '').trim().toLowerCase();
+    if(em && !/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(em)) return toast(t('That email address does not look right.'));
+    for(const ph of phones) if(pk(ph).length < 9) return toast(t('Phone numbers need 9 digits (e.g. 77 000 00 00).'));
+    const dup = crmList().find(c => c.id !== F.id && ((pk(v.mobile) && [c.mobile, c.phone2].some(x => pk(x) === pk(v.mobile))) || (em && [c.email, c.email2].includes(em))));
+    if(dup && !F.dupOk){ F.dupOk = true; return toast(t('Already in the list') + ': ' + dup.name + '. ' + t('Tap Save again to keep both.')); }
+    const old = F.id ? crmGet(F.id) : null, id = F.id || 'c' + uid();
+    const brands = Object.keys(v).filter(k => k.startsWith('br_')).map(k => v[k]);
+    const norm = x => { const d = String(x || '').replace(/[^\d+]/g, ''); return d.length === 9 ? '+221' + d : d; };
+    const d = Object.assign({ activity:[], source:'' }, old ? crmFields(old) : { createdAt:Date.now(), source:t('Added in Jaay') + ' (' + (me() || {}).name + ')' }, {
+      name:v.name.trim(), type:v.type, sector:v.sector, job:v.job || '', mobile:norm(v.mobile), phone2:norm(v.phone2), email:em, email2:String(v.email2 || '').trim().toLowerCase(),
+      address:v.address || '', city:v.city || '', sms:v.sms, emailOk:v.emailOk, brands, tags:String(v.tags || '').split(',').map(x => x.trim()).filter(Boolean), notes:v.notes || '', partyId:F.party || (old && old.partyId) || '' });
+    dlg.close(); await crmPut(id, d); toast(t('Saved.'));
+  },
+  async promoRec(v){
+    const aud = F.aud || [], name = String(v.campaign || '').trim() || t('Promotion'), d = today(), by = (me() || {}).name;
+    const byChunk = {};
+    for(const id of aud){ const c = crmGet(id); if(!c) continue; (byChunk[c.chunk] || (byChunk[c.chunk] = {}))[id] = { activity:[...(c.activity || []), { d, t:'promo', n:name + (F.chan ? ' (' + F.chan + ')' : ''), by }].slice(-20), lastPromo:d }; }
+    const log = logRef(logEntry('promo', 'crm', '', null, null, { n:aud.length, label:name }));
+    dlg.close(); await JB.commit(Object.keys(byChunk).map(ch => ({ path:dbPath('crm', ch), data:{ c:byChunk[ch], logId:log.id }, merge:true })), log); toast(t('Promotion recorded for') + ' ' + aud.length + ' ' + t('contacts'));
   },
   async reject(v){
     const x = S.txns[F.id]; if(!x || x.status !== 'pending') return dlg.close();

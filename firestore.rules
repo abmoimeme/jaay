@@ -85,6 +85,14 @@ service cloud.firestore {
         allow delete: if hasRole(s, ['owner', 'manager']);
       }
 
+      // Customer database: contacts stored 250 per document (crm/l001… loaded list, crm/b001… added in the app).
+      // Stock keepers and accountants cannot see it. Contacts are archived, never deleted.
+      match /crm/{id} {
+        allow read: if hasRole(s, ['owner', 'manager', 'cashier']);
+        allow create, update: if hasRole(s, ['owner', 'manager', 'cashier']) && logged(s);
+        allow delete: if false;
+      }
+
       match /txns/{id} {
         allow read: if isMember(s);
         allow create: if logged(s)
