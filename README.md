@@ -38,6 +38,15 @@ The **Expenses** page shows operating costs for this month, last month or this y
 6. Open the site. The first visit to an unused store code offers **Create a store**; that person becomes the owner.
 7. To bring in data from the earlier hosted version: there, **Setup → Download backup**; here, **Setup → Load a backup file**.
 
+## User guide (Guide)
+
+The **Guide** page (in the menu for every level, and under **More** on phones) is a French user guide with a **Caissier** tab and a **Gérant** tab. Cashiers see only their tab. It can be printed.
+
+It stays current with the app in three ways:
+- **Read from the app itself:** button and menu names come from the app's French translations, and the lists of what each level can do, each person's menu, expense categories and payment methods come from the app's settings. Renaming a button or adding a page or category updates the guide.
+- **Update date:** "Mis à jour le" is the date of the last deploy.
+- **Quoi de neuf:** add a line to `GUIDE_NEWS` in `index.html` with every change, and update the matching section when a workflow changes. `tools/qa_guide.py` fails if the guide names a button that has no French translation.
+
 ## Files
 
 | File | Purpose |
