@@ -56,6 +56,8 @@ It stays current with the app in three ways:
 | `config.js` | Firebase project settings and default store code |
 | `firestore.rules` | Server-side security rules for the five levels |
 | `logos/` | Store logos |
+| `brand/` | Jaay logo, app icons and favicon (indigo #1E2A5A, gold #F2A900, wordmark in Sora Bold) |
+| `manifest.webmanifest` | Name, colours and icons used when the app is added to a phone's home screen |
 
 ## Known limits
 
