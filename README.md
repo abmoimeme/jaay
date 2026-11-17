@@ -18,6 +18,15 @@ Staff sign in with a **store code** (for example `pah`), a **username** and a **
 | Stock keeper | Items, import, stock adjustments, purchase orders, goods received, suppliers |
 | Accountant | Reads everything, including reports and exports. Cannot add, change or delete |
 
+## Expenses (OpEx)
+
+The **Expenses** page shows operating costs for this month, last month or this year: the total, the total against budget, the change from the previous period, and expenses as a share of sales. It also has a table by category, a monthly chart, and the list of expenses with a CSV export.
+
+- **Recurring bills** (rent, salaries, Woyofal, Orange…) have an amount, a frequency (monthly, every 3 months or yearly) and a due day. Each period shows as due, paid or overdue. **Record payment** creates the expense for the oldest unpaid period. Home lists bills that are overdue or due within 7 days.
+- **Budgets** are set per category, per month.
+- **Capital transfers and remittances** are recorded, but they are not counted as an expense, in budgets or in net profit.
+- Bills and budgets are in the `opex` collection. Only Owner, Manager and Accountant can read them, and only Owner and Manager can change them.
+
 ## Setup (one time)
 
 1. Firebase console: create the project, enable **Authentication → Email/Password**, create **Firestore** in production mode (location `eur3`).

@@ -55,6 +55,13 @@ service cloud.firestore {
         allow delete: if hasRole(s, ['owner', 'manager']);
       }
 
+      // Recurring bills (rent, salaries…) and monthly expense budgets.
+      // Cashiers and stock keepers cannot see these figures.
+      match /opex/{id} {
+        allow read: if hasRole(s, ['owner', 'manager', 'accountant']);
+        allow create, update, delete: if hasRole(s, ['owner', 'manager']);
+      }
+
       match /txns/{id} {
         allow read: if isMember(s);
         allow create: if request.resource.data.byUid == request.auth.uid
