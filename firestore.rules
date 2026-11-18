@@ -22,6 +22,29 @@ service cloud.firestore {
         && getAfter(logPath(s, request.resource.data.logId)).data.uid == request.auth.uid;
     }
 
+    // Visit records written by the public website (planetautohub.com). Anyone may add or update THEIR OWN
+    // visit record (the id is a random 20-character visit id); nobody but staff can read them. The shape is
+    // fixed: only these fields, numbers within range, short strings, short lists, and no back-dated times.
+    function validHit(d, id) {
+      return d.keys().hasOnly(['sid','vid','day','ts','dur','depth','dev','w','lang','vl','tz','ref','src','nv','secs','clicks'])
+        && d.keys().hasAll(['sid','vid','day','ts','dur','depth','dev','w','lang','vl','tz','ref','src','nv','secs','clicks'])
+        && d.sid == id && id.size() >= 16 && id.size() <= 24
+        && d.vid is string && d.vid.size() >= 8 && d.vid.size() <= 24
+        && d.day is string && d.day.size() == 10
+        && d.ts is int && d.ts <= request.time.toMillis() + 300000 && d.ts >= request.time.toMillis() - 172800000
+        && d.dur is int && d.dur >= 0 && d.dur <= 14400
+        && d.depth is int && d.depth >= 0 && d.depth <= 100
+        && d.w is int && d.w >= 0 && d.w <= 10000
+        && d.dev in ['m','t','d'] && d.lang in ['fr','en']
+        && d.vl is string && d.vl.size() <= 10
+        && d.tz is string && d.tz.size() <= 40
+        && d.ref is string && d.ref.size() <= 60
+        && d.src is string && d.src.size() <= 30
+        && d.nv is bool
+        && d.secs is list && d.secs.size() <= 12
+        && d.clicks is list && d.clicks.size() <= 30;
+    }
+
     match /stores/{s} {
       // The sign-in page shows the store's name, logo and contact details.
       allow get: if true;
@@ -98,6 +121,17 @@ service cloud.firestore {
         allow read: if hasRole(s, ['owner', 'manager', 'cashier']);
         allow create, update: if hasRole(s, ['owner', 'manager', 'cashier']) && logged(s);
         allow delete: if false;
+      }
+
+      // Website visits: staff (owner, manager) read; the public site adds and updates its own record; only the owner deletes.
+      match /web_hits/{id} {
+        allow read: if hasRole(s, ['owner', 'manager']);
+        allow create: if s == 'pah' && validHit(request.resource.data, id);
+        allow update: if s == 'pah' && validHit(request.resource.data, id)
+          && request.resource.data.vid == resource.data.vid
+          && request.resource.data.ts == resource.data.ts
+          && request.resource.data.dur >= resource.data.dur;
+        allow delete: if isOwner(s);
       }
 
       match /txns/{id} {
