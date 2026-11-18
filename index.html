@@ -306,6 +306,7 @@ Object.assign(T_FR, {"Deal": "Offre", "Hot customers": "Clients chauds", "bought
 Object.assign(T_FR, {"This is a Jaay backup file. Load it in Setup, Backup and restore.": "Ceci est une sauvegarde Jaay. Chargez-la dans Réglages, Sauvegarde et restauration.", "Choose an Excel (.xlsx) or CSV file.": "Choisissez un fichier Excel (.xlsx) ou CSV.", "The spreadsheet reader could not load. Check the internet connection and try again.": "Le lecteur de tableur n'a pas pu se charger. Vérifiez la connexion internet et réessayez."});
 Object.assign(T_FR, {"Invite": "Inviter", "Send this to the person. The link opens Jaay with the store code and username already filled in.": "Envoyez ceci à la personne. Le lien ouvre Jaay avec le code boutique et l'identifiant déjà remplis.", "The password is in the message. Remove it if you prefer to give it in person.": "Le mot de passe est dans le message. Retirez-le si vous préférez le donner en main propre.", "Jaay does not keep passwords. Give the password in person, or remove the person and add them again with a new one.": "Jaay ne garde pas les mots de passe. Donnez-le en main propre, ou retirez la personne et ajoutez-la à nouveau avec un nouveau mot de passe.", "Copy message": "Copier le message", "Copy link only": "Copier le lien seul", "Copied.": "Copié."});
 Object.assign(T_FR, {"Link for your staff": "Lien pour votre personnel", "Copy link": "Copier le lien"});
+Object.assign(T_FR, {"Download the import template (Excel)": "Télécharger le modèle d'import (Excel)", "one line per part; only Ref-article is required": "une ligne par pièce ; seule la Ref-article est obligatoire"});
 let lang = 'en';
 const t = s => (lang === 'fr' && T_FR[s]) || s;
 
@@ -1645,6 +1646,7 @@ function openImport(){
   IMP = null; F = { kind:'import' };
   modal(t('Import items'), '<div class="db"><p class="sub">' + esc(t('Reads every tab that has the columns Ref-article, Fabricant, Type de pièce, Quantité, Prix de vente unitaire, Vendu, Restant and Notes. Stock is set to what remains.')) + '</p>'
     + (mcpCap ? '<div class="tools"><input id="imp-url" placeholder="' + esc(t('Google Sheet link')) + '" aria-label="' + esc(t('Google Sheet link')) + '" value="' + esc(store().sheetUrl || '') + '" style="flex:1;min-width:200px">' + btn('impSheet', t('Read Google Sheet'), 'blue') + '</div>' : '')
+    + '<p class="sub"><a href="templates/Jaay-modele-import-articles.xlsx" download>' + esc(t('Download the import template (Excel)')) + '</a> · ' + esc(t('one line per part; only Ref-article is required')) + '</p>'
     + '<label class="f">' + esc(t('Upload an Excel or CSV file')) + '<input type="file" id="imp-file"></label><div id="imp-status" class="sub"></div><div id="imp-body"></div></div>',
     '<div class="df"><button type="button" class="btn" data-a="close">' + esc(t('Close')) + '</button><button type="button" class="btn pri" data-a="impRun" id="imp-go" hidden></button></div>');
 }
