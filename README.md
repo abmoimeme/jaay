@@ -2,7 +2,7 @@
 
 Jaay is a billing, invoicing and stock app for parts shops, built first for Planet Auto Hub (Dakar). It runs in the browser on phones and computers, works on a weak connection, and syncs when the signal returns.
 
-- Live site: https://abmoimeme.github.io/jaay/
+- Live site: https://app.planetautohub.com/ (the old https://abmoimeme.github.io/jaay/ address forwards to it)
 - Backend: Firebase Authentication (email/password) + Cloud Firestore, on the free Spark plan
 - Languages: English and French
 
@@ -33,7 +33,7 @@ The **Expenses** page shows operating costs for this month, last month or this y
 1. Firebase console: create the project, enable **Authentication → Email/Password**, create **Firestore** in production mode (location `eur3`).
 2. Register a web app and paste its `firebaseConfig` values into `config.js`.
 3. **Firestore → Rules**: replace the rules with the contents of `firestore.rules` and **Publish**.
-4. **Authentication → Settings → Authorized domains**: add `abmoimeme.github.io`.
+4. **Authentication → Settings → Authorized domains**: add `app.planetautohub.com` (and `abmoimeme.github.io` while the old address is still in use).
 5. GitHub: **Settings → Pages → Deploy from a branch → main / (root)**.
 6. Open the site. The first visit to an unused store code offers **Create a store**; that person becomes the owner.
 7. To bring in data from the earlier hosted version: there, **Setup → Download backup**; here, **Setup → Load a backup file**.
