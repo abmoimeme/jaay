@@ -58,6 +58,14 @@ The **Monitor** page shows who did what and when: per person (first and last act
 - Promotions (owner, manager): the audience is the filtered list minus refusals; export CSV for Brevo, Mailchimp or an SMS service, copy numbers or emails, or send one by one on WhatsApp; then record it as sent.
 - Contacts are archived, never deleted. The cleaned PAH list is loaded once by the owner with Setup → Load a backup file.
 
+## Deals, margins and forecasts
+
+- **Deals** (`stores/<code>/deals/`): % off, FCFA off each unit or a fixed price; on every item, a category, a brand or chosen items; from a minimum quantity; between two dates. Live deals apply at the till by themselves (best price per line); a price typed by hand wins; a quote turned into an invoice keeps its quoted price. Lines keep the deal name and usual price, shown on the invoice and the 80 mm receipt. Owner and managers set deals (database rules); everyone reads them.
+- **Margins**: profit on each sale while it is being entered (owner, manager), below-cost warnings, margin by category, items sold under 20 % or priced at or below cost.
+- **Reports**: Today and This week periods, units sold, average ticket, sales by payment method with what is still on credit.
+- **Forecast**: month-end projection at this month's daily pace; next month from the trend of up to 6 past months, the last 3 months' margin, and expenses = the larger of recent months and recurring bills; items that run out within 30 days at their 90-day pace.
+- **Customers**: Hot (≤ 30 days), Warm (≤ 90), Win-back (> 90) and spend tiers VIP / Gold (≥ 500 000), Loyal (≥ 100 000), Active (≥ 25 000), New / Small, the rules of the PAH POS workbook. Walk-in sales can carry the customer's name and phone; a new number joins the customer list.
+
 ## User guide (Guide)
 
 The **Guide** page (in the menu for every level, and under **More** on phones) is a French user guide with a **Caissier** tab and a **Gérant** tab. Cashiers see only their tab. It can be printed.

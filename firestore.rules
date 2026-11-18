@@ -85,6 +85,13 @@ service cloud.firestore {
         allow delete: if hasRole(s, ['owner', 'manager']);
       }
 
+      // Deals (discounts applied at the till): everyone in the store reads them; owner and managers set them.
+      match /deals/{id} {
+        allow read: if isMember(s);
+        allow create, update: if hasRole(s, ['owner', 'manager']) && logged(s);
+        allow delete: if hasRole(s, ['owner', 'manager']);
+      }
+
       // Customer database: contacts stored 250 per document (crm/l001… loaded list, crm/b001… added in the app).
       // Stock keepers and accountants cannot see it. Contacts are archived, never deleted.
       match /crm/{id} {
