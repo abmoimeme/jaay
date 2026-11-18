@@ -55,7 +55,7 @@ The **Monitor** page shows who did what and when: per person (first and last act
 - Contacts are stored 250 per document in `stores/<code>/crm/` (`l001…` = the loaded list, `b001…` = contacts added in the app), so 4,000+ contacts cost about 17 reads to open. Each change merges only that contact, with its activity-log entry.
 - Each contact: identity, mobile / phones / emails (+221 format), area, vehicle brands, tags, notes, marketing consent for SMS/WhatsApp and email (unknown / agreed / refused), and an activity history (calls, visits, WhatsApp, promotions sent).
 - Contacts link to customer accounts (Parties) by account or by phone number, which shows purchases, last invoice, balance owed, and a stage: Active (bought in the last 6 months), Inactive, or Prospect. Customer accounts with no contact appear in the list too.
-- Promotions (owner, manager): the audience is the filtered list minus refusals; export CSV for Brevo, Mailchimp or an SMS service, copy numbers or emails, or send one by one on WhatsApp; then record it as sent.
+- Promotions (owner, manager): opt-in only by default (agreed contacts). "Not asked yet" mode sends a one-time permission message; mark each person "Said yes" or "STOP" (dated). Ready-made French/English templates (ask permission, promotion, new stock, thank you). Email opens in batches of 50 (BCC). WhatsApp one by one with a tap per row. CSV export includes consent and consent date. One-click bulk sending comes later with the WhatsApp bot.
 - Contacts are archived, never deleted. The cleaned PAH list is loaded once by the owner with Setup → Load a backup file.
 
 ## Deals, margins and forecasts
