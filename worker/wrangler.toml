@@ -1,0 +1,18 @@
+name = "jaay-email"
+main = "index.js"
+compatibility_date = "2024-11-01"
+
+[vars]
+FIREBASE_PROJECT = "jaay-69598"
+SENDER_NAME = "Planet Auto Hub"
+SENDER_EMAIL = "contact@planetautohub.com"
+REPLY_TO = "contact@planetautohub.com"
+ALLOWED_ORIGINS = "https://app.planetautohub.com"
+DAILY_LIMIT = "300"
+# Set PUBLIC_URL to the worker address after the first deploy, e.g. https://jaay-email.<your-subdomain>.workers.dev
+PUBLIC_URL = ""
+
+# Create the namespace once: npx wrangler kv namespace create OPTINS   (paste the id below)
+[[kv_namespaces]]
+binding = "OPTINS"
+id = "REPLACE_WITH_KV_ID"

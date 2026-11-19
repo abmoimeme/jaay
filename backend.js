@@ -24,6 +24,7 @@ if(!window.JB && CFG && !/^REPLACE/.test(CFG.apiKey || '')){
   window.JB = {
     ready: setPersistence(auth, browserSessionPersistence).catch(e => console.warn(e)),
     uid: () => auth.currentUser ? auth.currentUser.uid : null,
+    token: () => auth.currentUser ? auth.currentUser.getIdToken() : Promise.reject(norm({ code: 'auth/no-current-user' })),
     onUser: cb => onAuthStateChanged(auth, u => cb(u ? { uid: u.uid, email: u.email } : null)),
     signIn: (email, pw) => wrap(signInWithEmailAndPassword(auth, email, pw)),
     signUp: (email, pw) => wrap(createUserWithEmailAndPassword(auth, email, pw)).then(c => c.user.uid),

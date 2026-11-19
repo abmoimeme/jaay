@@ -115,6 +115,13 @@ service cloud.firestore {
         allow delete: if hasRole(s, ['owner', 'manager']);
       }
 
+      // Email campaigns: owner and managers only. Records are kept (never deleted) so the history stays complete.
+      match /campaigns/{id} {
+        allow read: if hasRole(s, ['owner', 'manager']);
+        allow create, update: if hasRole(s, ['owner', 'manager']) && logged(s);
+        allow delete: if false;
+      }
+
       // Customer database: contacts stored 250 per document (crm/l001 loaded list, crm/b001 added in the app).
       // Stock keepers and accountants cannot see it. Contacts are archived, never deleted.
       match /crm/{id} {
