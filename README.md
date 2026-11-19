@@ -93,3 +93,5 @@ It stays current with the app in three ways:
 - Cost prices are hidden from cashiers in the app, but the rules do not hide them from the data a cashier can read.
 - A forgotten password cannot be reset by the owner without a paid Firebase plan (Cloud Functions). Instead, the owner removes the person and adds them again with a new username; everyone can change their own password from the menu.
 - Anyone can create a new store from the sign-in page. Before selling Jaay, put sign-ups behind an approval step.
+
+- Guardrails (Nov 19): documents are voided (kept, with a reason, in `S.voided`) instead of deleted; stock adjustments need a reason code and a note; cashiers flag stock discrepancies (log entry only); discounts above `discCap`% (default 10) on cashier sales need a manager to approve the quote; global search bar on every page. No rules change needed.
