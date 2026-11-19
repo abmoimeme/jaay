@@ -50,10 +50,15 @@ function fv(v){
 const fm = fields => { const o = {}; for(const k in fields) o[k] = fv(fields[k]); return o; };
 const fsBase = env => 'https://firestore.googleapis.com/v1/projects/' + env.FIREBASE_PROJECT + '/databases/(default)/documents/';
 async function fsGet(env, f, token, path){
-  const r = await f(fsBase(env) + path, { headers: { authorization: 'Bearer ' + token } });
+  let r;
+  for(let i = 0; i < 2; i++){                       // one retry for a busy or briefly unavailable database
+    r = await f(fsBase(env) + path, { headers: { authorization: 'Bearer ' + token } });
+    if(r.status < 500 && r.status !== 429) break;
+    await sleep(350);
+  }
   if(r.status === 404) return null;
   if(r.status === 401 || r.status === 403) throw new HttpError(403, 'Not allowed');
-  if(!r.ok) throw new HttpError(502, 'Database error');
+  if(!r.ok){ let m = ''; try{ m = ((await r.json()).error || {}).message || ''; }catch(e){} throw new HttpError(502, 'Database error ' + r.status + (m ? ': ' + String(m).slice(0, 120) : '')); }
   return r.json();
 }
 async function authorize(req, body, env, f){

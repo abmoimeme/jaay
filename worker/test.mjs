@@ -161,3 +161,11 @@ test('daily limit is shared by every send of the day, including tests', async ()
     const later = new Date(Date.now() + 3 * 864e5).toISOString(); assert.equal((await call('/send', Object.assign({}, send, { scheduledAt: later }), world())).status, 200);  // another day has its own count
   } finally { env.DAILY_LIMIT = '300'; env.OPTINS._m.clear(); }
 });
+
+test('database hiccup: one retry, and a real reason when it keeps failing', async () => {
+  const w = world(); let n = 0;
+  const flaky = { f: async (u, i) => (String(u).includes('/members/') && n++ === 0 ? new Response('{}', { status: 503 }) : w.f(u, i)) };
+  assert.equal((await call('/status', { store: 'pah' }, flaky)).status, 200); assert.equal(n, 2);
+  const down = { f: async (u, i) => (String(u).includes('/members/') ? new Response(JSON.stringify({ error: { message: 'Quota exceeded.' } }), { status: 429 }) : w.f(u, i)) };
+  const r = await call('/status', { store: 'pah' }, down); assert.equal(r.status, 502); assert.equal(r.body.error, 'Database error 429: Quota exceeded.');
+});

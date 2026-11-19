@@ -2764,7 +2764,7 @@ async function loadDelivery(){
   CDH.busy = true; CDH.err = '';
   const r = await Promise.allSettled([emailCall('/status', {}), emailCall('/activity', { days:CDH.days, limit:100 }), emailCall('/sendlog', {})]);
   CDH.st = r[0].status === 'fulfilled' ? r[0].value : null; CDH.ev = r[1].status === 'fulfilled' ? r[1].value.events : null; CDH.log = r[2].status === 'fulfilled' ? r[2].value.log : null;
-  const bad = r.find(x => x.status === 'rejected'); CDH.err = bad ? String(bad.reason && bad.reason.message || bad.reason) : '';
+  const nm = ['Status', 'Activity', 'Send log']; CDH.err = r.map((x, i) => x.status === 'rejected' ? nm[i] + ': ' + String(x.reason && x.reason.message || x.reason) : '').filter(Boolean).join(' · ');
   CDH.busy = false; CDH.loaded = true; CDH.at = Date.now(); render();
 }
 function vDelivery(){
