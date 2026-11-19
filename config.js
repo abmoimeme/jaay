@@ -2,7 +2,7 @@
 window.JAAY_CONFIG = {
   defaultStore: 'pah',
   // Address of the Jaay email worker (see worker/README.md), e.g. https://jaay-email.yourname.workers.dev. Leave empty until it is deployed.
-  emailApi: '',
+  emailApi: 'https://jaay-email.abdoul-samb.workers.dev',
   firebase: {
     apiKey: 'AIzaSyDDY750URij5tWFcnsVlN_vrm46DoNtwpQ',
     authDomain: 'jaay-69598.firebaseapp.com',
