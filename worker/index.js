@@ -130,6 +130,16 @@ async function attrNames(env, f){
 const sender = env => ({ name: env.SENDER_NAME || 'Planet Auto Hub', email: env.SENDER_EMAIL });
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
+/* ---------- daily count and send log (kept in the OPTINS KV namespace; Senegal is on UTC, so the day is the UTC day) ---------- */
+const dayKey = d => 'day:' + new Date(d || Date.now()).toISOString().slice(0, 10);
+async function sentOn(env, d){ try{ return Number(await env.OPTINS.get(dayKey(d))) || 0; }catch(e){ return 0; } }
+async function addSent(env, d, n){ try{ await env.OPTINS.put(dayKey(d), String((await sentOn(env, d)) + n), { expirationTtl: 5 * 86400 }); }catch(e){} }
+// Newest first: the key counts down from a big number, so a plain listing returns the latest entries first.
+async function logSend(env, who, rec){
+  try{ const ts = Date.now(), key = 'log:' + String(9999999999999 - ts).padStart(13, '0') + ':' + Math.random().toString(36).slice(2, 6);
+    await env.OPTINS.put(key, JSON.stringify(Object.assign({ ts, by: who.email || '', uid: who.uid || '', role: who.role || '' }, rec)), { expirationTtl: 90 * 86400 }); }catch(e){}
+}
+
 async function sendCampaign(env, f, who, b){
   const mode = b.mode === 'ask' ? 'ask' : 'subscribed';
   const subject = String(b.subject || '').trim().slice(0, 200), name = String(b.name || '').trim().slice(0, 120) || subject;
@@ -142,6 +152,8 @@ async function sendCampaign(env, f, who, b){
   if(pick.list.length > limit) throw new HttpError(400, 'Too many recipients for one day (' + pick.list.length + '; the limit is ' + limit + '). Narrow the audience or send in batches.');
   const at = b.scheduledAt ? new Date(b.scheduledAt) : null;
   if(at && (isNaN(+at) || +at < Date.now() + 120e3 || +at > Date.now() + 365 * 864e5)) throw new HttpError(400, 'Choose a time in the future');
+  const used = await sentOn(env, at || Date.now());
+  if(used + pick.list.length > limit) throw new HttpError(400, 'Daily limit: ' + used + ' emails are already counted for that day, ' + Math.max(0, limit - used) + ' left of ' + limit + '. Narrow the audience, or send on another day.');
   const attr = await attrNames(env, f);
 
   if(mode === 'ask'){
@@ -151,6 +163,7 @@ async function sendCampaign(env, f, who, b){
     for(const r of pick.list) versions.push({ to: [{ email: r.email, name: r.first || undefined }], params: { FIRSTNAME: r.first, LASTNAME: r.last, optinUrl: base + '/o?c=' + encodeURIComponent(r.id) + '&a=yes&s=' + await sig(env, r.id, 'yes'), stopUrl: base + '/o?c=' + encodeURIComponent(r.id) + '&a=no&s=' + await sig(env, r.id, 'no') } });
     let sent = 0;
     for(let i = 0; i < versions.length; i += 100){ await brevo(env, f, 'POST', '/smtp/email', { sender: sender(env), replyTo: env.REPLY_TO ? { email: env.REPLY_TO } : undefined, subject, htmlContent: html, messageVersions: versions.slice(i, i + 100), tags: ['jaay-invite'] }); sent += Math.min(100, versions.length - i); }
+    await addSent(env, Date.now(), sent);
     return { kind: 'invite', recipients: sent, skipped: pick.skipped, status: 'sent' };
   }
 
@@ -166,6 +179,7 @@ async function sendCampaign(env, f, who, b){
   const camp = await brevo(env, f, 'POST', '/emailCampaigns', Object.assign({ name, subject, sender: sender(env), htmlContent: buildHtml(b.html, attr, 'subscribed'), recipients: { listIds: [list.id] }, tag: 'jaay' },
     env.REPLY_TO ? { replyTo: env.REPLY_TO } : {}, at ? { scheduledAt: at.toISOString() } : {}));
   if(!at) await brevo(env, f, 'POST', '/emailCampaigns/' + camp.id + '/sendNow');
+  await addSent(env, at || Date.now(), pick.list.length);
   return { kind: 'campaign', brevoId: camp.id, listId: list.id, recipients: pick.list.length, skipped: pick.skipped, status: at ? 'scheduled' : 'sent', scheduledAt: at ? at.toISOString() : '' };
 }
 
@@ -176,6 +190,7 @@ async function sendTest(env, f, who, b){
   const allowed = String(env.TEST_EMAILS || '').split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
   if(!EMAIL_RE.test(to) || (to !== who.email && !allowed.includes(to))) throw new HttpError(400, 'This address is not allowed for tests. Add it to TEST_EMAILS in the worker settings.');
   await brevo(env, f, 'POST', '/smtp/email', { sender: sender(env), to: [{ email: to }], subject: '[TEST] ' + subject, htmlContent: sample(b.html, 'Moussa'), tags: ['jaay-test'] });
+  await addSent(env, Date.now(), 1);
   return { sent: 1, to };
 }
 
@@ -197,6 +212,29 @@ async function unsubscribed(env, f, b){
     if(cs.length < 500) break;
   }
   return { emails };
+}
+
+/* ---------- what the portal shows so nobody has to open Brevo or Cloudflare ---------- */
+const EVENTS = ['requests', 'delivered', 'opened', 'clicks', 'hardBounces', 'softBounces', 'blocked', 'spam', 'invalid', 'deferred', 'unsubscribed', 'error'];
+async function status(env, f){
+  const out = { worker: { ok: true }, brevo: { ok: false }, sender: { email: env.SENDER_EMAIL || '', found: false, verified: false }, today: { sent: await sentOn(env), limit: Number(env.DAILY_LIMIT || 300) } };
+  try{ const a = await brevo(env, f, 'GET', '/account'); out.brevo = { ok: true, company: String(a.companyName || ''), plan: (a.plan || []).map(p => ({ type: String(p.type || ''), credits: p.credits == null ? null : Number(p.credits), creditsType: String(p.creditsType || '') })) }; }
+  catch(e){ out.brevo = { ok: false, error: String(e.message || e).slice(0, 160) }; }
+  try{ const j = await brevo(env, f, 'GET', '/senders'), m = (j.senders || []).find(x => String(x.email).toLowerCase() === String(env.SENDER_EMAIL || '').toLowerCase()); out.sender.found = !!m; out.sender.verified = !!(m && m.active); }
+  catch(e){ out.sender.error = String(e.message || e).slice(0, 160); }
+  return out;
+}
+// Individual emails (tests and the invitation) with what happened to each: delivered, opened, clicked, bounced, blocked, unsubscribed...
+async function activity(env, f, b){
+  const days = Math.min(30, Math.max(1, Number(b.days) || 7)), limit = Math.min(100, Math.max(1, Number(b.limit) || 60));
+  const ev = EVENTS.includes(b.event) ? '&event=' + b.event : '';
+  const j = await brevo(env, f, 'GET', '/smtp/statistics/events?days=' + days + '&limit=' + limit + '&offset=0&sort=desc' + ev);
+  return { events: (j.events || []).map(e => ({ t: String(e.date || ''), to: String(e.email || ''), ev: String(e.event || ''), subject: String(e.subject || '').slice(0, 160), tag: String(e.tag || ''), reason: String(e.reason || '').slice(0, 160), link: String(e.link || '').slice(0, 200) })) };
+}
+async function sendlog(env){
+  const out = [], l = await env.OPTINS.list({ prefix: 'log:', limit: 50 });
+  for(const k of l.keys){ try{ const v = await env.OPTINS.get(k.name); if(v) out.push(JSON.parse(v)); }catch(e){} }
+  return { log: out };
 }
 
 /* ---------- answers to the invitation (public page) ---------- */
@@ -232,8 +270,15 @@ export async function handle(req, env, f = fetch){
   try{
     let b = {}; try{ b = await req.json(); }catch(e){ throw new HttpError(400, 'Bad request'); }
     const who = await authorize(req, b, env, f);
-    if(url.pathname === '/send') return json(await sendCampaign(env, f, who, b), 200, cors);
-    if(url.pathname === '/test') return json(await sendTest(env, f, who, b), 200, cors);
+    if(url.pathname === '/send'){
+      const label = String(b.name || b.subject || '').slice(0, 120), kind = b.mode === 'ask' ? 'invite' : 'campaign';
+      try{ const r = await sendCampaign(env, f, who, b); await logSend(env, who, { kind: r.kind, name: label, recipients: r.recipients, status: r.status, brevoId: r.brevoId || 0, scheduledAt: r.scheduledAt || '' }); return json(r, 200, cors); }
+      catch(e){ await logSend(env, who, { kind, name: label, recipients: 0, status: 'error', error: String(e && e.message || e).slice(0, 200) }); throw e; }
+    }
+    if(url.pathname === '/test'){ const r = await sendTest(env, f, who, b); await logSend(env, who, { kind: 'test', name: String(b.subject || '').slice(0, 120), recipients: 1, status: 'sent', to: r.to }); return json(r, 200, cors); }
+    if(url.pathname === '/status') return json(await status(env, f), 200, cors);
+    if(url.pathname === '/activity') return json(await activity(env, f, b), 200, cors);
+    if(url.pathname === '/sendlog') return json(await sendlog(env), 200, cors);
     if(url.pathname === '/stats') return json(await stats(env, f, b), 200, cors);
     if(url.pathname === '/unsubs') return json(await unsubscribed(env, f, b), 200, cors);
     if(url.pathname === '/optins') return json(await optins(env), 200, cors);

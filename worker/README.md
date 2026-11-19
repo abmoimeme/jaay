@@ -25,3 +25,9 @@ Sends the campaigns made on the Campaigns page, through Brevo. One small Cloudfl
 - "Sync replies and unsubscribes" (Campaigns page) brings back: people who unsubscribed or whose address bounced (they become Refused), and answers to the invitation (Yes becomes Agreed, No becomes Refused). It also runs once each time the page is opened.
 - The invitation uses Brevo's transactional email, with a personal signed Yes and No link per person. Answers wait in Cloudflare KV until staff press Sync.
 - Tests: `node --test worker/test.mjs` (Node 18 or later). They use stand-ins for Google, Firestore and Brevo; the first real send is the only test against live Brevo.
+
+
+## Updating the worker later
+When `worker/index.js` changes (it did when the Delivery section was added), open the worker in Cloudflare, **Edit code**, select all, paste the new `index.js` and click **Deploy**. Variables, secrets and the KV namespace stay as they are.
+
+The worker keeps a small send log and a count of emails sent per day in the same KV namespace (`OPTINS`), so Jaay can show what was sent, by whom, and how many emails are left for the day. Entries expire by themselves (the log after 90 days). Jaay's **Delivery and health** section on the Campaigns page reads that log and Brevo's own activity, so you do not need to open Brevo or Cloudflare to see it.

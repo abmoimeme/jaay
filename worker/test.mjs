@@ -31,6 +31,9 @@ function world({ role = 'manager', active = true } = {}){
     if(url.endsWith('/processes/9')) return R({ status: 'completed' });
     if(url.endsWith('/emailCampaigns') && m === 'POST') return R({ id: 321 });
     if(url.endsWith('/sendNow')) return new Response(null, { status: 204 });
+    if(url.endsWith('/account')) return R({ companyName: 'Planet Auto Hub', plan: [{ type: 'free', creditsType: 'sendLimit', credits: 300 }] });
+    if(url.endsWith('/senders')) return R({ senders: [{ id: 1, name: 'Planet Auto Hub', email: 'contact@planetautohub.com', active: true }, { id: 2, name: 'X', email: 'other@x.com', active: false }] });
+    if(url.includes('/smtp/statistics/events')) return R({ events: [{ date: '2026-11-19T22:44:00.000Z', email: 'abdoul.samb@gmail.com', event: 'delivered', subject: '[TEST] Offre', tag: 'jaay-test', messageId: 'm1', from: 'contact@planetautohub.com' }, { date: '2026-11-19T22:45:00.000Z', email: 'abdoul.samb@gmail.com', event: 'opened', subject: '[TEST] Offre', tag: 'jaay-test' }, { date: '2026-11-19T22:50:00.000Z', email: 'bad@x.com', event: 'hardBounces', subject: 'Invitation', tag: 'jaay-invite', reason: 'mailbox does not exist' }] });
     if(url.endsWith('/smtp/email')) return R({ messageId: 'x' }, 201);
     if(url.includes('statistics=globalStats')) return R({ status: 'sent', statistics: { globalStats: { sent: 10, delivered: 9, uniqueViews: 4, uniqueClicks: 2, unsubscriptions: 1, hardBounces: 1, softBounces: 0, complaints: 0 } } });
     if(url.includes('statistics=linksStats')) return R({ statistics: { linksStats: { 'https://wa.me/221787537676': 2 } } });
@@ -39,7 +42,7 @@ function world({ role = 'manager', active = true } = {}){
   };
   return { f, calls };
 }
-const env = { FIREBASE_PROJECT: P, BREVO_KEY: 'k', SENDER_EMAIL: 'contact@planetautohub.com', ALLOWED_ORIGINS: 'https://app.planetautohub.com', DAILY_LIMIT: '300', LINK_SECRET: 'secret', PUBLIC_URL: 'https://w.example', OPTINS: (() => { const m = new Map(); return { put: async (k, v, o) => m.set(k, o.metadata), delete: async k => m.delete(k), list: async () => ({ keys: [...m].map(([name, metadata]) => ({ name, metadata })), list_complete: true }) }; })() };
+const env = { FIREBASE_PROJECT: P, BREVO_KEY: 'k', SENDER_EMAIL: 'contact@planetautohub.com', ALLOWED_ORIGINS: 'https://app.planetautohub.com', DAILY_LIMIT: '300', LINK_SECRET: 'secret', PUBLIC_URL: 'https://w.example', OPTINS: (() => { const m = new Map(); const kv = { put: async (k, v, o) => m.set(k, { v, metadata: o && o.metadata }), get: async k => (m.has(k) ? m.get(k).v : null), delete: async k => m.delete(k), list: async (o = {}) => { const keys = [...m].filter(([n]) => n.startsWith((o && o.prefix) || '')).sort((a, b) => (a[0] < b[0] ? -1 : 1)).slice(0, (o && o.limit) || 1000).map(([name, x]) => ({ name, metadata: x.metadata })); return { keys, list_complete: true }; }, _m: m }; return kv; })() };
 const call = async (path, body, w, tok, origin = 'https://app.planetautohub.com') => {
   const r = await handle(new Request('https://w.example' + path, { method: 'POST', headers: { authorization: 'Bearer ' + (tok === undefined ? await token() : tok), origin, 'content-type': 'application/json' }, body: JSON.stringify(body) }), env, w.f);
   return { status: r.status, body: await r.json() };
@@ -121,4 +124,40 @@ test('test email goes only to the caller; stats and unsubscribes', async () => {
 test('cleanHtml and buildHtml', () => {
   assert.equal(cleanHtml('<p onclick="x()">a</p><script>b</script><iframe src=x></iframe>'), '<p>a</p>');
   assert.match(buildHtml('<p>x</p>', { first: 'FIRSTNAME', last: 'LASTNAME' }, 'subscribed'), /\{\{ unsubscribe \}\}/);
+});
+
+test('status: worker, Brevo account and plan, sender verified, count for today', async () => {
+  env.OPTINS._m.clear();
+  const w = world(), r = await call('/status', { store: 'pah' }, w);
+  assert.equal(r.status, 200); assert.equal(r.body.worker.ok, true); assert.equal(r.body.brevo.ok, true); assert.deepEqual(r.body.brevo.plan, [{ type: 'free', credits: 300, creditsType: 'sendLimit' }]);
+  assert.equal(r.body.sender.verified, true); assert.equal(r.body.today.sent, 0); assert.equal(r.body.today.limit, 300);
+  const bad = { f: async (u, i) => (String(u).includes('api.brevo.com') ? new Response(JSON.stringify({ message: 'Key not found' }), { status: 401 }) : w.f(u, i)) };
+  const r2 = await call('/status', { store: 'pah' }, bad); assert.equal(r2.status, 200); assert.equal(r2.body.brevo.ok, false); assert.ok(r2.body.brevo.error.includes('Key not found')); assert.equal(r2.body.sender.verified, false);
+});
+test('activity: per-email events mapped, limits clamped, unknown event filter ignored', async () => {
+  const w = world(), r = await call('/activity', { store: 'pah', days: 999, limit: 9999, event: 'nonsense' }, w);
+  assert.equal(r.status, 200); assert.equal(r.body.events.length, 3); assert.deepEqual(r.body.events[2], { t: '2026-11-19T22:50:00.000Z', to: 'bad@x.com', ev: 'hardBounces', subject: 'Invitation', tag: 'jaay-invite', reason: 'mailbox does not exist', link: '' });
+  const q = w.calls.find(c => c.url.includes('/smtp/statistics/events')).url; assert.ok(q.includes('days=30') && q.includes('limit=100') && !q.includes('event='));
+  const w2 = world(); await call('/activity', { store: 'pah', days: 3, event: 'opened' }, w2); const q2 = w2.calls.find(c => c.url.includes('/smtp/statistics/events')).url; assert.ok(q2.includes('days=3') && q2.includes('event=opened'));
+});
+test('send log: newest first, errors recorded, tests recorded; only owner and manager can read the new views', async () => {
+  env.OPTINS._m.clear();
+  await call('/test', { store: 'pah', subject: 'Un', html: '<p>x {{unsubscribe}}</p>' }, world());
+  await call('/send', Object.assign({}, send, { name: 'Deux' }), world());
+  const bad = await call('/send', Object.assign({}, send, { name: 'Trois', contactIds: ['a2'] }), world()); assert.equal(bad.status, 400);
+  const r = await call('/sendlog', { store: 'pah' }, world()); assert.equal(r.status, 200);
+  assert.deepEqual(r.body.log.map(x => [x.kind, x.name, x.status]), [['campaign', 'Trois', 'error'], ['campaign', 'Deux', 'sent'], ['test', 'Un', 'sent']]);
+  assert.ok(r.body.log[0].error.includes('Nobody') && r.body.log[1].recipients === 1 && r.body.log[1].brevoId === 321 && r.body.log[1].by === 'ab@example.com');
+  for(const path of ['/status', '/activity', '/sendlog']) for(const role of ['cashier', 'stock', 'accountant']) assert.equal((await call(path, { store: 'pah' }, world({ role }))).status, 403);
+});
+test('daily limit is shared by every send of the day, including tests', async () => {
+  env.OPTINS._m.clear(); env.DAILY_LIMIT = '3';
+  try{
+    assert.equal((await call('/test', { store: 'pah', subject: 'T', html: '<p>x {{unsubscribe}}</p>' }, world())).status, 200);
+    assert.equal((await call('/send', send, world())).status, 200);                       // 1 recipient: total 2
+    assert.equal((await call('/send', send, world())).status, 200);                       // total 3
+    const r = await call('/send', send, world()); assert.equal(r.status, 400); assert.ok(r.body.error.startsWith('Daily limit: 3 emails'), r.body.error);
+    assert.equal((await call('/status', { store: 'pah' }, world())).body.today.sent, 3);
+    const later = new Date(Date.now() + 3 * 864e5).toISOString(); assert.equal((await call('/send', Object.assign({}, send, { scheduledAt: later }), world())).status, 200);  // another day has its own count
+  } finally { env.DAILY_LIMIT = '300'; env.OPTINS._m.clear(); }
 });
