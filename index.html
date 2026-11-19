@@ -111,6 +111,8 @@ tbody tr.row:hover{background:var(--tint)}
 .r{text-align:right}
 .sub{font-size:var(--t-sm);line-height:1.35;color:var(--muted)}
 .plate{display:inline-block;font-weight:600;font-size:var(--t-sm);letter-spacing:.06em;border:1px solid var(--line-2);border-radius:var(--r1);padding:0 var(--s1);background:var(--surface);white-space:nowrap;font-variant-numeric:tabular-nums}
+.wcat{display:grid;grid-template-columns:minmax(0,2fr) minmax(260px,1fr);gap:12px;margin-top:12px}@media(max-width:820px){.wcat{grid-template-columns:minmax(0,1fr)}}
+.wdr>summary{cursor:pointer;padding:2px 0}.wdr[open]>summary{margin-bottom:10px}.wdr>div:first-of-type{margin-top:0!important}
 .pill{display:inline-block;font-size:var(--t-xs);line-height:1.5;font-weight:600;border-radius:var(--r1);padding:0 var(--s2);background:var(--tint);color:var(--muted);white-space:nowrap}
 .pill.good{color:var(--good);background:color-mix(in srgb,var(--good) 10%,var(--surface))} .pill.bad{color:var(--bad);background:color-mix(in srgb,var(--bad) 10%,var(--surface))} .pill.warn{color:var(--warn);background:color-mix(in srgb,var(--accent) 14%,var(--surface))} .pill.mute{color:var(--muted)}
 .pos{color:var(--good)} .neg{color:var(--bad)} .warn{color:var(--warn)}
@@ -318,6 +320,7 @@ Object.assign(T_FR, {"Invite": "Inviter", "Send this to the person. The link ope
 Object.assign(T_FR, {"Link for your staff": "Lien pour votre personnel", "Copy link": "Copier le lien"});
 Object.assign(T_FR, {"Download the import template (Excel)": "Télécharger le modèle d'import (Excel)", "one line per part; only Ref-article is required": "une ligne par pièce ; seule la Ref-article est obligatoire"});
 Object.assign(T_FR, {"STOP": "STOP", "Ask permission (first message)": "Demander l'accord (premier message)", "New stock arrived": "Nouveau stock arrivé", "Thank you after a purchase": "Merci après un achat", "Template": "Modèle", "Everyone not refused": "Tous sauf refus", "After each reply, tap Said yes or STOP so the list stays correct.": "Après chaque réponse, touchez A dit oui ou STOP pour garder la liste à jour.", "Said yes": "A dit oui", "Send from your email app, 50 at a time": "Envoi depuis votre messagerie, 50 à la fois", "Each button opens a new email with 50 people in BCC. These emails are not personalised.": "Chaque bouton ouvre un e-mail avec 50 personnes en copie cachée. Ces e-mails ne sont pas personnalisés.", "Batch": "Lot", "First 20 batches shown. For more, export the list (CSV) to Brevo or Mailchimp.": "20 premiers lots affichés. Pour plus, exportez la liste (CSV) vers Brevo ou Mailchimp.", "Email subject": "Objet du e-mail", "Messaging people who never agreed breaks WhatsApp rules and Senegal data law, and can get your number blocked. Prefer Agreed, and use Not asked yet to ask permission first.": "Écrire à des personnes qui n'ont jamais donné leur accord enfreint les règles de WhatsApp et la loi sénégalaise sur les données, et peut faire bloquer votre numéro. Préférez Accord donné, et utilisez Pas encore demandé pour demander l'accord d'abord.", "These people have not been asked. Send the permission message once; whoever answers yes moves to Agreed.": "Ces personnes n'ont pas été sollicitées. Envoyez une seule fois le message de demande d'accord ; ceux qui répondent oui passent à Accord donné.", "ask permission first": "demandez l'accord d'abord", "Consent": "Accord", "Consent date": "Date de l'accord", "Agreed to receive promotions": "A accepté de recevoir des promotions", "Asked to stop promotions": "A demandé l'arrêt des promotions", "Marked as agreed.": "Marqué comme accord donné.", "Marked as refused.": "Marqué comme refus.", "Agreement recorded": "Accord enregistré"});
+Object.assign(T_FR, {"Organic search": "Recherche naturelle", "Acquisition": "Acquisition", "Anonymous visit counts: no names, no phone numbers, no IP addresses. Open the site once with ?notrack on your own phones and computers to leave them out. Counting started on 18 Nov 2026.": "Comptage anonyme des visites : ni noms, ni numéros de téléphone, ni adresses IP. Ouvrez le site une fois avec ?notrack sur vos téléphones et ordinateurs pour les exclure. Le comptage a démarré le 18 nov. 2026.", "Avg time": "Temps moyen", "Behavior and visit log": "Comportement et journal des visites", "Call taps by source": "Appels par source", "Came from": "Origine du client", "Campaign": "Campagne", "Campaigns (UTM)": "Campagnes (UTM)", "Campaign (UTM)": "Campagne (UTM)", "Catalog / spec sheet downloads": "Téléchargements du catalogue / fiches techniques", "Channel": "Canal", "Channels": "Canaux", "Channels by sessions and contact taps": "Canaux : sessions et contacts", "Click-to-call": "Appels en un clic", "Compare to previous period": "Comparer à la période précédente", "Contact taps": "Contacts", "Contact taps share": "Part des contacts", "Country and city need the visitor IP address, which this site does not collect. The time zone is the closest anonymous signal.": "Le pays et la ville demandent l'adresse IP du visiteur, que ce site ne collecte pas. Le fuseau horaire est le signal anonyme le plus proche.", "Counts only sales and quotes where staff chose \"Came from: Website\" in the sale form. Until that is used, this stays at zero.": "Ne compte que les ventes et devis où l'équipe a choisi « Origine du client : Site web » dans le formulaire de vente. Tant que ce champ n'est pas utilisé, cela reste à zéro.", "Custom": "Personnalisé", "Device: traffic vs contact": "Appareil : trafic et contacts", "Drop-off, taps, language, every visit": "Abandons, contacts, langue, chaque visite", "Each part request sends a WhatsApp message that starts with the make, so the chat itself is tagged.": "Chaque demande de pièce envoie un message WhatsApp qui commence par la marque : la conversation est donc identifiée.", "Email and quotes": "E-mails et devis", "Geography": "Géographie", "Last 30 days": "30 derniers jours", "Lead conv.": "Conv. contacts", "Lead conversion": "Taux de contact", "Made a contact tap": "Ont contacté (WhatsApp, appel, e-mail)", "Make": "Marque", "Many views, few contacts": "Beaucoup de vues, peu de contacts", "No catalog PDF on the site yet. Any link to a .pdf file is counted here automatically.": "Pas encore de catalogue PDF sur le site. Tout lien vers un fichier .pdf sera compté ici automatiquement.", "No email link on the site yet. Taps are counted once one is added.": "Pas encore de lien e-mail sur le site. Les clics seront comptés dès qu'il y en aura un.", "No tagged links used in this period. Add ?utm_source=facebook&utm_medium=cpc to an ad link to see it here.": "Aucun lien balisé utilisé sur cette période. Ajoutez ?utm_source=facebook&utm_medium=cpc à un lien de publicité pour le voir ici.", "Offline attribution": "Attribution hors ligne", "PDF": "PDF", "PDF taps in this period": "Clics sur un PDF sur cette période", "Page / category": "Page / catégorie", "Paid = utm_medium cpc or paid. Campaign = any other ?utm_source or ?src link. Direct includes links opened from WhatsApp.": "Payant = utm_medium cpc ou paid. Campagne = tout autre lien ?utm_source ou ?src. Direct inclut les liens ouverts depuis WhatsApp.", "Parts catalog": "Catalogue de pièces", "Phones are": "Les téléphones représentent", "Product requests are taps on a part or make with a ready-made message. General taps are the WhatsApp buttons.": "Les demandes produit sont les clics sur une pièce ou une marque avec un message prêt. Les clics généraux sont les boutons WhatsApp.", "Quarter": "Trimestre", "Referral": "Site référent", "Region": "Région", "Region (from the browser time zone)": "Région (d'après le fuseau horaire)", "Region and time zone": "Région et fuseau horaire", "Repeat customer": "Client fidèle", "Revenue per visitor": "CA par visiteur", "Revenue per website visitor": "CA par visiteur du site", "Services": "Services", "Sessions": "Sessions", "Sessions and contact taps": "Sessions et contacts", "Sessions and contact taps over time": "Sessions et contacts dans le temps", "Social media or ad": "Réseaux sociaux ou publicité", "The site has no search box, so there are no search terms to show.": "Le site n'a pas de barre de recherche : il n'y a donc pas de termes recherchés à afficher.", "These are taps on the call button. Completed calls and call length need a call-tracking number from a provider, which is not set up.": "Ce sont les clics sur le bouton d'appel. Les appels réellement passés et leur durée demandent un numéro de suivi d'appels chez un opérateur, non configuré.", "This period has more than 3,000 visits, so the earliest days may be missing. Pick a shorter period.": "Cette période dépasse 3 000 visites : les premiers jours peuvent manquer. Choisissez une période plus courte.", "To": "Au", "Top site search terms": "Termes recherchés sur le site", "Top time zones (closest to a city)": "Principaux fuseaux horaires (au plus près d'une ville)", "Top viewed pages and categories": "Pages et catégories les plus vues", "Traffic share": "Part du trafic", "Views": "Vues", "Walk-in": "Client de passage", "Website sales": "Ventes issues du site", "Website → WhatsApp": "Site → WhatsApp", "Website → email": "Site → e-mail", "Website → phone call": "Site → appel", "WhatsApp + phone + email taps. Counted once per session so the rate cannot pass 100%.": "Clics WhatsApp + appel + e-mail, comptés une fois par session : le taux ne dépasse jamais 100 %.", "WhatsApp by product, calls by source, revenue per visitor": "WhatsApp par produit, appels par source, CA par visiteur", "WhatsApp inquiries by product": "Demandes WhatsApp par produit", "WhatsApp taps by place on the site": "Clics WhatsApp par endroit du site", "average time": "temps moyen", "email taps": "clics e-mail", "excl. VAT": "hors TVA", "from phones": "depuis des téléphones", "general": "généraux", "left scale": "échelle de gauche", "left within 10 s without tapping": "partis en moins de 10 s sans cliquer", "line": "ligne", "no visits recorded then": "aucune visite enregistrée", "of contact taps.": "des contacts.", "of sessions": "des sessions", "of sessions and": "des sessions et", "on the site now": "sur le site maintenant", "product requests": "demandes produit", "quotes logged from the website": "devis enregistrés depuis le site", "right scale": "échelle de droite", "sessions": "sessions", "sessions made a contact tap": "sessions avec un contact", "taps": "clics", "unique visitors": "visiteurs uniques", "visitors": "visiteurs", "vs previous period": "par rapport à la période précédente", "Views are sessions that scrolled to the section, or opened the make. Avg time counts only visits recorded after the new tracker went live. Lead conv. is the share of those sessions with a contact tap.": "Les vues sont les sessions qui ont atteint la section ou ouvert la marque. Le temps moyen ne compte que les visites enregistrées après la mise en service du nouveau suivi. Conv. contacts = part de ces sessions avec un contact."});
 let lang = 'en';
 const t = s => (lang === 'fr' && T_FR[s]) || s;
 
@@ -1002,6 +1005,7 @@ function vExpenses(){
    Button names, menus, what each level can do, categories and payment methods are read from the
    app itself, so the guide changes with the app. Add a line to GUIDE_NEWS with each change. */
 const GUIDE_NEWS = [
+  ['2026-11-19', ['Page Site web refaite pour la vente par WhatsApp, appel et e-mail : filtre de période avec comparaison, taux de contact, pages les plus vues, canaux, attribution hors ligne. Nouveau champ « Origine du client » sur les ventes et devis.']],
   ['2026-11-18', ['Nouvelle page Site web (propriétaire et gérants) : visiteurs de planetautohub.com, d\'où ils viennent, ce qu\'ils ont touché (WhatsApp, appel, marques), combien de temps ils restent, et combien demandent une pièce sur WhatsApp. Anonyme : pas de nom ni de numéro. Pour exclure vos propres appareils, ouvrez une fois planetautohub.com/?notrack dessus.']],
   ['2026-11-17', ['Invitations : lien personnel par WhatsApp pour chaque membre du personnel (code boutique et identifiant déjà remplis).',
     'Offres : remises automatiques en caisse (pourcentage, montant ou prix fixe, sur une catégorie, une marque ou des articles, à partir d\'une quantité, entre deux dates).',
@@ -1224,21 +1228,28 @@ function vMonitor(){
 }
 /* ---------- website: visits to planetautohub.com (owner and manager) ----------
    The site writes one anonymous record per visit (stores/pah/web_hits/<visit id>); this page reads them.
-   No names, no phone numbers, no IP addresses. Region is a guess from the browser's time zone. */
-let webUnsub = null, webSince = '', webLoaded = false, webPeriod = 'today';
+   No names, no phone numbers, no IP addresses. Region is a guess from the browser's time zone.
+   Built for a catalog that sells by WhatsApp, phone and email: the goal is contact taps, not carts. */
+let webUnsub = null, webSince = '', webLoaded = false, webPeriod = '7d', webFrom = '', webTo = '', webCmp = true, webOpen = {};
+try{ const s = JSON.parse(localStorage.getItem('jaay_web') || '{}'); if(['today', '7d', '30d', 'quarter', 'custom'].includes(s.p)) webPeriod = s.p; if(/^\d{4}-\d\d-\d\d$/.test(s.f || '')) webFrom = s.f; if(/^\d{4}-\d\d-\d\d$/.test(s.to || '')) webTo = s.to; if(s.c === false) webCmp = false; }catch(e){}
+const webSave = () => { try{ localStorage.setItem('jaay_web', JSON.stringify({ p:webPeriod, f:webFrom, to:webTo, c:webCmp })); }catch(e){} };
 S.web = [];
 const seeWeb = () => ['owner', 'manager'].includes(role());
 function stopWeb(){ if(webUnsub){ webUnsub(); webUnsub = null; } webSince = ''; webLoaded = false; S.web = []; }
+const webAdd = (s, n) => { const p = s.split('-'); return iso(new Date(+p[0], +p[1] - 1, +p[2] + n)); };
+const webDays = (a, b) => Math.round((Date.UTC(+b.slice(0, 4), +b.slice(5, 7) - 1, +b.slice(8)) - Date.UTC(+a.slice(0, 4), +a.slice(5, 7) - 1, +a.slice(8))) / 864e5) + 1;
 function webRange(){
   const d = new Date(), td = iso(d);
-  if(webPeriod === 'yesterday'){ const y = iso(new Date(d.getFullYear(), d.getMonth(), d.getDate() - 1)); return [y, y]; }
-  if(webPeriod === '7d') return [iso(new Date(d.getFullYear(), d.getMonth(), d.getDate() - 6)), td];
-  if(webPeriod === 'month') return [td.slice(0, 8) + '01', td];
-  return [td, td];
+  if(webPeriod === 'today') return [td, td];
+  if(webPeriod === '30d') return [webAdd(td, -29), td];
+  if(webPeriod === 'quarter') return [iso(new Date(d.getFullYear(), Math.floor(d.getMonth() / 3) * 3, 1)), td];
+  if(webPeriod === 'custom' && webFrom && webTo && webFrom <= webTo) return [webFrom, webTo];
+  return [webAdd(td, -6), td];
 }
+function webPrev(){ const r = webRange(), n = webDays(r[0], r[1]); return [webAdd(r[0], -n), webAdd(r[0], -1)]; }
 function watchWeb(){
   if(route !== 'website' || !seeWeb() || !storeId){ if(webUnsub) stopWeb(); return; }
-  const since = webRange()[0];
+  const since = (webCmp ? webPrev() : webRange())[0];
   if(webUnsub && webSince === since) return;
   if(webUnsub) webUnsub();
   webSince = since; webLoaded = false;
@@ -1246,11 +1257,44 @@ function watchWeb(){
     S.web = sn.docs.map(d => Object.assign({ id:d.id }, d.data())); webLoaded = true; render();
   }, e => { webLoaded = true; liveErr(e); render(); });
 }
+document.addEventListener('change', e => {
+  const el = e.target; if(!el || !el.id) return;
+  if(el.id === 'webCmp'){ webCmp = el.checked; webSave(); render(); }
+  else if(el.id === 'webFrom' || el.id === 'webTo'){
+    if(el.id === 'webFrom') webFrom = el.value; else webTo = el.value;
+    if(webFrom && webTo && webFrom > webTo){ if(el.id === 'webFrom') webTo = webFrom; else webFrom = webTo; }
+    webSave(); render();
+  }
+});
+document.addEventListener('toggle', e => { const k = e.target && e.target.dataset && e.target.dataset.wk; if(k) webOpen[k] = e.target.open; }, true);
+
 const WEB_PLACE = { top:'Top of page', pieces:'Parts', vehicules:'Vehicles', services:'Services', commander:'How to order', contact:'Contact', header:'Header', dock:'Bottom bar', '':'Page' };
+const WEB_CAT = [['pieces', 'Parts catalog'], ['vehicules', 'Vehicles'], ['services', 'Services'], ['commander', 'How to order'], ['contact', 'Contact']];
 const WEB_SEC = [['pieces', 'Viewed parts'], ['vehicules', 'Viewed vehicles'], ['services', 'Viewed services'], ['contact', 'Reached contact']];
-const webLead = h => (h.clicks || []).some(k => /^(wa\d|make:)/.test(k));
+const WEB_DEV = [['m', 'Phone'], ['t', 'Tablet'], ['d', 'Computer']];
+const webSecs = h => { const o = {}; (h.secs || []).forEach(s => { s = String(s); const i = s.indexOf(':'); o[i < 0 ? s : s.slice(0, i)] = i < 0 ? null : (+s.slice(i + 1) || 0); }); return o; };
+const webLead = h => (h.clicks || []).some(k => /^(wa\d@|make:)/.test(k));
 const webCall = h => (h.clicks || []).some(k => /^call/.test(k));
 const webLast = h => (h.ts || 0) + (h.dur || 0) * 1000;
+/* Contact taps of one visit: WhatsApp (a line button or a part request), phone, email. */
+function webTaps(h){
+  const o = { wa:0, make:0, line:0, call:0, mail:0, pdf:0 };
+  (h.clicks || []).forEach(k => {
+    if(/^make:/.test(k)){ o.wa++; o.make++; } else if(/^wa\d@/.test(k)){ o.wa++; o.line++; }
+    else if(/^call@/.test(k)) o.call++; else if(/^email@/.test(k)) o.mail++; else if(/^pdf:/.test(k)) o.pdf++;
+  });
+  o.all = o.wa + o.call + o.mail; return o;
+}
+function webM(list){
+  const m = { n:list.length, nv:0, wa:0, make:0, line:0, call:0, mail:0, pdf:0, all:0, lead:0, mobCall:0, dur:0, timed:0, quick:0 }, vis = new Set();
+  list.forEach(h => {
+    const o = webTaps(h); vis.add(h.vid); if(h.nv) m.nv++;
+    ['wa', 'make', 'line', 'call', 'mail', 'pdf', 'all'].forEach(k => { m[k] += o[k]; });
+    if(o.all) m.lead++; if(h.dev === 'm') m.mobCall += o.call;
+    if(h.dur > 0){ m.dur += h.dur; m.timed++; } if((h.dur || 0) < 10 && !(h.clicks || []).length) m.quick++;
+  });
+  m.v = vis.size; m.conv = m.n ? Math.round(m.lead / m.n * 1000) / 10 : 0; m.avg = m.timed ? Math.round(m.dur / m.timed) : 0; return m;
+}
 function webSource(h){
   const s = String(h.src || '').toLowerCase(), r = String(h.ref || '').toLowerCase(), x = s || r;
   if(!x) return 'Direct or WhatsApp';
@@ -1262,6 +1306,16 @@ function webSource(h){
   if(/^t\.co|twitter|^x\.com/.test(x)) return 'X';
   if(/bing|duckduckgo|yahoo|ecosia/.test(x)) return 'Other search';
   return x.slice(0, 30);
+}
+/* Channel: Paid (utm_medium cpc/paid), Campaign (any other utm_source or src), Organic search, Social, Referral, Direct. */
+function webChannel(h){
+  const s = String(h.src || '').toLowerCase(), r = String(h.ref || '').toLowerCase(), med = s.indexOf('/') > -1 ? s.split('/')[1] : '';
+  if(/^(cpc|ppc|paid|ads?|display)/.test(med)) return 'Paid';
+  if(s) return 'Campaign (UTM)';
+  if(!r) return 'Direct';
+  if(/google|bing|duckduckgo|yahoo|ecosia|yandex/.test(r)) return 'Organic search';
+  if(/facebook|insta|tiktok|^t\.co|twitter|^x\.com|youtube|linkedin|snapchat/.test(r)) return 'Social';
+  return 'Referral';
 }
 function webRegion(h){
   const z = String(h.tz || '');
@@ -1278,6 +1332,8 @@ function webClickName(k){
   if((m = /^make:(.*)$/.exec(k))) return t('Asked for a part:') + ' ' + m[1];
   if((m = /^open:(.*)$/.exec(k))) return t('Opened make:') + ' ' + m[1];
   if((m = /^call@(.*)$/.exec(k))) return t('Call') + ' · ' + t(WEB_PLACE[m[1]] || m[1]);
+  if((m = /^email@(.*)$/.exec(k))) return t('Email') + ' · ' + t(WEB_PLACE[m[1]] || m[1]);
+  if((m = /^pdf:(.*)$/.exec(k))) return t('PDF') + ': ' + m[1];
   if(k === 'maps') return t('Google Maps');
   if(k === 'lang') return t('Language switch');
   if(/^(tiktok|facebook|instagram)$/.test(k)) return k.charAt(0).toUpperCase() + k.slice(1);
@@ -1285,50 +1341,154 @@ function webClickName(k){
   return k;
 }
 const webDur = s => s >= 60 ? Math.floor(s / 60) + ' min ' + (s % 60 ? pad(s % 60) + ' s' : '') : s + ' s';
-function webRows(){ const [a, b] = webRange(); return S.web.filter(h => h.day >= a && h.day <= b).sort((x, y) => webLast(y) - webLast(x)); }
+const webSel = (a, b) => S.web.filter(h => h.day >= a && h.day <= b);
+function webRows(){ const r = webRange(); return webSel(r[0], r[1]).sort((x, y) => webLast(y) - webLast(x)); }
 function webCount(list, keyFn){ const m = {}; list.forEach(h => { const ks = keyFn(h); (Array.isArray(ks) ? ks : [ks]).forEach(k => { if(k) m[k] = (m[k] || 0) + 1; }); }); return Object.entries(m).sort((a, b) => b[1] - a[1]); }
+function webGroup(list, keyFn){ const g = {}; list.forEach(h => { const k = keyFn(h); if(k) (g[k] = g[k] || []).push(h); }); return Object.entries(g).map(e => [e[0], webM(e[1])]).sort((a, b) => b[1].n - a[1].n); }
 const webBars = (rows, total, fmtKey) => rows.length ? rows.map(r => '<div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="flex:0 0 40%;min-width:0;overflow-wrap:anywhere">' + esc(fmtKey ? fmtKey(r[0]) : t(r[0])) + '</span><span style="flex:1;background:var(--tint);border-radius:4px;height:10px"><i style="display:block;height:10px;border-radius:4px;background:var(--accent);width:' + Math.max(2, Math.round(r[1] / Math.max(1, total) * 100)) + '%"></i></span><b class="num" style="flex:0 0 auto;min-width:64px;text-align:right">' + n0(r[1]) + ' <span class="sub">' + Math.round(r[1] / Math.max(1, total) * 100) + '%</span></b></div>').join('') : '<div class="empty">' + esc(t('Nothing yet.')) + '</div>';
+const webPct = x => (Math.round(x * 10) / 10) + '%';
+const wtbl = (heads, rows) => '<div class="tbl-wrap"><table><thead><tr>' + heads.map((h, i) => '<th' + (i ? ' class="r"' : '') + '>' + esc(t(h)) + '</th>').join('') + '</tr></thead><tbody>' + rows.join('') + '</tbody></table></div>';
+const wtr = cells => '<tr>' + cells.map((c, i) => '<td' + (i ? ' class="r num"' : '') + '>' + c + '</td>').join('') + '</tr>';
+const wcard = (title, body, note) => '<div class="card"><h3>' + esc(title) + '</h3>' + body + (note ? '<p class="sub" style="margin:8px 0 0">' + esc(note) + '</p>' : '') + '</div>';
+const wgrid = inner => '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin-top:12px">' + inner + '</div>';
+const wdrawer = (key, title, hint, inner) => '<details class="card wdr" data-wk="' + key + '"' + (webOpen[key] ? ' open' : '') + '><summary><b>' + esc(title) + '</b> <span class="sub">' + esc(hint) + '</span></summary>' + inner + '</details>';
+/* Change against the previous period; pt = percentage points. Nothing is shown when there is nothing to compare with. */
+function webBadge(cur, prev, pt, hasPrev){
+  if(!webCmp || !hasPrev) return '';
+  let txt, cls;
+  if(pt){ const d = Math.round((cur - prev) * 10) / 10; txt = (d > 0 ? '+' : '') + d + ' pt'; cls = d > 0 ? 'good' : d < 0 ? 'bad' : 'mute'; }
+  else if(!prev){ txt = cur ? t('New') : '0%'; cls = cur ? 'good' : 'mute'; }
+  else { const d = Math.round((cur - prev) / prev * 100); txt = (d > 0 ? '+' : '') + d + '%'; cls = d > 0 ? 'good' : d < 0 ? 'bad' : 'mute'; }
+  return '<span class="pill ' + cls + '" title="' + esc(t('vs previous period')) + '">' + esc(txt) + '</span> ';
+}
+const wkpi = (label, val, badge, note, tip) => '<div class="tile"' + (tip ? ' title="' + esc(tip) + '"' : '') + '><span>' + esc(label) + '</span><b class="num">' + esc(val) + '</b><em>' + badge + esc(note || '') + '</em></div>';
+/* Revenue (excluding VAT) of sales that staff marked "Came from: website" in the sale form. */
+function webRev(a, b){
+  const o = { rev:0, cnt:0, q:0, by:{} };
+  for(const id in S.txns){
+    const x = S.txns[id]; if(!x.cameFrom || !/^web/.test(x.cameFrom) || !(x.date >= a && x.date <= b)) continue;
+    if(x.type === 'quote'){ o.q++; continue; } if(x.type !== 'sale') continue;
+    const r = num(x.total) - num(x.taxAmt); o.rev += r; o.cnt++; o.by[x.cameFrom] = (o.by[x.cameFrom] || 0) + r;
+  }
+  return o;
+}
+const WEB_CAME = { 'web-wa':'Website → WhatsApp', 'web-call':'Website → phone call', 'web-email':'Website → email' };
+/* Trend: sessions as bars (left scale), WhatsApp / phone / email taps as lines (right scale). Hourly for one day, weekly past 45 days. */
+function webTrend(rows, a, b){
+  const nd = webDays(a, b), hourly = nd === 1, step = nd > 45 ? 7 : 1, nb = hourly ? 24 : Math.ceil(nd / step);
+  const B = []; for(let i = 0; i < nb; i++) B.push({ s:0, wa:0, call:0, mail:0 });
+  rows.forEach(h => { const i = hourly ? new Date(h.ts).getHours() : Math.floor((webDays(a, h.day) - 1) / step), o = webTaps(h); if(!B[i]) return; B[i].s++; B[i].wa += o.wa; B[i].call += o.call; B[i].mail += o.mail; });
+  const lab = i => hourly ? i + 'h' : fdate(webAdd(a, i * step)).slice(0, 5);
+  const W = 640, H = 220, L = 36, R = 36, T = 12, Bt = 28, pw = W - L - R, ph = H - T - Bt;
+  const mS = Math.max(1, ...B.map(x => x.s)), mC = Math.max(1, ...B.map(x => Math.max(x.wa, x.call, x.mail)));
+  const cx = i => L + pw * (i + .5) / nb, ys = v => T + ph - v / mS * ph, yc = v => T + ph - v / mC * ph, bw = Math.max(2, Math.min(28, pw / nb * .6));
+  const line = (key, color, dash) => { const pts = B.map((x, i) => cx(i).toFixed(1) + ',' + yc(x[key]).toFixed(1)); return '<polyline fill="none" stroke="' + color + '" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"' + (dash ? ' stroke-dasharray="' + dash + '"' : '') + ' points="' + pts.join(' ') + '"/>' + B.map((x, i) => '<circle cx="' + cx(i).toFixed(1) + '" cy="' + yc(x[key]).toFixed(1) + '" r="' + (nb > 20 ? 2 : 3) + '" fill="' + color + '"/>').join(''); };
+  const every = Math.max(1, Math.ceil(nb / 7));
+  const svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;height:auto;display:block" role="img" aria-label="' + esc(t('Sessions and contact taps over time')) + '" font-size="10">'
+    + '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + (T + ph) + '" y2="' + (T + ph) + '" style="stroke:var(--line-2)"/>'
+    + '<text x="' + (L - 4) + '" y="' + (T + 8) + '" text-anchor="end" style="fill:var(--muted)">' + mS + '</text><text x="' + (L - 4) + '" y="' + (T + ph) + '" text-anchor="end" style="fill:var(--muted)">0</text>'
+    + '<text x="' + (W - R + 4) + '" y="' + (T + 8) + '" style="fill:var(--muted)">' + mC + '</text><text x="' + (W - R + 4) + '" y="' + (T + ph) + '" style="fill:var(--muted)">0</text>'
+    + B.map((x, i) => '<rect x="' + (cx(i) - bw / 2).toFixed(1) + '" y="' + ys(x.s).toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + (T + ph - ys(x.s)).toFixed(1) + '" rx="2" style="fill:var(--line-2)"/>').join('')
+    + line('wa', 'var(--good)') + line('call', '#2F6FDB', '6 4') + line('mail', 'var(--warn)', '1 4')
+    + B.map((x, i) => (i % every === 0 ? '<text x="' + cx(i).toFixed(1) + '" y="' + (H - 10) + '" text-anchor="middle" style="fill:var(--muted)">' + esc(lab(i)) + '</text>' : '') + '<rect x="' + (cx(i) - pw / nb / 2).toFixed(1) + '" y="' + T + '" width="' + (pw / nb).toFixed(1) + '" height="' + ph + '" fill="transparent"><title>' + esc(lab(i) + ': ' + x.s + ' ' + t('sessions') + ' · WhatsApp ' + x.wa + ' · ' + t('Calls') + ' ' + x.call + ' · Email ' + x.mail) + '</title></rect>').join('') + '</svg>';
+  const key = (c, d, l) => '<span style="display:inline-flex;align-items:center;gap:6px;margin-right:14px"><svg width="22" height="8" aria-hidden="true"><line x1="1" x2="21" y1="4" y2="4" stroke="' + c + '" stroke-width="2" stroke-linecap="round"' + (d ? ' stroke-dasharray="' + d + '"' : '') + '/></svg>' + esc(l) + '</span>';
+  return svg + '<div class="sub" style="margin-top:6px"><span style="display:inline-flex;align-items:center;gap:6px;margin-right:14px"><i style="width:12px;height:10px;border-radius:2px;background:var(--line-2);display:inline-block"></i>' + esc(t('Sessions')) + ' (' + esc(t('left scale')) + ')</span>' + key('var(--good)', '', 'WhatsApp') + key('#2F6FDB', '6 4', t('Phone')) + key('var(--warn)', '1 4', 'Email') + '<span>(' + esc(t('right scale')) + ')</span></div>';
+}
 function vWebsite(){
   if(!seeWeb()) return head(t('Website')) + '<div class="empty">' + esc(t('Only the owner and managers can see this page.')) + '</div>';
-  const rows = webRows(), n = rows.length, now = Date.now();
-  const vis = new Set(rows.map(h => h.vid)).size, fresh = rows.filter(h => h.nv).length;
-  const leads = rows.filter(webLead).length, calls = rows.filter(webCall).length;
-  const timed = rows.filter(h => h.dur > 0), avg = timed.length ? Math.round(timed.reduce((a, h) => a + h.dur, 0) / timed.length) : 0;
-  const quick = rows.filter(h => (h.dur || 0) < 10 && !(h.clicks || []).length).length;
-  const live = rows.filter(h => now - webLast(h) < 150000).length;
-  const conv = n ? Math.round(leads / n * 1000) / 10 : 0;
-  const tiles = '<div class="tiles">' + tile(t('Visitors'), n0(vis), n0(n) + ' ' + t('visits') + ' · ' + n0(fresh) + ' ' + t('new'), 'b')
-    + tile(t('WhatsApp leads'), n0(leads), conv + '% ' + t('of visits'), 'g')
-    + tile(t('Calls'), n0(calls), t('taps on a phone number'), '')
-    + tile(t('Average time'), n ? webDur(avg) : '-', t('per visit'), '')
-    + tile(t('Left within 10 s'), n0(quick), n ? Math.round(quick / n * 100) + '% ' + t('of visits') : '', quick && n && quick / n > .6 ? 'w' : '')
-    + tile(t('On the site now'), n0(live), t('active in the last 2 minutes'), live ? 'g' : '') + '</div>';
-  const fun = [[t('Visits'), n], ...WEB_SEC.map(s => [t(s[1]), rows.filter(h => (h.secs || []).includes(s[0])).length]), [t('Asked on WhatsApp or called'), rows.filter(h => webLead(h) || webCall(h)).length]];
+  const [a, b] = webRange(), [pa, pb] = webPrev(), now = Date.now();
+  const rows = webSel(a, b).sort((x, y) => webLast(y) - webLast(x)), n = rows.length, m = webM(rows);
+  const prow = webCmp ? webSel(pa, pb) : [], pm = webM(prow), hasPrev = webCmp && prow.length > 0;
+  const live = S.web.filter(h => now - webLast(h) < 150000).length;
+  const everMail = S.web.some(h => (h.clicks || []).some(k => /^email@/.test(k)));
+  const rev = webRev(a, b), prev = webCmp ? webRev(pa, pb) : rev, rpv = m.v ? rev.rev / m.v : 0, prpv = pm.v ? prev.rev / pm.v : 0;
+  const lineTxt = m.line ? ' · ' + t('line') + ' 1: ' + (rows.reduce((s, h) => s + (h.clicks || []).filter(k => /^wa1@/.test(k)).length, 0)) + ', ' + t('line') + ' 2: ' + (rows.reduce((s, h) => s + (h.clicks || []).filter(k => /^wa2@/.test(k)).length, 0)) : '';
+  /* ---- filter ---- */
+  const lbl = webPeriod === 'today' ? fdate(a) : fdate(a) + ' → ' + fdate(b);
+  const filter = '<div class="tools" style="position:sticky;top:0;z-index:4;background:var(--bg);padding:8px 0;margin:0 0 4px">'
+    + seg('webPeriod', webPeriod, [['today', t('Today')], ['7d', t('Last 7 days')], ['30d', t('Last 30 days')], ['quarter', t('Quarter')], ['custom', t('Custom')]])
+    + (webPeriod === 'custom' ? '<input type="date" id="webFrom" value="' + esc(a) + '" max="' + iso(new Date()) + '" aria-label="' + esc(t('From')) + '"> <input type="date" id="webTo" value="' + esc(b) + '" max="' + iso(new Date()) + '" aria-label="' + esc(t('To')) + '">' : '')
+    + '<label class="chk"><input type="checkbox" id="webCmp"' + (webCmp ? ' checked' : '') + '> ' + esc(t('Compare to previous period')) + '</label></div>'
+    + '<p class="sub" style="margin:0 0 10px">' + esc(lbl) + (webCmp ? ' · ' + esc(t('vs')) + ' ' + esc(fdate(pa) + ' → ' + fdate(pb)) + (prow.length ? '' : ' (' + esc(t('no visits recorded then')) + ')') : '') + ' · <b style="color:' + (live ? 'var(--good)' : 'inherit') + '">' + n0(live) + '</b> ' + esc(t('on the site now')) + '</p>'
+    + (S.web.length >= 3000 ? '<div class="card" style="border-color:var(--warn)">' + esc(t('This period has more than 3,000 visits, so the earliest days may be missing. Pick a shorter period.')) + '</div>' : '');
+  /* ---- 5 hero cards ---- */
+  const mobShare = m.call ? Math.round(m.mobCall / m.call * 100) : 0;
+  const tiles = '<div class="tiles">'
+    + wkpi(t('Sessions'), n0(m.n), webBadge(m.n, pm.n, 0, hasPrev), n0(m.v) + ' ' + t('unique visitors') + ' · ' + n0(m.nv) + ' ' + t('new'))
+    + wkpi(t('Lead conversion'), webPct(m.conv), webBadge(m.conv, pm.conv, 1, hasPrev), n0(m.lead) + ' ' + t('of') + ' ' + n0(m.n) + ' ' + t('sessions made a contact tap') + ' · ' + n0(m.all) + ' ' + t('taps'), t('WhatsApp + phone + email taps. Counted once per session so the rate cannot pass 100%.'))
+    + wkpi('WhatsApp', n0(m.wa), webBadge(m.wa, pm.wa, 0, hasPrev), n0(m.make) + ' ' + t('product requests') + ' · ' + n0(m.line) + ' ' + t('general') + lineTxt, t('Product requests are taps on a part or make with a ready-made message. General taps are the WhatsApp buttons.'))
+    + wkpi(t('Click-to-call'), n0(m.call), webBadge(m.call, pm.call, 0, hasPrev), m.call ? mobShare + '% ' + t('from phones') : t('taps on a phone number'))
+    + wkpi(t('Email and quotes'), n0(m.mail), webBadge(m.mail, pm.mail, 0, hasPrev), m.mail || everMail ? (rev.q ? n0(rev.q) + ' ' + t('quotes logged from the website') : t('email taps')) : t('No email link on the site yet. Taps are counted once one is added.')) + '</div>';
+  if(!n) return head(t('Website'), '<span class="sub">planetautohub.com</span>') + filter + tiles + '<div class="card empty">' + esc(webLoaded ? t('No visits in this period yet.') : t('Loading…')) + '</div>';
+  /* ---- trend and devices ---- */
+  const dev = WEB_DEV.map(d => [d[1], webM(rows.filter(h => (h.dev || 'd') === d[0]))]);
+  const bar = p => '<span style="display:inline-block;width:32px;height:8px;background:var(--tint);border-radius:4px;vertical-align:middle;margin-right:6px"><i style="display:block;height:8px;border-radius:4px;background:var(--accent);width:' + Math.max(0, Math.min(100, p)) + '%"></i></span>';
+  const devRows = dev.filter(d => d[1].n).map(d => { const ps = Math.round(d[1].n / n * 100), pc = m.all ? Math.round(d[1].all / m.all * 100) : 0; return wtr([esc(t(d[0])), bar(ps) + ps + '%', bar(pc) + pc + '%', webPct(d[1].conv)]); });
+  const ph = dev[0][1], phS = Math.round(ph.n / n * 100), phC = m.all ? Math.round(ph.all / m.all * 100) : 0;
+  const mid = wgrid(wcard(t('Sessions and contact taps'), webTrend(rows, a, b)) + wcard(t('Device: traffic vs contact'), wtbl(['Device', 'Traffic share', 'Contact taps share', 'Lead conv.'], devRows), ph.n ? t('Phones are') + ' ' + phS + '% ' + t('of sessions and') + ' ' + phC + '% ' + t('of contact taps.') : ''));
+  /* ---- catalog interest ---- */
+  const place = {}, sec = {}; WEB_CAT.forEach(c => { sec[c[0]] = { v:0, dw:0, dn:0, taps:0, lead:0 }; });
+  const mk = {};
+  rows.forEach(h => {
+    const so = webSecs(h), o = webTaps(h);
+    Object.keys(so).forEach(k => { const s = sec[k]; if(!s) return; s.v++; if(so[k] != null){ s.dw += so[k]; s.dn++; } if(o.all) s.lead++; });
+    const seen = {}, asked = {};
+    (h.clicks || []).forEach(k => { let r;
+      if((r = /^(?:wa\d|call|email)@(.*)$/.exec(k)) && sec[r[1]]) sec[r[1]].taps++;
+      if((r = /^make:(.*)$/.exec(k))){ sec.pieces.taps++; asked[r[1]] = 1; seen[r[1]] = 1; }
+      if((r = /^open:(.*)$/.exec(k))) seen[r[1]] = 1; });
+    Object.keys(seen).forEach(k => { const x = mk[k] = mk[k] || { v:0, taps:0, lead:0 }; x.v++; if(asked[k]) x.lead++; });
+    (h.clicks || []).forEach(k => { const r = /^make:(.*)$/.exec(k); if(r) mk[r[1]].taps++; });
+  });
+  const flag = (v, conv) => v >= 5 && conv < m.conv * .75 ? '<div><span class="pill warn">' + esc(t('Many views, few contacts')) + '</span></div>' : '';
+  const catRows = WEB_CAT.map(c => [c, sec[c[0]]]).filter(x => x[1].v).sort((x, y) => y[1].v - x[1].v).map(x => { const s = x[1], conv = s.v ? s.lead / s.v * 100 : 0; return wtr(['<b>' + esc(t(x[0][1])) + '</b><div class="sub">' + Math.round(s.v / n * 100) + '% ' + esc(t('of sessions')) + '</div>' + (x[0][0] === 'contact' ? '' : flag(s.v, conv)), n0(s.v), s.dn ? webDur(Math.round(s.dw / s.dn)) : '-', n0(s.taps), webPct(Math.round(conv * 10) / 10)]); });
+  const mkRows = Object.entries(mk).sort((x, y) => y[1].v - x[1].v).slice(0, 8).map(e => { const s = e[1], conv = s.v ? s.lead / s.v * 100 : 0; return wtr(['<b>' + esc(e[0]) + '</b><div class="sub">' + esc(t('Make')) + '</div>' + flag(s.v, conv), n0(s.v), '-', n0(s.taps), webPct(Math.round(conv * 10) / 10)]); });
+  const pdfs = webCount(rows.flatMap(h => (h.clicks || []).filter(k => /^pdf:/.test(k)).map(k => ({ clicks:[k] }))), h => h.clicks[0].slice(4)).slice(0, 5);
+  const cat = wcard(t('Top viewed pages and categories'), wtbl(['Page / category', 'Views', 'Avg time', 'Contact taps', 'Lead conv.'], catRows.concat(mkRows)), t('Views are sessions that scrolled to the section, or opened the make. Avg time counts only visits recorded after the new tracker went live. Lead conv. is the share of those sessions with a contact tap.'));
+  const side = wcard(t('Catalog / spec sheet downloads'), '<div class="tile" style="border:0;box-shadow:none;padding:0"><b class="num">' + n0(m.pdf) + '</b><em>' + esc(m.pdf ? t('PDF taps in this period') : t('No catalog PDF on the site yet. Any link to a .pdf file is counted here automatically.')) + '</em></div>' + (pdfs.length ? webBars(pdfs, m.pdf, k => k) : ''))
+    + wcard(t('Top site search terms'), '<div class="empty">' + esc(t('The site has no search box, so there are no search terms to show.')) + '</div>');
+  const catBlock = '<div class="wcat"><div style="min-width:0">' + cat + '</div><div style="min-width:0;display:grid;gap:12px;align-content:start">' + side + '</div></div>';
+  /* ---- drawers ---- */
+  const chan = webGroup(rows, webChannel), camp = webGroup(rows.filter(h => h.src), h => String(h.src).toLowerCase());
+  const chanRows = chan.map(c => wtr([esc(t(c[0])), n0(c[1].n), n0(c[1].all), webPct(c[1].conv)]));
+  const campRows = camp.slice(0, 10).map(c => wtr([esc(c[0]), n0(c[1].n), n0(c[1].all), webPct(c[1].conv)]));
+  const acq = wdrawer('acq', t('Acquisition'), t('Channels by sessions and contact taps'), wgrid(wcard(t('Channels'), wtbl(['Channel', 'Sessions', 'Contact taps', 'Lead conv.'], chanRows), t('Paid = utm_medium cpc or paid. Campaign = any other ?utm_source or ?src link. Direct includes links opened from WhatsApp.'))
+    + wcard(t('Campaigns (UTM)'), camp.length ? wtbl(['Campaign', 'Sessions', 'Contact taps', 'Lead conv.'], campRows) : '<div class="empty">' + esc(t('No tagged links used in this period. Add ?utm_source=facebook&utm_medium=cpc to an ad link to see it here.')) + '</div>')));
+  const reg = webGroup(rows, h => webRegion(h)), tz = webGroup(rows.filter(h => h.tz), h => h.tz).slice(0, 10);
+  const geo = wdrawer('geo', t('Geography'), t('Region and time zone'), wgrid(wcard(t('Region (from the browser time zone)'), wtbl(['Region', 'Sessions', 'Contact taps', 'Lead conv.'], reg.map(c => wtr([esc(t(c[0])), n0(c[1].n), n0(c[1].all), webPct(c[1].conv)]))))
+    + wcard(t('Top time zones (closest to a city)'), wtbl(['Time zone', 'Sessions', 'Contact taps', 'Lead conv.'], tz.map(c => wtr([esc(c[0]), n0(c[1].n), n0(c[1].all), webPct(c[1].conv)]))), t('Country and city need the visitor IP address, which this site does not collect. The time zone is the closest anonymous signal.'))));
+  const waMake = webCount(rows.flatMap(h => (h.clicks || []).filter(k => /^make:/.test(k)).map(k => ({ clicks:[k] }))), h => h.clicks[0].slice(5)), waWhere = {};
+  rows.forEach(h => (h.clicks || []).forEach(k => { let r; if((r = /^wa\d@(.*)$/.exec(k))) waWhere[r[1]] = (waWhere[r[1]] || 0) + 1; else if(/^make:/.test(k)) waWhere.pieces = (waWhere.pieces || 0) + 1; }));
+  const waWhereRows = Object.entries(waWhere).sort((x, y) => y[1] - x[1]);
+  const callSrc = webGroup(rows.filter(h => webTaps(h).call), webSource).map(c => [c[0], c[1].call]);
+  const revBadge = webBadge(rpv, prpv, 0, webCmp && pm.v > 0);
+  const off = wdrawer('off', t('Offline attribution'), t('WhatsApp by product, calls by source, revenue per visitor'), wgrid(
+    wcard(t('WhatsApp inquiries by product'), webBars(waMake.slice(0, 10), m.make, k => k), t('Each part request sends a WhatsApp message that starts with the make, so the chat itself is tagged.'))
+    + wcard(t('WhatsApp taps by place on the site'), webBars(waWhereRows, m.wa, k => t(WEB_PLACE[k] || k)))
+    + wcard(t('Call taps by source'), webBars(callSrc, m.call), t('These are taps on the call button. Completed calls and call length need a call-tracking number from a provider, which is not set up.'))
+    + wcard(t('Revenue per website visitor'), '<div class="tiles" style="margin-bottom:8px">' + wkpi(t('Revenue per visitor'), fmt(rpv), revBadge, n0(m.v) + ' ' + t('visitors'))
+      + wkpi(t('Website sales'), n0(rev.cnt), webBadge(rev.cnt, prev.cnt, 0, webCmp && pm.v > 0), fmt(rev.rev) + ' ' + t('excl. VAT')) + '</div>'
+      + (Object.keys(rev.by).length ? webBars(Object.entries(rev.by).sort((x, y) => y[1] - x[1]), rev.rev, k => t(WEB_CAME[k] || k)) : '')
+      + '<p class="sub" style="margin:8px 0 0">' + esc(t('Counts only sales and quotes where staff chose "Came from: Website" in the sale form. Until that is used, this stays at zero.')) + '</p>')));
+  const fun = [[t('Visits'), n], ...WEB_SEC.map(s => [t(s[1]), rows.filter(h => { const o = webSecs(h); return s[0] in o; }).length]), [t('Made a contact tap'), m.lead]];
   const days = {}; rows.forEach(h => { days[h.day] = (days[h.day] || 0) + 1; });
-  const dayRows = Object.entries(days).sort((a, b) => a[0] < b[0] ? 1 : -1);
+  const dayRows = Object.entries(days).sort((x, y) => x[0] < y[0] ? 1 : -1);
   const clicks = webCount(rows, h => Array.from(new Set(h.clicks || [])).filter(k => !/^nav:/.test(k)));
-  const makes = webCount(rows, h => Array.from(new Set((h.clicks || []).filter(k => /^(open|make):/.test(k)).map(k => k.split(':')[1]))));
-  const card = (title, body) => '<div class="card"><h3>' + esc(title) + '</h3>' + body + '</div>';
   const recent = rows.slice(0, 60).map(h => {
     const cs = Array.from(new Set(h.clicks || [])).filter(k => !/^(nav|lang)/.test(k)), multi = webPeriod !== 'today';
     return '<tr><td><b>' + esc((multi ? fdate(h.day).slice(0, 5) + ' ' : '') + hm(h.ts)) + '</b> <span class="pill ' + (h.nv ? 'good' : 'mute') + '">' + esc(t(h.nv ? 'New' : 'Returning')) + '</span><div class="sub">' + esc(t(({ m:'Phone', t:'Tablet', d:'Computer' })[h.dev] || '')) + ' · ' + esc(t(webRegion(h))) + ' · ' + esc(t(webSource(h))) + (h.lang === 'en' ? ' · EN' : '') + '</div></td>'
-      + '<td class="r"><b class="num">' + esc(webDur(h.dur || 0)) + '</b><div class="sub">' + (h.secs || []).length + ' ' + esc(t('sections')) + ' · ' + (h.depth || 0) + '%</div></td>'
-      + '<td>' + (cs.length ? cs.slice(0, 4).map(k => '<span class="pill ' + (/^(wa|make)/.test(k) ? 'good' : 'mute') + '">' + esc(webClickName(k)) + '</span>').join(' ') : '<span class="sub">-</span>') + '</td></tr>';
+      + '<td class="r"><b class="num">' + esc(webDur(h.dur || 0)) + '</b><div class="sub">' + Object.keys(webSecs(h)).length + ' ' + esc(t('sections')) + ' · ' + (h.depth || 0) + '%</div></td>'
+      + '<td>' + (cs.length ? cs.slice(0, 4).map(k => '<span class="pill ' + (/^(wa|make|call|email)/.test(k) ? 'good' : 'mute') + '">' + esc(webClickName(k)) + '</span>').join(' ') : '<span class="sub">-</span>') + '</td></tr>';
   }).join('');
-  const body = !n ? '<div class="card empty">' + esc(webLoaded ? t('No visits in this period yet.') : t('Loading…')) + '</div>' : '<div class="grid2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px">'
-    + card(t('Where visitors drop off'), webBars(fun, n, k => k))
-    + card(t('Where they came from'), webBars(webCount(rows, webSource), n))
-    + card(t('Devices'), webBars(webCount(rows, h => ({ m:'Phone', t:'Tablet', d:'Computer' })[h.dev]), n))
-    + card(t('Region (guess from time zone)'), webBars(webCount(rows, webRegion), n))
-    + card(t('Language'), webBars(webCount(rows, h => h.lang === 'en' ? 'English' : 'Français'), n, k => k))
-    + (dayRows.length > 1 ? card(t('Visits per day'), webBars(dayRows, Math.max.apply(null, dayRows.map(r => r[1])), k => fdate(k))) : '')
-    + card(t('What they tapped'), webBars(clicks.slice(0, 14), n, webClickName))
-    + card(t('Most requested makes'), webBars(makes.slice(0, 10), n, k => k)) + '</div>'
-    + '<div class="card"><div class="grp"><h3>' + esc(t('Recent visits')) + ' (' + Math.min(60, n) + ' ' + esc(t('of')) + ' ' + n + ')</h3>' + (dl ? btn('csv', t('Export CSV'), 'sm', 'website') : btn('copyCsv', t('Copy as CSV'), 'sm', 'website')) + '</div><div class="tbl-wrap"><table><tbody>' + recent + '</tbody></table></div></div>';
-  return head(t('Website'), '<span class="sub">planetautohub.com</span>')
-    + '<p class="sub" style="margin:-8px 0 12px">' + esc(t('Anonymous visit counts: no names, no phone numbers, no IP addresses. Region is a guess from the browser time zone. Open the site once with ?notrack on your own phones and computers to leave them out. Counting starts the day the tracker went live.')) + '</p>'
-    + '<div class="tools">' + seg('webPeriod', webPeriod, [['today', t('Today')], ['yesterday', t('Yesterday')], ['7d', t('Last 7 days')], ['month', t('This month')]]) + '</div>'
-    + tiles + body;
+  const beh = wdrawer('beh', t('Behavior and visit log'), t('Drop-off, taps, language, every visit'), wgrid(
+    wcard(t('Where visitors drop off'), webBars(fun, n, k => k), n0(m.quick) + ' ' + t('left within 10 s without tapping') + ' (' + Math.round(m.quick / n * 100) + '%) · ' + t('average time') + ' ' + (m.timed ? webDur(m.avg) : '-'))
+    + wcard(t('What they tapped'), webBars(clicks.slice(0, 14), n, webClickName))
+    + wcard(t('Language'), webBars(webCount(rows, h => h.lang === 'en' ? 'English' : 'Français'), n, k => k))
+    + (dayRows.length > 1 ? wcard(t('Visits per day'), webBars(dayRows.slice(0, 14), Math.max.apply(null, dayRows.map(r => r[1])), k => fdate(k))) : ''))
+    + '<div class="grp" style="margin-top:12px"><h3>' + esc(t('Recent visits')) + ' (' + Math.min(60, n) + ' ' + esc(t('of')) + ' ' + n + ')</h3>' + (dl ? btn('csv', t('Export CSV'), 'sm', 'website') : btn('copyCsv', t('Copy as CSV'), 'sm', 'website')) + '</div><div class="tbl-wrap"><table><tbody>' + recent + '</tbody></table></div>');
+  return head(t('Website'), '<span class="sub">planetautohub.com</span>') + filter + tiles + mid + catBlock
+    + '<div style="display:grid;gap:12px;margin-top:12px">' + acq + geo + off + beh + '</div>'
+    + '<p class="sub" style="margin:12px 0 0">' + esc(t('Anonymous visit counts: no names, no phone numbers, no IP addresses. Open the site once with ?notrack on your own phones and computers to leave them out. Counting started on 18 Nov 2026.')) + '</p>';
 }
 /* ---------- customers: the customer database (CRM) ----------
    Contacts are stored 250 to a document (crm/b001, b002…) so loading 4,000+ contacts costs about
@@ -1894,6 +2054,7 @@ function openTxn(type, id, src, srcId){
     (src0 ? '<p class="sub">' + esc(t('From')) + ' <span class="plate">' + esc(src0.no) + '</span></p>' : '')
     + '<div class="fg">' + sel(isBuy ? t('Supplier') : t('Customer'), 'partyId', base.partyId, [['', isBuy ? '— ' + t('Choose') + ' —' : t('Walk-in customer')], ...parties]) + fld(t('Date'), 'date', base.date, 'type="date" required') + '</div>'
     + (base.type === 'sale' || base.type === 'quote' ? '<div class="fg" id="walkin"' + (base.partyId ? ' hidden' : '') + '>' + fld(t('Customer name (optional)'), 'partyName', base.partyName || '', 'autocomplete="off"') + fld(t('Customer phone (optional)'), 'custPhone', base.custPhone || '', 'inputmode="tel" placeholder="77 000 00 00" autocomplete="off"') + '</div>' : '')
+    + (base.type === 'sale' || base.type === 'quote' ? '<div class="fg">' + sel(t('Came from'), 'cameFrom', base.cameFrom || '', [['', '—'], ['web-wa', t('Website → WhatsApp')], ['web-call', t('Website → phone call')], ['web-email', t('Website → email')], ['walk-in', t('Walk-in')], ['referral', t('Referral')], ['social', t('Social media or ad')], ['repeat', t('Repeat customer')], ['other', t('Other')]]) + '</div>' : '')
     + '<label class="scan" for="scan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' + ICON.scan + '"/></svg><input id="scan" autocomplete="off" autocapitalize="characters" placeholder="' + esc(t('Scan a barcode or type an item code, then Enter')) + '" aria-label="' + esc(t('Scan a barcode or type an item code, then Enter')) + '"></label>'
     + '<div><h3>' + esc(t('Lines')) + '</h3></div><div class="lines" id="lines"></div><div><button type="button" class="btn sm" data-a="addLine">+ ' + esc(t('Add line')) + '</button></div>'
     + '<datalist id="dl-items">' + sorted(S.items, (a, b) => a.name.localeCompare(b.name)).map(it => '<option value="' + esc(itemLabel(it)) + '">').join('') + '</datalist>'
@@ -2092,7 +2253,7 @@ const A = {
   payBill: id => { const b = S.opex[id]; if(!b) return; const st = billState(id, b, S.txns, today()), f = st.overdue[0] || st.next; if(!f) return;
     openMoney('expense', { category:b.category || 'Other', amount:num(b.amount), payee:b.payee || '', method:b.method || 'Cash', note:b.name + ' · ' + periodName(b, f.key), billId:id, period:f.key }); },
   expPeriod: id => { expPeriod = id; savePrefs(); render(); },
-  webPeriod: id => { webPeriod = id; render(); },
+  webPeriod: id => { webPeriod = id; if(id === 'custom' && !(webFrom && webTo)){ webTo = iso(new Date()); webFrom = webAdd(webTo, -13); } webSave(); render(); },
   monPeriod: id => { monPeriod = id; render(); }, monKind: id => { monKind = id; render(); }, monWho: id => { monWho = monWho === id ? '' : id; render(); },
   guideTab: id => { guideTab = id; render(); }, printGuide: () => window.print(),
   newDeal: () => openDeal(''), editDeal: id => openDeal(id), dealTab: id => { dealTab = id; render(); },
@@ -2345,6 +2506,7 @@ const SUBMIT = {
       x.partyName = String(v.partyName || '').trim(); x.custPhone = ph ? (String(ph).replace(/\D/g, '').length === 9 ? '+221' + ph.replace(/\D/g, '') : '+' + ph.replace(/\D/g, '')) : '';
       if(!x.partyName) delete x.partyName; if(!x.custPhone) delete x.custPhone;
     } else { delete x.partyName; delete x.custPhone; }
+    if((x.type === 'sale' || x.type === 'quote') && v.cameFrom) x.cameFrom = String(v.cameFrom).slice(0, 20); else delete x.cameFrom;
     Object.assign(x, { partyId:v.partyId || '', date:v.date, note:v.note || '', discount:num(v.discount), sub:c.sub, cogs:c.cogs, taxRate:c.taxRate, taxAmt:c.taxAmt, total:c.total });
     if(x.type === 'quote' || x.type === 'po'){ x.paid = 0; } else { x.paid = Math.min(num(v.paid), c.total); x.method = v.method; }
     if(!x.partyId && x.type === 'sale' && x.paid < c.total) toast(t('Walk-in sale left unpaid. Add the customer as a party to track what they owe.'));
