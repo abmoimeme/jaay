@@ -128,6 +128,25 @@ textarea{resize:vertical;min-height:64px}
 .seg button[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink)}
 .empty{padding:var(--s8) var(--s4);text-align:center;color:var(--muted)}
 dialog{border:1px solid var(--line);border-radius:var(--r2);background:var(--surface);color:var(--ink);padding:0;width:min(760px,calc(100vw - 24px));max-height:calc(var(--vvh,100dvh) - 24px)}
+dialog:has(.qb){width:min(1120px,calc(100vw - 24px))}
+.qb{display:grid;grid-template-columns:minmax(0,35fr) minmax(0,65fr);gap:var(--s4);align-items:start}
+.qbl,.qbr{display:flex;flex-direction:column;gap:var(--s3);min-width:0}
+.qbl{padding:var(--s3);border:1px solid var(--line);border-radius:var(--r2);background:var(--bg)}
+.qb h3{margin:0;font-size:var(--t-md)}
+.cinfo{font-size:var(--t-sm);color:var(--muted);display:flex;flex-wrap:wrap;gap:var(--s2)}
+.qadd{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);padding:var(--s2);border:1px dashed var(--line);border-radius:var(--r1)}
+.qadd[hidden]{display:none}
+.qadd .wide{grid-column:1/-1}
+.pills{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.line .lcore{grid-column:1/-1;display:flex;gap:var(--s2);align-items:center;font-size:var(--t-sm);color:var(--muted)}
+.line .lcore input{width:110px}
+.line .info{grid-column:1/-1;font-size:var(--t-sm);color:var(--muted)}
+.ob{border:1px solid var(--line);border-radius:var(--r2);padding:var(--s3);margin:var(--s3) 0;display:flex;flex-direction:column;gap:var(--s2)}
+.ob h3{margin:0;font-size:var(--t-md)}
+.steps2{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:var(--s2)}
+.steps2 li{padding:var(--s2) var(--s3);border-left:3px solid var(--line-2);background:var(--surface-3)}
+.steps2 li.done{border-left-color:var(--good)}
+@media(max-width:820px){.qb{grid-template-columns:1fr}}
 dialog::backdrop{background:#0d0f14a6}
 .dh{display:flex;justify-content:space-between;align-items:center;gap:var(--s3);padding:var(--s3) var(--s5);border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--surface);z-index:1}
 .db{padding:var(--s4) var(--s5);display:flex;flex-direction:column;gap:var(--s4)}
@@ -323,6 +342,7 @@ Object.assign(T_FR, {"Download the import template (Excel)": "Télécharger le m
 Object.assign(T_FR, {"STOP": "STOP", "Ask permission (first message)": "Demander l'accord (premier message)", "New stock arrived": "Nouveau stock arrivé", "Thank you after a purchase": "Merci après un achat", "Template": "Modèle", "Everyone not refused": "Tous sauf refus", "After each reply, tap Said yes or STOP so the list stays correct.": "Après chaque réponse, touchez A dit oui ou STOP pour garder la liste à jour.", "Said yes": "A dit oui", "Send from your email app, 50 at a time": "Envoi depuis votre messagerie, 50 à la fois", "Each button opens a new email with 50 people in BCC. These emails are not personalised.": "Chaque bouton ouvre un e-mail avec 50 personnes en copie cachée. Ces e-mails ne sont pas personnalisés.", "Batch": "Lot", "First 20 batches shown. For more, export the list (CSV) to Brevo or Mailchimp.": "20 premiers lots affichés. Pour plus, exportez la liste (CSV) vers Brevo ou Mailchimp.", "Email subject": "Objet du e-mail", "Messaging people who never agreed breaks WhatsApp rules and Senegal data law, and can get your number blocked. Prefer Agreed, and use Not asked yet to ask permission first.": "Écrire à des personnes qui n'ont jamais donné leur accord enfreint les règles de WhatsApp et la loi sénégalaise sur les données, et peut faire bloquer votre numéro. Préférez Accord donné, et utilisez Pas encore demandé pour demander l'accord d'abord.", "These people have not been asked. Send the permission message once; whoever answers yes moves to Agreed.": "Ces personnes n'ont pas été sollicitées. Envoyez une seule fois le message de demande d'accord ; ceux qui répondent oui passent à Accord donné.", "ask permission first": "demandez l'accord d'abord", "Consent": "Accord", "Consent date": "Date de l'accord", "Agreed to receive promotions": "A accepté de recevoir des promotions", "Asked to stop promotions": "A demandé l'arrêt des promotions", "Marked as agreed.": "Marqué comme accord donné.", "Marked as refused.": "Marqué comme refus.", "Agreement recorded": "Accord enregistré"});
 Object.assign(T_FR, {"Organic search": "Recherche naturelle", "Acquisition": "Acquisition", "Anonymous visit counts: no names, no phone numbers, no IP addresses. Open the site once with ?notrack on your own phones and computers to leave them out. Counting started on 18 Nov 2026.": "Comptage anonyme des visites : ni noms, ni numéros de téléphone, ni adresses IP. Ouvrez le site une fois avec ?notrack sur vos téléphones et ordinateurs pour les exclure. Le comptage a démarré le 18 nov. 2026.", "Avg time": "Temps moyen", "Behavior and visit log": "Comportement et journal des visites", "Call taps by source": "Appels par source", "Came from": "Origine du client", "Campaign": "Campagne", "Campaigns (UTM)": "Campagnes (UTM)", "Campaign (UTM)": "Campagne (UTM)", "Catalog / spec sheet downloads": "Téléchargements du catalogue / fiches techniques", "Channel": "Canal", "Channels": "Canaux", "Channels by sessions and contact taps": "Canaux : sessions et contacts", "Click-to-call": "Appels en un clic", "Compare to previous period": "Comparer à la période précédente", "Contact taps": "Contacts", "Contact taps share": "Part des contacts", "Country and city need the visitor IP address, which this site does not collect. The time zone is the closest anonymous signal.": "Le pays et la ville demandent l'adresse IP du visiteur, que ce site ne collecte pas. Le fuseau horaire est le signal anonyme le plus proche.", "Counts only sales and quotes where staff chose \"Came from: Website\" in the sale form. Until that is used, this stays at zero.": "Ne compte que les ventes et devis où l'équipe a choisi « Origine du client : Site web » dans le formulaire de vente. Tant que ce champ n'est pas utilisé, cela reste à zéro.", "Custom": "Personnalisé", "Device: traffic vs contact": "Appareil : trafic et contacts", "Drop-off, taps, language, every visit": "Abandons, contacts, langue, chaque visite", "Each part request sends a WhatsApp message that starts with the make, so the chat itself is tagged.": "Chaque demande de pièce envoie un message WhatsApp qui commence par la marque : la conversation est donc identifiée.", "Email and quotes": "E-mails et devis", "Geography": "Géographie", "Last 30 days": "30 derniers jours", "Lead conv.": "Conv. contacts", "Lead conversion": "Taux de contact", "Made a contact tap": "Ont contacté (WhatsApp, appel, e-mail)", "Make": "Marque", "Many views, few contacts": "Beaucoup de vues, peu de contacts", "No catalog PDF on the site yet. Any link to a .pdf file is counted here automatically.": "Pas encore de catalogue PDF sur le site. Tout lien vers un fichier .pdf sera compté ici automatiquement.", "No email link on the site yet. Taps are counted once one is added.": "Pas encore de lien e-mail sur le site. Les clics seront comptés dès qu'il y en aura un.", "No tagged links used in this period. Add ?utm_source=facebook&utm_medium=cpc to an ad link to see it here.": "Aucun lien balisé utilisé sur cette période. Ajoutez ?utm_source=facebook&utm_medium=cpc à un lien de publicité pour le voir ici.", "Offline attribution": "Attribution hors ligne", "PDF": "PDF", "PDF taps in this period": "Clics sur un PDF sur cette période", "Page / category": "Page / catégorie", "Paid = utm_medium cpc or paid. Campaign = any other ?utm_source or ?src link. Direct includes links opened from WhatsApp.": "Payant = utm_medium cpc ou paid. Campagne = tout autre lien ?utm_source ou ?src. Direct inclut les liens ouverts depuis WhatsApp.", "Parts catalog": "Catalogue de pièces", "Phones are": "Les téléphones représentent", "Product requests are taps on a part or make with a ready-made message. General taps are the WhatsApp buttons.": "Les demandes produit sont les clics sur une pièce ou une marque avec un message prêt. Les clics généraux sont les boutons WhatsApp.", "Quarter": "Trimestre", "Referral": "Site référent", "Region": "Région", "Region (from the browser time zone)": "Région (d'après le fuseau horaire)", "Region and time zone": "Région et fuseau horaire", "Repeat customer": "Client fidèle", "Revenue per visitor": "CA par visiteur", "Revenue per website visitor": "CA par visiteur du site", "Services": "Services", "Sessions": "Sessions", "Sessions and contact taps": "Sessions et contacts", "Sessions and contact taps over time": "Sessions et contacts dans le temps", "Social media or ad": "Réseaux sociaux ou publicité", "The site has no search box, so there are no search terms to show.": "Le site n'a pas de barre de recherche : il n'y a donc pas de termes recherchés à afficher.", "These are taps on the call button. Completed calls and call length need a call-tracking number from a provider, which is not set up.": "Ce sont les clics sur le bouton d'appel. Les appels réellement passés et leur durée demandent un numéro de suivi d'appels chez un opérateur, non configuré.", "This period has more than 3,000 visits, so the earliest days may be missing. Pick a shorter period.": "Cette période dépasse 3 000 visites : les premiers jours peuvent manquer. Choisissez une période plus courte.", "To": "Au", "Top site search terms": "Termes recherchés sur le site", "Top time zones (closest to a city)": "Principaux fuseaux horaires (au plus près d'une ville)", "Top viewed pages and categories": "Pages et catégories les plus vues", "Traffic share": "Part du trafic", "Views": "Vues", "Walk-in": "Client de passage", "Website sales": "Ventes issues du site", "Website → WhatsApp": "Site → WhatsApp", "Website → email": "Site → e-mail", "Website → phone call": "Site → appel", "WhatsApp + phone + email taps. Counted once per session so the rate cannot pass 100%.": "Clics WhatsApp + appel + e-mail, comptés une fois par session : le taux ne dépasse jamais 100 %.", "WhatsApp by product, calls by source, revenue per visitor": "WhatsApp par produit, appels par source, CA par visiteur", "WhatsApp inquiries by product": "Demandes WhatsApp par produit", "WhatsApp taps by place on the site": "Clics WhatsApp par endroit du site", "average time": "temps moyen", "email taps": "clics e-mail", "excl. VAT": "hors TVA", "from phones": "depuis des téléphones", "general": "généraux", "left scale": "échelle de gauche", "left within 10 s without tapping": "partis en moins de 10 s sans cliquer", "line": "ligne", "no visits recorded then": "aucune visite enregistrée", "of contact taps.": "des contacts.", "of sessions": "des sessions", "of sessions and": "des sessions et", "on the site now": "sur le site maintenant", "product requests": "demandes produit", "quotes logged from the website": "devis enregistrés depuis le site", "right scale": "échelle de droite", "sessions": "sessions", "sessions made a contact tap": "sessions avec un contact", "taps": "clics", "unique visitors": "visiteurs uniques", "visitors": "visiteurs", "vs previous period": "par rapport à la période précédente", "Views are sessions that scrolled to the section, or opened the make. Avg time counts only visits recorded after the new tracker went live. Lead conv. is the share of those sessions with a contact tap.": "Les vues sont les sessions qui ont atteint la section ou ouvert la marque. Le temps moyen ne compte que les visites enregistrées après la mise en service du nouveau suivi. Conv. contacts = part de ces sessions avec un contact."});
 Object.assign(T_FR, {"A discount above": "Une remise supérieure à", "Add a note explaining the change.": "Ajoutez une note qui explique le changement.", "Cashier discount limit (%)": "Remise maximale du caissier (%)", "Cycle count": "Inventaire tournant", "Damaged": "Endommagé", "Discount approved.": "Remise approuvée.", "Enter a reason.": "Indiquez un motif.", "Flag stock discrepancy": "Signaler un écart de stock", "No voided records.": "Aucun enregistrement annulé.", "Note (required)": "Note (obligatoire)", "Nothing found.": "Aucun résultat.", "Quantity you counted": "Quantité comptée", "Reason (required)": "Motif (obligatoire)", "Reason code": "Code motif", "Restock": "Réapprovisionnement", "Search everything": "Tout rechercher", "Search item, part number, order number, customer or phone": "Rechercher article, référence, numéro de commande, client ou téléphone", "Sent to the manager.": "Envoyé au gérant.", "The record is kept, marked as voided, and no longer counts in stock, balances or reports. Nothing is deleted.": "L'enregistrement est conservé, marqué comme annulé, et ne compte plus dans le stock, les soldes ni les rapports. Rien n'est supprimé.", "This quote has a discount above the limit. A manager must approve it first.": "Ce devis a une remise au-dessus de la limite. Un gérant doit d'abord l'approuver.", "This record has linked payments or returns. Void those first.": "Cet enregistrement a des paiements ou retours liés. Annulez-les d'abord.", "This tells the manager the count looks wrong. It does not change the stock.": "Ceci prévient le gérant que le compte semble faux. Le stock ne change pas.", "Void": "Annuler", "Voided": "Annulé", "Voided. The record is kept in the Voided tab.": "Annulé. L'enregistrement est conservé dans l'onglet Annulés.", "Warranty swap": "Échange sous garantie", "What happened?": "Que s'est-il passé ?", "counted": "compté", "needs manager approval. Save it as a quote, and a manager can approve it.": "demande l'accord d'un gérant. Enregistrez-la en devis, un gérant pourra l'approuver.", "stock": "stock"});
+Object.assign(T_FR, {"1. Warehouse: core inspected and received": "1. Entrepôt : consigne contrôlée et reçue", "2. Counter: issue the core refund": "2. Comptoir : rembourser la consigne", "Add vehicle": "Ajouter un véhicule", "Bin": "Casier", "Bin location": "Emplacement (casier)", "Choose how it is paid, then confirm.": "Choisissez le paiement, puis confirmez.", "Completed": "Terminée", "Confirmed": "Confirmée", "Convert to order": "Convertir en commande", "Copy WhatsApp summary": "Copier le résumé WhatsApp", "Core deposit": "Consigne", "Core deposit (refundable)": "Consigne (remboursable)", "Core physically inspected & received": "Consigne contrôlée et reçue physiquement", "Core received": "Consigne reçue", "Core refund": "Remboursement de consigne", "Core refund issued.": "Consigne remboursée.", "Customer added.": "Client ajouté.", "Enter a four-digit year.": "Entrez une année à quatre chiffres.", "Enter at least the make, model or VIN.": "Entrez au moins la marque, le modèle ou le VIN.", "Enter the customer name.": "Entrez le nom du client.", "Find by name or phone": "Chercher par nom ou téléphone", "Fulfilment": "Livraison / remise", "Handed over now": "Remise tout de suite", "Issue core refund": "Rembourser la consigne", "Lead channel": "Canal du client", "Model": "Modèle", "Order progress": "Avancement de la commande", "Out for delivery": "En livraison", "Over the customer credit limit of": "Au-dessus du plafond de crédit du client de", "Pack or deliver later": "À préparer ou livrer plus tard", "Packed": "Préparée", "Pending core returns only": "Consignes à récupérer seulement", "Quick add customer": "Ajout rapide d'un client", "Refund the core deposit of": "Rembourser la consigne de", "Same as retail": "Comme le prix détail", "Save as quote": "Enregistrer en devis", "Save customer": "Enregistrer le client", "Save quote": "Enregistrer le devis", "Save vehicle": "Enregistrer le véhicule", "Saved garage": "Garage enregistré", "Served by": "Servi par", "Summary copied. Paste it into WhatsApp.": "Résumé copié. Collez-le dans WhatsApp.", "Take more payment now, or ask a manager to approve it.": "Encaissez davantage maintenant, ou demandez l'accord d'un responsable.", "The warehouse must inspect the core first.": "L'entrepôt doit d'abord contrôler la consigne.", "This sale would take the customer over their credit limit of": "Cette vente dépasserait le plafond de crédit du client, fixé à", "Tier discount": "Remise de palier", "Tier discount (%)": "Remise de palier (%)", "Type a name or phone number": "Tapez un nom ou un numéro", "Unlocks after the warehouse step": "Se débloque après l'étape entrepôt", "Vehicle": "Véhicule", "Waiting for the counter": "En attente du comptoir", "Waiting for the warehouse": "En attente de l'entrepôt", "Wholesale price": "Prix de gros", "Year": "Année", "approved by your role": "approuvé par votre rôle", "in cash?": "en espèces ?", "owes": "doit", "per unit, refunded when the old part is returned": "par unité, remboursée au retour de l'ancienne pièce", "Walk-In": "Sur place", "Mark packed": "Marquer préparée", "Mark completed": "Marquer terminée", "Channel": "Canal", "Customer": "Client"});
 let lang = 'en';
 const t = s => (lang === 'fr' && T_FR[s]) || s;
 
@@ -337,7 +357,7 @@ const ROLES = {
   stock:{ label:'Stock keeper', routes:['items','purchases','parties','reorder'], p:['buy','items','party','cost'] },
   accountant:{ label:'Accountant', routes:ALLR.filter(r => r !== 'customers'), p:['cost'] }
 };
-const ACT = { delStaff:'setup', storeLink:'setup', invite:'setup', inviteCopy:'setup', inviteLink:'setup', backup:'setup', newPo:'buy', receivePo:'buy', createPo:'buy', returnDoc:'edit', assignCodes:'items', labels:'items', labelOne:'items', newSale:'sell', newQuote:'sell', convert:'sell', editTxn:'edit', editMoney:'edit', delTxn:'del', flagStock:'sell', approveDisc:'approve', delItem:'del', delParty:'del', clearSample:'del', newPurchase:'buy', payIn:'payin', payInFor:'payin', payOut:'payout', payOutFor:'payout', newExpense:'expense', newContact:'crm', newDeal:'promo', editDeal:'promo', endDeal:'promo', addAct:'crm', archiveContact:'promo', promo:'promo', promoCsv:'promo', promoCopy:'promo', promoRecord:'promo', promoWho:'promo', promoYes:'promo', promoStop:'promo', promoChan:'promo', saleFor:'sell', reqExpense:'expreq', approveExp:'approve', rejectExp:'approve', newBill:'expense', editBill:'expense', delBill:'expense', payBill:'expense', editBudgets:'expense', newItem:'items', editItem:'items', adjust:'items', importOpen:'items', impRun:'items', impSheet:'items', newParty:'party', editParty:'party', rmLogo:'setup', switchStore:'setup', delStaff:'setup', resetPin:'setup' };
+const ACT = { delStaff:'setup', storeLink:'setup', invite:'setup', inviteCopy:'setup', inviteLink:'setup', backup:'setup', newPo:'buy', receivePo:'buy', createPo:'buy', returnDoc:'edit', assignCodes:'items', labels:'items', labelOne:'items', newSale:'sell', newQuote:'sell', convert:'sell', editTxn:'edit', editMoney:'edit', delTxn:'del', flagStock:'sell', stage:'sell', coreRecv:'items', coreRefund:'sell', approveDisc:'approve', delItem:'del', delParty:'del', clearSample:'del', newPurchase:'buy', payIn:'payin', payInFor:'payin', payOut:'payout', payOutFor:'payout', newExpense:'expense', newContact:'crm', newDeal:'promo', editDeal:'promo', endDeal:'promo', addAct:'crm', archiveContact:'promo', promo:'promo', promoCsv:'promo', promoCopy:'promo', promoRecord:'promo', promoWho:'promo', promoYes:'promo', promoStop:'promo', promoChan:'promo', saleFor:'sell', reqExpense:'expreq', approveExp:'approve', rejectExp:'approve', newBill:'expense', editBill:'expense', delBill:'expense', payBill:'expense', editBudgets:'expense', newItem:'items', editItem:'items', adjust:'items', importOpen:'items', impRun:'items', impSheet:'items', newParty:'party', editParty:'party', rmLogo:'setup', switchStore:'setup', delStaff:'setup', resetPin:'setup' };
 const ROLE_DESC = { owner:'Everything, including Setup and staff.', manager:'Sales, purchases, payments, expenses and approving expense requests, items, customer list and promotions, reports, editing and deleting. No Setup.', cashier:'New sales and quotes, payments received, customers and the customer list, stock lookup, expense requests for approval. No costs, profit, reports, editing or deleting.', stock:'Items, import, stock adjustments, purchases, suppliers. No sales, money or reports.', accountant:'Sees everything except the customer list, including reports and exports. Cannot add, change or delete.' };
 const staffOn = () => true;
 let authKnown = false, creating = false, authUser = null, storeMissing = false, loginMode = 'signin', accessNote = '', meUnsub = null, staffUnsub = null;
@@ -375,6 +395,9 @@ let db = null, dl = null, mode = 'loading', slow = false, storeId = null, stores
 let itemCat = '', itemStock = 'all', partyTab = 'all';
 let purchTab = 'purchase', closeDate = '', itemRows = [];
 const PREF_KEYS = ['period','salesTab','purchTab','moneyTab','itemStock','partyTab'];
+let salesChan = '', salesFrom = '', salesTo = '', coreOnly = false;
+const ordStage = x => x.stage || 'done';
+const coreOpen = x => x.type === 'sale' && num(x.coreAmt) > 0 && x.coreSt !== 'refunded';
 function savePrefs(){ try{ localStorage.setItem('jaay-ui', JSON.stringify({ period, salesTab, purchTab, moneyTab, itemStock, partyTab, expPeriod })); }catch(e){} }
 function loadPrefs(){ try{ const o = JSON.parse(localStorage.getItem('jaay-ui') || '{}'); if(o.period) period = o.period; if(o.salesTab) salesTab = o.salesTab; if(o.purchTab) purchTab = o.purchTab; if(o.moneyTab) moneyTab = o.moneyTab; if(o.itemStock) itemStock = o.itemStock; if(o.partyTab) partyTab = o.partyTab; if(['month','last','year','lastyear'].includes(o.expPeriod)) expPeriod = o.expPeriod; }catch(e){} }
 const IDLE_MS = 30 * 60 * 1000;
@@ -452,10 +475,11 @@ function bestDeal(deals, items, id, qty, date){
   return best;
 }
 // Sets each line's price from the best live deal. A price typed by hand (l.manual) is left alone.
+const unitPrice = (it, x) => { const p = x && x.partyId && S.parties[x.partyId]; return p && p.segment !== 'Retail' && p.segment !== 'Supplier' && num(it.wholesale) > 0 ? num(it.wholesale) : num(it.price); };
 function applyDeals(x){
   if(x.type !== 'sale' && x.type !== 'quote') return false; let changed = false;
   for(const l of x.lines || []){ if(!l.itemId || l.manual || !S.items[l.itemId]) continue;
-    const b = bestDeal(S.deals, S.items, l.itemId, l.qty, x.date || today()), want = b ? b.price : num(S.items[l.itemId].price);
+    const b = bestDeal(S.deals, S.items, l.itemId, l.qty, x.date || today()), want = b ? b.price : unitPrice(S.items[l.itemId], x);
     if(num(l.price) !== want || (b ? l.dealId !== b.id : !!l.dealId)){ l.price = want; changed = true; }
     if(b){ l.dealId = b.id; l.deal = b.name; l.list = b.list; } else { delete l.dealId; delete l.deal; delete l.list; } }
   return changed;
@@ -465,8 +489,8 @@ function calc(x, rate){
   const cogs = (x.lines || []).reduce((s, l) => s + num(l.qty) * num(l.cost), 0);
   const base = Math.max(0, sub - num(x.discount));
   const r = x.tax ? num(rate) : 0;
-  const taxAmt = Math.round(base * r / 100);
-  return { sub, cogs, base, taxRate:r, taxAmt, total: base + taxAmt };
+  const taxAmt = Math.round(base * r / 100), coreAmt = (x.lines || []).reduce((s, l) => s + num(l.qty) * num(l.core), 0);
+  return { sub, cogs, base, taxRate:r, taxAmt, coreAmt, total: base + taxAmt + coreAmt };
 }
 function derive(S){
   const stock = {}, bal = {}, linked = {}, avg = {}, conv = {};
@@ -487,7 +511,7 @@ function derive(S){
     } else if(x.type === 'adjust'){
       if(x.itemId in stock) stock[x.itemId] += num(x.qty);
     } else if(x.type === 'payin' || x.type === 'payout'){
-      if(x.partyId && x.partyId in bal) bal[x.partyId] += (x.type === 'payin' ? -1 : 1) * num(x.amount);
+      if(x.partyId && x.partyId in bal && !x.coreOf) bal[x.partyId] += (x.type === 'payin' ? -1 : 1) * num(x.amount);
       if(x.refId) linked[x.refId] = (linked[x.refId] || 0) + num(x.amount);
     }
   }
@@ -518,7 +542,7 @@ function pnl(S, from, to){
   for(const id in S.txns){
     const x = S.txns[id]; if(!(x.date >= from && x.date <= to)) continue;
     if(x.type === 'sale'){
-      const base = num(x.total) - num(x.taxAmt); revenue += base; cogs += num(x.cogs); tax += num(x.taxAmt); count++;
+      const base = num(x.total) - num(x.taxAmt) - num(x.coreAmt); revenue += base; cogs += num(x.cogs); tax += num(x.taxAmt); count++;
       const meth = x.method || 'Cash'; byMethod[meth] = (byMethod[meth] || 0) + Math.min(num(x.paid), num(x.total)); credit += Math.max(0, num(x.total) - num(x.paid));
       const sub = num(x.sub) || 1, k = base / sub;
       for(const l of x.lines || []){
@@ -527,7 +551,7 @@ function pnl(S, from, to){
         r.qty += num(l.qty); r.revenue += num(l.qty) * num(l.price) * k; r.cost += num(l.qty) * num(l.cost); units += num(l.qty); addCat(l, 1, k);
       }
     } else if(x.type === 'return'){
-      const base = num(x.total) - num(x.taxAmt); revenue -= base; cogs -= num(x.cogs); tax -= num(x.taxAmt); returns += base;
+      const base = num(x.total) - num(x.taxAmt) - num(x.coreAmt); revenue -= base; cogs -= num(x.cogs); tax -= num(x.taxAmt); returns += base;
       const sub = num(x.sub) || 1, k = base / sub;
       for(const l of x.lines || []){
         const key = l.itemId || ('~' + l.name);
@@ -881,7 +905,7 @@ function txRow(x){
   const icn = { po:['cart','m'], return:['ret','r'], sale:['doc','g'], quote:['quote','m'], purchase:['cart',''], payin:['in','g'], payout:['out','r'], expense:['wallet','a'], adjust:['box','m'] }[x.type];
   const L = x.lines || [];
   const title = x.type === 'expense' ? (x.payee || t(x.category || 'Other')) : (x.partyId && S.parties[x.partyId]) || !L.length ? partyName(x) : L[0].name + (L.length > 1 ? ' +' + (L.length - 1) : '');
-  return '<tr class="row" data-a="' + (doc ? 'viewDoc' : 'editMoney') + '" data-id="' + esc(x.id) + '"><td><div class="who">' + ic(icn[0], icn[1]) + '<div><b>' + esc(title) + '</b><div class="sub"><span class="num">' + fdate(x.date) + '</span> · ' + (x.no ? '<span class="plate">' + esc(x.no) + '</span> ' : '') + esc(typeLabel(x)) + (x.type === 'expense' && x.payee ? ' · ' + esc(t(x.category || 'Other')) : '') + (x.note ? ' · ' + esc(x.note) : '') + (x.status === 'pending' || x.status === 'rejected' ? ' · ' + esc(t('by')) + ' ' + esc(x.by || '') : '') + (x.status === 'rejected' && x.rejectReason ? ' · ' + esc(t('Reason')) + ': ' + esc(x.rejectReason) : '') + '</div></div></div></td><td class="r"><b class="num ' + (x.status === 'rejected' ? 'sub' : cls) + '">' + esc(fmt(amt)) + '</b><div>' + (st ? '<span class="pill ' + st[0] + '">' + esc(st[1]) + '</span>' : x.status === 'pending' ? '<span class="pill warn">' + esc(t('Awaiting approval')) + '</span>' : x.status === 'rejected' ? '<span class="pill bad">' + esc(t('Rejected')) + '</span>' : '<span class="sub">' + esc(t(x.method || '')) + '</span>') + '</div></td></tr>';
+  return '<tr class="row" data-a="' + (doc ? 'viewDoc' : 'editMoney') + '" data-id="' + esc(x.id) + '"><td><div class="who">' + ic(icn[0], icn[1]) + '<div><b>' + esc(title) + '</b><div class="sub"><span class="num">' + fdate(x.date) + '</span> · ' + (x.no ? '<span class="plate">' + esc(x.no) + '</span> ' : '') + esc(typeLabel(x)) + (x.type === 'sale' && ordStage(x) !== 'done' ? ' · <span class="pill">' + esc(t(STAGES[ordStage(x)])) + '</span>' : '') + (coreOpen(x) ? ' · <span class="pill warn">' + esc(t(x.coreSt === 'received' ? 'Core received' : 'Core pending')) + '</span>' : '') + (x.type === 'expense' && x.payee ? ' · ' + esc(t(x.category || 'Other')) : '') + (x.note ? ' · ' + esc(x.note) : '') + (x.status === 'pending' || x.status === 'rejected' ? ' · ' + esc(t('by')) + ' ' + esc(x.by || '') : '') + (x.status === 'rejected' && x.rejectReason ? ' · ' + esc(t('Reason')) + ': ' + esc(x.rejectReason) : '') + '</div></div></div></td><td class="r"><b class="num ' + (x.status === 'rejected' ? 'sub' : cls) + '">' + esc(fmt(amt)) + '</b><div>' + (st ? '<span class="pill ' + st[0] + '">' + esc(st[1]) + '</span>' : x.status === 'pending' ? '<span class="pill warn">' + esc(t('Awaiting approval')) + '</span>' : x.status === 'rejected' ? '<span class="pill bad">' + esc(t('Rejected')) + '</span>' : '<span class="sub">' + esc(t(x.method || '')) + '</span>') + '</div></td></tr>';
 }
 const search = ph => '<input type="search" id="q" placeholder="' + esc(ph) + '" value="' + esc(q) + '" aria-label="' + esc(ph) + '">';
 const match = (...f) => { const k = q.trim().toLowerCase(); return !k || f.some(s => String(s || '').toLowerCase().includes(k)); };
@@ -914,7 +938,8 @@ function vParties(){
     + '</tbody></table></div>' : '<div class="card empty">' + esc(Object.keys(S.parties).length ? t('No party matches your search.') : t('No customers or suppliers yet.')) + (Object.keys(S.parties).length ? '' : '<div class="cta">' + btn('newParty', '+ ' + t('New party'), 'pri') + '</div>') + '</div>');
 }
 function docList(type){
-  const rows = sorted(S.txns, byDate).filter(x => x.type === type && match(x.no, partyName(x), x.custPhone, x.note, (x.lines || []).map(l => l.name).join(' ')));
+  const stg = ['confirmed', 'packed', 'delivery', 'done'].includes(type) ? type : '', sales = !!stg || type === 'sale' || type === 'quote'; if(stg) type = 'sale';
+  const rows = sorted(S.txns, byDate).filter(x => x.type === type && (!stg || ordStage(x) === stg) && (!sales || ((!salesChan || x.channel === salesChan) && (!salesFrom || x.date >= salesFrom) && (!salesTo || x.date <= salesTo) && (!coreOnly || coreOpen(x)))) && match(x.no, partyName(x), x.custPhone, x.note, (x.lines || []).map(l => l.name).join(' ')));
   return rows.length ? '<div class="tbl-wrap"><table><thead><tr><th>' + esc(t('Details')) + '</th><th class="r">' + esc(t('Amount')) + '</th></tr></thead><tbody>' + rows.slice(0, 300).map(txRow).join('') + '</tbody></table></div>' : '<div class="card empty">' + esc(type === 'return' ? t('No returns yet. Open an invoice and choose Return items.') : t('Nothing here yet.')) + ({ sale:'<div class="cta">' + btn('newSale', '+ ' + t('New sale'), 'pri') + '</div>', quote:'<div class="cta">' + btn('newQuote', '+ ' + t('New quote'), 'pri') + '</div>', purchase:'<div class="cta">' + btn('newPurchase', '+ ' + t('Goods received'), 'pri') + '</div>', po:'<div class="cta">' + btn('newPo', '+ ' + t('New purchase order'), 'pri') + '</div>' }[type] || '') + '</div>';
 }
 const seg = (a, cur, opts) => '<div class="seg">' + opts.map(o => '<button type="button" data-a="' + a + '" data-id="' + o[0] + '" aria-pressed="' + (o[0] === cur) + '">' + esc(o[1]) + '</button>').join('') + '</div>';
@@ -924,7 +949,9 @@ function voidList(){
 }
 function vSales(){
   return head(t('Sales'), btn('newSale', '+ ' + t('New sale'), 'pri') + btn('newQuote', t('New quote')))
-  + '<div class="tools">' + seg('salesTab', salesTab, [['sale', t('Invoices')], ['quote', t('Quotes')], ['return', t('Returns')]].concat(can('del') ? [['void', t('Voided')]] : [])) + search(t('Search number or customer')) + '</div>' + (salesTab === 'void' ? voidList() : docList(salesTab));
+  + '<div class="tools">' + seg('salesTab', salesTab, [['sale', t('Invoices')], ['quote', t('Quotes')], ['confirmed', t('Confirmed')], ['packed', t('Packed')], ['delivery', t('Out for delivery')], ['done', t('Completed')], ['return', t('Returns')]].concat(can('del') ? [['void', t('Voided')]] : [])) + search(t('Search number or customer')) + '</div>'
+  + (['void', 'return'].includes(salesTab) ? '' : '<div class="tools"><label class="f">' + esc(t('Channel')) + '<select id="sf-chan"><option value="">' + esc(t('All')) + '</option>' + CHANNELS.map(c => '<option value="' + c + '"' + (salesChan === c ? ' selected' : '') + '>' + esc(t(c)) + '</option>').join('') + '</select></label><label class="f">' + esc(t('From')) + '<input type="date" id="sf-from" value="' + esc(salesFrom) + '"></label><label class="f">' + esc(t('To')) + '<input type="date" id="sf-to" value="' + esc(salesTo) + '"></label><button type="button" class="chip" data-a="coreOnly" aria-pressed="' + coreOnly + '">' + esc(t('Pending core returns only')) + '<small>' + Object.values(S.txns).filter(coreOpen).length + '</small></button></div>')
+  + (salesTab === 'void' ? voidList() : docList(salesTab));
 }
 function vPurch(){
   return head(t('Purchases'), btn('newPurchase', '+ ' + t('Goods received'), 'pri') + btn('newPo', t('New purchase order')))
@@ -1012,6 +1039,7 @@ function vExpenses(){
    Button names, menus, what each level can do, categories and payment methods are read from the
    app itself, so the guide changes with the app. Add a line to GUIDE_NEWS with each change. */
 const GUIDE_NEWS = [
+  ['2026-11-19', ['Nouveau comptoir à deux panneaux : recherche du client par nom ou téléphone, remise de palier, prix de gros pour les pros, garage du client (véhicules), canal (WhatsApp, téléphone, e-mail, sur place), plafond de crédit, résumé WhatsApp à copier. Consigne remboursable sur les pièces à échanger : l\'entrepôt contrôle, puis le comptoir rembourse. Étapes de commande : confirmée, préparée, en livraison, terminée.']],
   ['2026-11-19', ['Annuler au lieu de supprimer : un document annulé reste visible avec son motif (onglet Annulés dans Ventes). Ajustement de stock avec code motif et note obligatoires. Recherche globale en haut de chaque page. Limite de remise pour les caissiers avec approbation du gérant. Les caissiers peuvent signaler un écart de stock.']],
   ['2026-11-19', ['Page Site web refaite pour la vente par WhatsApp, appel et e-mail : filtre de période avec comparaison, taux de contact, pages les plus vues, canaux, attribution hors ligne. Nouveau champ « Origine du client » sur les ventes et devis.']],
   ['2026-11-18', ['Nouvelle page Site web (propriétaire et gérants) : visiteurs de planetautohub.com, d\'où ils viennent, ce qu\'ils ont touché (WhatsApp, appel, marques), combien de temps ils restent, et combien demandent une pièce sur WhatsApp. Anonyme : pas de nom ni de numéro. Pour exclure vos propres appareils, ouvrez une fois planetautohub.com/?notrack dessus.']],
@@ -1161,7 +1189,7 @@ function watchLog(){
   }, e => { logLoaded = true; liveErr(e); render(); });
 }
 const LOG_DOC = { sale:'Invoice', quote:'Quote', return:'Credit note', purchase:'Purchase', po:'Purchase order', payin:'Payment in', payout:'Payment out', expense:'Expense', adjust:'Stock adjustment' };
-const LOG_ACT = { create:['Created', 'mute'], update:['Edited', 'warn'], delete:['Deleted', 'bad'], approve:['Approved', 'good'], reject:['Rejected', 'warn'], request:['Requested', 'mute'], signin:['Signed in', 'mute'], signout:['Signed out', 'mute'], idle:['Signed out (inactive)', 'mute'], settings:['Changed settings', 'warn'], bulk:['Saved', 'mute'], import:['Imported', 'mute'], restore:['Loaded a backup', 'warn'], promo:['Promotion recorded', 'good'], void:['Voided', 'bad'], flag:['Flagged stock', 'warn'] };
+const LOG_ACT = { create:['Created', 'mute'], update:['Edited', 'warn'], delete:['Deleted', 'bad'], approve:['Approved', 'good'], reject:['Rejected', 'warn'], request:['Requested', 'mute'], signin:['Signed in', 'mute'], signout:['Signed out', 'mute'], idle:['Signed out (inactive)', 'mute'], settings:['Changed settings', 'warn'], bulk:['Saved', 'mute'], import:['Imported', 'mute'], restore:['Loaded a backup', 'warn'], promo:['Promotion recorded', 'good'], void:['Voided', 'bad'], flag:['Flagged stock', 'warn'], stage:['Order stage', 'mute'], core:['Core deposit', 'warn'] };
 function logKind(e){
   if(['signin', 'signout', 'idle'].includes(e.act) || e.coll === 'members' || e.coll === 'store') return 'access';
   if(e.coll === 'crm' || e.coll === 'deals' || e.coll === 'txns' && ['sale', 'quote', 'return'].includes(e.ttype)) return 'sales';
@@ -1267,6 +1295,7 @@ function watchWeb(){
 }
 document.addEventListener('change', e => {
   const el = e.target; if(!el || !el.id) return;
+  if(el.id === 'sf-chan' || el.id === 'sf-from' || el.id === 'sf-to'){ if(el.id === 'sf-chan') salesChan = el.value; else if(el.id === 'sf-from') salesFrom = el.value; else salesTo = el.value; render(); return; }
   if(el.id === 'webCmp'){ webCmp = el.checked; webSave(); render(); }
   else if(el.id === 'webFrom' || el.id === 'webTo'){
     if(el.id === 'webFrom') webFrom = el.value; else webTo = el.value;
@@ -1376,7 +1405,7 @@ function webRev(a, b){
   for(const id in S.txns){
     const x = S.txns[id]; if(!x.cameFrom || !/^web/.test(x.cameFrom) || !(x.date >= a && x.date <= b)) continue;
     if(x.type === 'quote'){ o.q++; continue; } if(x.type !== 'sale') continue;
-    const r = num(x.total) - num(x.taxAmt); o.rev += r; o.cnt++; o.by[x.cameFrom] = (o.by[x.cameFrom] || 0) + r;
+    const r = num(x.total) - num(x.taxAmt) - num(x.coreAmt); o.rev += r; o.cnt++; o.by[x.cameFrom] = (o.by[x.cameFrom] || 0) + r;
   }
   return o;
 }
@@ -1816,7 +1845,7 @@ function openInvite(id, pw){
 function openItem(id){
   const it = id ? S.items[id] : {}; F = { kind:'item', id };
   const sups = [['', '—'], ...sorted(S.parties, (a, b) => a.name.localeCompare(b.name)).filter(p => p.segment === 'Supplier').map(p => [p.id, p.name])];
-  formModal(id ? t('Edit item') : t('New item'), 'item', '<div class="fg">' + fld(t('Item name'), 'name', it.name, 'required') + fld(t('Item code'), 'code', it.code, 'placeholder="' + esc(t('Created automatically')) + '" autocapitalize="characters"') + fld(t('Part number'), 'sku', it.sku) + fld(t('Category'), 'category', it.category, 'list="dl-cat"') + fld(t('Brand'), 'brand', it.brand) + fld(t('Fits vehicle'), 'fits', it.fits, 'placeholder="Toyota Hilux 2016+" list="dl-veh"') + fld(t('Shelf location'), 'loc', it.loc) + '<span class="cst">' + fld(t('Opening cost price'), 'cost', it.cost, NUMA) + '</span>' + fld(t('Selling price'), 'price', it.price, NUMA) + fld(t('Opening stock'), 'opening', it.opening || 0, NUMA) + fld(t('Reorder level'), 'min', it.min || 0, NUMA) + fld(t('Reorder quantity'), 'reorderQty', it.reorderQty || '', NUMA + ' placeholder="' + esc(t('Suggested')) + '"') + sel(t('Usual supplier'), 'supplierId', it.supplierId || '', sups) + fld(t('Notes'), 'note', it.note) + '</div><datalist id="dl-veh">' + VEHICLES.map(v => '<option value="' + esc(v) + '">').join('') + '</datalist><datalist id="dl-cat">' + [...new Set([...PART_CATS, ...Object.values(S.items).map(x => x.category).filter(Boolean)])].map(c => '<option value="' + esc(c) + '">').join('') + '</datalist><p class="sub cst">' + esc(t('After purchases, the app values stock at the average cost of what you bought.')) + '</p>',
+  formModal(id ? t('Edit item') : t('New item'), 'item', '<div class="fg">' + fld(t('Item name'), 'name', it.name, 'required') + fld(t('Item code'), 'code', it.code, 'placeholder="' + esc(t('Created automatically')) + '" autocapitalize="characters"') + fld(t('Part number'), 'sku', it.sku) + fld(t('Category'), 'category', it.category, 'list="dl-cat"') + fld(t('Brand'), 'brand', it.brand) + fld(t('Fits vehicle'), 'fits', it.fits, 'placeholder="Toyota Hilux 2016+" list="dl-veh"') + fld(t('Bin location'), 'loc', it.loc) + '<span class="cst">' + fld(t('Opening cost price'), 'cost', it.cost, NUMA) + '</span>' + fld(t('Selling price'), 'price', it.price, NUMA) + fld(t('Wholesale price'), 'wholesale', it.wholesale || '', NUMA + ' placeholder="' + esc(t('Same as retail')) + '"') + fld(t('Core deposit'), 'core', it.core || '', NUMA + ' placeholder="0"') + fld(t('Opening stock'), 'opening', it.opening || 0, NUMA) + fld(t('Reorder level'), 'min', it.min || 0, NUMA) + fld(t('Reorder quantity'), 'reorderQty', it.reorderQty || '', NUMA + ' placeholder="' + esc(t('Suggested')) + '"') + sel(t('Usual supplier'), 'supplierId', it.supplierId || '', sups) + fld(t('Notes'), 'note', it.note) + '</div><datalist id="dl-veh">' + VEHICLES.map(v => '<option value="' + esc(v) + '">').join('') + '</datalist><datalist id="dl-cat">' + [...new Set([...PART_CATS, ...Object.values(S.items).map(x => x.category).filter(Boolean)])].map(c => '<option value="' + esc(c) + '">').join('') + '</datalist><p class="sub cst">' + esc(t('After purchases, the app values stock at the average cost of what you bought.')) + '</p>',
     id ? btn('delItem', t('Delete'), 'danger', id) : '');
 }
 function moves(id){
@@ -1896,7 +1925,7 @@ async function makeLabels(ids, copies, showPrice){
 }
 function openParty(id, kind){
   const p = id ? S.parties[id] : { segment: kind || 'Retail' }; F = { kind:'party', id };
-  formModal(id ? t('Edit party') : t('New party'), 'party', '<div class="fg">' + fld(t('Name'), 'name', p.name, 'required') + sel(t('Type'), 'segment', p.segment || 'Retail', SEGMENTS) + fld(t('Phone (with country code)'), 'phone', p.phone, 'inputmode="tel" placeholder="+221 77 000 00 00"') + fld(t('City or address'), 'city', p.city) + fld(t('Credit limit'), 'limit', p.limit || 0, NUMA) + fld(t('Opening balance'), 'opening', p.opening || 0, NUMA) + '</div><p class="sub">' + esc(t('Opening balance: positive if they owe you, negative if you owe them.')) + '</p>');
+  formModal(id ? t('Edit party') : t('New party'), 'party', '<div class="fg">' + fld(t('Name'), 'name', p.name, 'required') + sel(t('Type'), 'segment', p.segment || 'Retail', SEGMENTS) + fld(t('Phone (with country code)'), 'phone', p.phone, 'inputmode="tel" placeholder="+221 77 000 00 00"') + fld(t('City or address'), 'city', p.city) + fld(t('Credit limit'), 'limit', p.limit || 0, NUMA) + fld(t('Tier discount (%)'), 'discPct', p.discPct || '', NUMA + ' placeholder="0"') + fld(t('Opening balance'), 'opening', p.opening || 0, NUMA) + '</div><p class="sub">' + esc(t('Opening balance: positive if they owe you, negative if you owe them.')) + '</p>');
 }
 function viewParty(id){
   const p = S.parties[id]; if(!p) return; const b = D.bal[id];
@@ -2077,7 +2106,8 @@ dlg.addEventListener('change', e => {
   if(el.id === 'imp-file' && el.files[0]) readFile(el.files[0]);
   else if(el.dataset.tab !== undefined && IMP){ IMP.tabs[+el.dataset.tab].on = el.checked; paintImport(); }
   else if(el.name === 'imp-dup' && IMP){ IMP.dup = el.value; paintImport(); }
-  else if(el.id === 'f-partyId' && $('#walkin')) $('#walkin').hidden = !!el.value;
+  else if(el.id === 'f-partyId' && $('#walkin')){ $('#walkin').hidden = !!el.value; if(F && F.kind === 'txn' && (F.x.type === 'sale' || F.x.type === 'quote')) pickCust(el.value); }
+  else if(el.id === 'vsel' && F && F.kind === 'txn'){ const p = S.parties[F.x.partyId], v = p && (p.vehicles || [])[+el.value]; if(v) F.x.vehicle = clone(v); else delete F.x.vehicle; paintGarage(); }
   else if(el.id === 'f-date' && F && F.kind === 'txn' && !F.id){ F.x.date = el.value; if(applyDeals(F.x)){ refreshLines(F.x); paintTotals(); } }
   else if(el.id === 'f-scope' && F && F.kind === 'deal') dealScope(el.value);
 });
@@ -2094,18 +2124,29 @@ function openTxn(type, id, src, srcId){
   if(base.partyId && !parties.some(p => p[0] === base.partyId) && S.parties[base.partyId]) parties.push([base.partyId, S.parties[base.partyId].name]);
   const title = (id ? t('Edit') + ' ' : t('New') + ' ') + { sale:t('invoice'), quote:t('quote'), purchase:t('purchase'), po:t('purchase order'), return:t('sales return') }[base.type];
   const src0 = base.srcId && S.txns[base.srcId];
-  formModal(title, 'txn',
-    (src0 ? '<p class="sub">' + esc(t('From')) + ' <span class="plate">' + esc(src0.no) + '</span></p>' : '')
-    + '<div class="fg">' + sel(isBuy ? t('Supplier') : t('Customer'), 'partyId', base.partyId, [['', isBuy ? '— ' + t('Choose') + ' —' : t('Walk-in customer')], ...parties]) + fld(t('Date'), 'date', base.date, 'type="date" required') + '</div>'
-    + (base.type === 'sale' || base.type === 'quote' ? '<div class="fg" id="walkin"' + (base.partyId ? ' hidden' : '') + '>' + fld(t('Customer name (optional)'), 'partyName', base.partyName || '', 'autocomplete="off"') + fld(t('Customer phone (optional)'), 'custPhone', base.custPhone || '', 'inputmode="tel" placeholder="77 000 00 00" autocomplete="off"') + '</div>' : '')
-    + (base.type === 'sale' || base.type === 'quote' ? '<div class="fg">' + sel(t('Came from'), 'cameFrom', base.cameFrom || '', [['', '—'], ['web-wa', t('Website → WhatsApp')], ['web-call', t('Website → phone call')], ['web-email', t('Website → email')], ['walk-in', t('Walk-in')], ['referral', t('Referral')], ['social', t('Social media or ad')], ['repeat', t('Repeat customer')], ['other', t('Other')]]) + '</div>' : '')
-    + '<label class="scan" for="scan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' + ICON.scan + '"/></svg><input id="scan" autocomplete="off" autocapitalize="characters" placeholder="' + esc(t('Scan a barcode or type an item code, then Enter')) + '" aria-label="' + esc(t('Scan a barcode or type an item code, then Enter')) + '"></label>'
+  const isSell = base.type === 'sale' || base.type === 'quote';
+  const linesHtml = '<label class="scan" for="scan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' + ICON.scan + '"/></svg><input id="scan" autocomplete="off" autocapitalize="characters" placeholder="' + esc(t('Scan a barcode or type an item code, then Enter')) + '" aria-label="' + esc(t('Scan a barcode or type an item code, then Enter')) + '"></label>'
     + '<div><h3>' + esc(t('Lines')) + '</h3></div><div class="lines" id="lines"></div><div><button type="button" class="btn sm" data-a="addLine">+ ' + esc(t('Add line')) + '</button></div>'
     + '<datalist id="dl-items">' + sorted(S.items, (a, b) => a.name.localeCompare(b.name)).map(it => '<option value="' + esc(itemLabel(it)) + '">').join('') + '</datalist>'
     + '<div class="fg">' + fld(t('Discount'), 'discount', base.discount || 0, NUMA + ' min="0"') + '<label class="chk"><input type="checkbox" id="f-tax" name="tax"' + (base.tax ? ' checked' : '') + '> ' + esc(t('Apply VAT')) + ' (' + num(store().taxRate == null ? 18 : store().taxRate) + '%)</label></div>'
-    + (noPay ? '' : '<div class="fg">' + fld(base.type === 'return' ? t('Refund paid now') : isBuy ? t('Amount paid now') : t('Amount received now'), 'paid', base.paid || 0, NUMA + ' min="0"') + sel(t('Method'), 'method', base.method || 'Cash', METHODS) + '</div>')
+    + (isSell ? '<div id="payfg"' + (base.type === 'quote' ? ' hidden' : '') + '>' + (!id ? '<div class="fg">' + sel(t('Fulfilment'), 'stage', base.stage || 'done', [['done', t('Handed over now')], ['confirmed', t('Pack or deliver later')]]) + '</div>' : '') : '') + (noPay && !isSell ? '' : '<div class="fg">' + fld(base.type === 'return' ? t('Refund paid now') : isBuy ? t('Amount paid now') : t('Amount received now'), 'paid', base.paid || 0, NUMA + ' min="0"') + sel(t('Method'), 'method', base.method || 'Cash', METHODS) + '</div>') + (isSell ? '</div>' : '')
     + fld(t('Note'), 'note', base.note)
-    + '<div class="tot" id="tot"></div>');
+    + '<div class="tot" id="tot"></div>';
+  const custOpts = sorted(S.parties, (a, b) => a.name.localeCompare(b.name)).filter(p => p.segment !== 'Supplier');
+  const left = isSell ? '<div class="qbl"><h3>' + esc(t('Customer')) + '</h3>'
+    + '<label class="f">' + esc(t('Find by name or phone')) + '<input id="cfind" list="dl-cust" autocomplete="off" placeholder="' + esc(t('Type a name or phone number')) + '"></label><datalist id="dl-cust">' + custOpts.map(p => '<option value="' + esc(p.name + (p.phone ? ' · ' + p.phone : '')) + '">').join('') + '</datalist>'
+    + '<div class="fg">' + sel(t('Customer'), 'partyId', base.partyId, [['', t('Walk-in customer')], ...parties]) + fld(t('Date'), 'date', base.date, 'type="date" required') + '</div><div class="cinfo" id="cinfo"></div>'
+    + '<div class="fg" id="walkin"' + (base.partyId ? ' hidden' : '') + '>' + fld(t('Customer name (optional)'), 'partyName', base.partyName || '', 'autocomplete="off"') + fld(t('Customer phone (optional)'), 'custPhone', base.custPhone || '', 'inputmode="tel" placeholder="77 000 00 00" autocomplete="off"') + '</div>'
+    + (can('party') ? '<div><button type="button" class="btn sm" data-a="qaToggle">+ ' + esc(t('Quick add customer')) + '</button></div><div class="qadd" id="qa" hidden><label class="f wide">' + esc(t('Name')) + '<input id="qa-name" autocomplete="off"></label><label class="f">' + esc(t('Phone')) + '<input id="qa-phone" inputmode="tel" autocomplete="off" placeholder="77 000 00 00"></label><label class="f">' + esc(t('Type')) + '<select id="qa-seg">' + SEGMENTS.filter(g => g !== 'Supplier').map(g => '<option value="' + g + '">' + esc(t(g)) + '</option>').join('') + '</select></label><div class="wide"><button type="button" class="btn sm pri" data-a="qaSave">' + esc(t('Save customer')) + '</button></div></div>' : '')
+    + '<h3>' + esc(t('Vehicle')) + '</h3><div id="garage"></div>'
+    + '<h3>' + esc(t('Lead channel')) + '</h3><div class="pills" id="chan"></div>'
+    + '<div class="fg">' + sel(t('Came from'), 'cameFrom', base.cameFrom || '', [['', '—'], ['web-wa', t('Website → WhatsApp')], ['web-call', t('Website → phone call')], ['web-email', t('Website → email')], ['walk-in', t('Walk-in')], ['referral', t('Referral')], ['social', t('Social media or ad')], ['repeat', t('Repeat customer')], ['other', t('Other')]]) + '</div></div>' : '';
+  const flow = isSell ? '<div class="qb">' + left + '<div class="qbr">' + linesHtml + '</div></div>'
+    : '<div class="fg">' + sel(isBuy ? t('Supplier') : t('Customer'), 'partyId', base.partyId, [['', isBuy ? '— ' + t('Choose') + ' —' : t('Walk-in customer')], ...parties]) + fld(t('Date'), 'date', base.date, 'type="date" required') + '</div>' + linesHtml;
+  const foot = isSell ? '<button type="button" class="btn" data-a="waCopy">' + esc(t('Copy WhatsApp summary')) + '</button>' + (base.type === 'sale' && !id && !base.srcId ? '<button type="button" class="btn" data-a="saveAsQuote">' + esc(t('Save as quote')) + '</button>' : '') : '';
+  F.foot = foot;
+  modal(title, '<form data-form="txn"><div class="db">' + (src0 ? '<p class="sub">' + esc(t('From')) + ' <span class="plate">' + esc(src0.no) + '</span></p>' : '') + flow + '</div><div class="df">' + foot + '<button type="button" class="btn" data-a="close">' + esc(t('Cancel')) + '</button>' + (isSell && base.type === 'quote' && !id ? '<button type="button" class="btn" data-a="quoteSave" data-save>' + esc(t('Save quote')) + '</button><button type="button" class="btn pri" data-a="toOrder">' + esc(t('Convert to order')) + '</button>' : '<button class="btn pri" data-save>' + esc(isSell && base.type === 'sale' ? t('Convert to order') : t('Save')) + '</button>') + '</div></form>');
+  if(isSell){ paintGarage(); paintChan(); paintCinfo(); }
   paintLines(); paintTotals();
   setTimeout(() => { const el = $('#scan'); if(el && !id && !src) el.focus(); }, 60);
 }
@@ -2116,13 +2157,14 @@ function scanAdd(raw){
   const [iid, it] = hit, x = F.x, isBuy = x.type === 'purchase' || x.type === 'po';
   const ex = x.lines.find(l => l.itemId === iid);
   if(ex) ex.qty = num(ex.qty) + 1;
-  else { const ln = { itemId:iid, name:it.name, qty:1, price: isBuy ? Math.round(D.avg[iid]) : num(it.price), cost: Math.round(D.avg[iid]) };
+  else { const ln = { itemId:iid, name:it.name, qty:1, price: isBuy ? Math.round(D.avg[iid]) : unitPrice(it, x), cost: Math.round(D.avg[iid]) }; if(!isBuy && num(it.core)) ln.core = num(it.core);
     const last = x.lines[x.lines.length - 1]; if(last && !String(last.name || '').trim()) x.lines[x.lines.length - 1] = ln; else x.lines.push(ln); }
   if(!F.id) applyDeals(x); paintLines(); paintTotals();
 }
 function lineHint(l, x){
   const out = [];
   if(l.deal && l.list) out.push('<span class="pill good">' + esc(t('Deal')) + '</span> ' + esc(l.deal) + ' · ' + esc(t('was')) + ' ' + n0(l.list));
+  if((x.type === 'sale' || x.type === 'quote') && l.itemId && S.items[l.itemId] && l.itemId in D.stock){ const it = S.items[l.itemId]; out.push('<span class="sub">' + esc(t('In stock')) + ' ' + n0(D.stock[l.itemId]) + (it.loc ? ' · ' + esc(t('Bin')) + ' ' + esc(it.loc) : '') + '</span>'); }
   if((x.type === 'sale' || x.type === 'quote') && can('cost') && num(l.cost) > 0 && num(l.price) < num(l.cost)) out.push('<span class="neg">' + esc(t('Below cost')) + ' (' + n0(l.cost) + ')</span>');
   return out.join(' · ');
 }
@@ -2133,31 +2175,34 @@ function paintLines(){
     const it = l.itemId && S.items[l.itemId];
     const editing = F.id && S.txns[F.id] ? (S.txns[F.id].lines || []).filter(o => o.itemId === l.itemId).reduce((s, o) => s + num(o.qty), 0) : 0;
     const short = it && x.type === 'sale' && num(l.qty) > D.stock[l.itemId] + (S.txns[F.id] && S.txns[F.id].type === 'sale' ? editing : 0);
-    return '<div class="line"><input id="ln-' + i + '" data-i="' + i + '" data-f="name" list="dl-items" placeholder="' + esc(t('Item or service')) + '" value="' + esc(it ? itemLabel(it) : l.name) + '" aria-label="' + esc(t('Item')) + '"><input id="lq-' + i + '" data-i="' + i + '" data-f="qty" ' + NUMA + ' min="0" value="' + esc(l.qty) + '" aria-label="' + esc(t('Qty')) + '"><input id="lp-' + i + '" data-i="' + i + '" data-f="price" ' + NUMA + ' min="0" value="' + esc(l.price) + '" aria-label="' + esc(t('Price')) + '"><span class="lt num" id="lt-' + i + '">' + n0(num(l.qty) * num(l.price)) + '</span><button type="button" class="x" data-a="rmLine" data-id="' + i + '" aria-label="' + esc(t('Remove line')) + '">×</button>' + (short ? '<span class="hint">' + esc(t('Only')) + ' ' + n0(D.stock[l.itemId]) + ' ' + esc(t('in stock')) + '</span>' : '') + '<span class="hint deal" id="ld-' + i + '">' + lineHint(l, x) + '</span></div>';
+    return '<div class="line"><input id="ln-' + i + '" data-i="' + i + '" data-f="name" list="dl-items" placeholder="' + esc(t('Item or service')) + '" value="' + esc(it ? itemLabel(it) : l.name) + '" aria-label="' + esc(t('Item')) + '"><input id="lq-' + i + '" data-i="' + i + '" data-f="qty" ' + NUMA + ' min="0" value="' + esc(l.qty) + '" aria-label="' + esc(t('Qty')) + '"><input id="lp-' + i + '" data-i="' + i + '" data-f="price" ' + NUMA + ' min="0" value="' + esc(l.price) + '" aria-label="' + esc(t('Price')) + '"><span class="lt num" id="lt-' + i + '">' + n0(num(l.qty) * num(l.price)) + '</span><button type="button" class="x" data-a="rmLine" data-id="' + i + '" aria-label="' + esc(t('Remove line')) + '">×</button>' + (short ? '<span class="hint">' + esc(t('Only')) + ' ' + n0(D.stock[l.itemId]) + ' ' + esc(t('in stock')) + '</span>' : '') + '<span class="hint deal" id="ld-' + i + '">' + lineHint(l, x) + '</span>' + ((x.type === 'sale' || x.type === 'quote') && (num(l.core) || (it && num(it.core))) ? '<label class="lcore">' + esc(t('Core deposit')) + ' <input id="lc-' + i + '" data-i="' + i + '" data-f="core" ' + NUMA + ' min="0" value="' + esc(l.core || 0) + '" aria-label="' + esc(t('Core deposit')) + '"> ' + esc(t('per unit, refunded when the old part is returned')) + '</label>' : '') + '</div>';
   }).join('');
 }
 function paintTotals(){
-  const x = F.x, c = calc(x, store().taxRate == null ? 18 : store().taxRate);
+  const x = F.x; let c = calc(x, store().taxRate == null ? 18 : store().taxRate);
+  if(F.tier && !F.discEdited){ const d = Math.round(c.sub * F.tier / 100); if(d !== num(x.discount)){ x.discount = d; const di = $('#f-discount'); if(di) di.value = d; c = calc(x, store().taxRate == null ? 18 : store().taxRate); } }
   if(F.full){ x.paid = c.total; const p = $('#f-paid'); if(p) p.value = c.total; }
   const saved = (x.lines || []).reduce((a, l) => a + (l.dealId ? (num(l.list) - num(l.price)) * num(l.qty) : 0), 0), prof = c.base - c.cogs;
-  $('#tot').innerHTML = (saved > 0 ? '<span>' + esc(t('Deals applied')) + '</span><span class="r num pos">-' + n0(saved) + '</span>' : '') + '<span>' + esc(t('Subtotal')) + '</span><span class="r num">' + n0(c.sub) + '</span>' + (num(x.discount) ? '<span>' + esc(t('Discount')) + '</span><span class="r num">-' + n0(x.discount) + '</span>' : '') + (c.taxAmt ? '<span>' + esc(t('VAT')) + ' ' + c.taxRate + '%</span><span class="r num">' + n0(c.taxAmt) + '</span>' : '') + '<span><b>' + esc(t('Total')) + '</b></span><span class="r num big">' + esc(fmt(c.total)) + '</span>' + (x.type === 'quote' || x.type === 'po' ? '' : '<span>' + esc(x.type === 'return' ? t('Credit to customer') : t('Balance due')) + '</span><span class="r num">' + n0(Math.max(0, c.total - num(x.paid))) + '</span>')
+  $('#tot').innerHTML = (saved > 0 ? '<span>' + esc(t('Deals applied')) + '</span><span class="r num pos">-' + n0(saved) + '</span>' : '') + '<span>' + esc(t('Subtotal')) + '</span><span class="r num">' + n0(c.sub) + '</span>' + (num(x.discount) ? '<span>' + esc(t('Discount')) + '</span><span class="r num">-' + n0(x.discount) + '</span>' : '') + (c.taxAmt ? '<span>' + esc(t('VAT')) + ' ' + c.taxRate + '%</span><span class="r num">' + n0(c.taxAmt) + '</span>' : '') + (c.coreAmt ? '<span>' + esc(t('Core deposit (refundable)')) + '</span><span class="r num">' + n0(c.coreAmt) + '</span>' : '') + '<span><b>' + esc(t('Total')) + '</b></span><span class="r num big">' + esc(fmt(c.total)) + '</span>' + (x.type === 'quote' || x.type === 'po' ? '' : '<span>' + esc(x.type === 'return' ? t('Credit to customer') : t('Balance due')) + '</span><span class="r num">' + n0(Math.max(0, c.total - num(x.paid))) + '</span>')
     + ((x.type === 'sale' || x.type === 'quote') && can('cost') && c.base ? '<span class="cst">' + esc(t('Profit on this sale')) + '</span><span class="r num cst ' + (prof < 0 ? 'neg' : prof / c.base < 0.2 ? 'warn' : 'pos') + '">' + n0(prof) + ' · ' + Math.round(prof / c.base * 100) + '%</span>' : '');
 }
 dlg.addEventListener('keydown', e => { if(e.target.id === 'scan' && e.key === 'Enter'){ e.preventDefault(); scanAdd(e.target.value); e.target.value = ''; } });
 dlg.addEventListener('input', e => {
   if(e.target.id === 'scan') return;
   if(!F || F.kind !== 'txn') return; const el = e.target, x = F.x;
+  if(el.id === 'cfind'){ const q = el.value.trim(), ps = Object.entries(S.parties).filter(([, p]) => p.segment !== 'Supplier'); let hit = ps.find(([, p]) => p.name + (p.phone ? ' · ' + p.phone : '') === q); if(!hit && pk(q).length >= 9){ const m = ps.filter(([, p]) => pk(p.phone) === pk(q)); if(m.length === 1) hit = m[0]; } if(hit){ pickCust(hit[0]); el.value = ''; } return; }
+  if(el.closest('.qadd')) return;
   if(el.dataset.f){
     const l = x.lines[+el.dataset.i];
     if(el.dataset.f === 'name'){
       const hit = Object.entries(S.items).find(([, it]) => itemLabel(it) === el.value);
-      if(hit){ delete l.manual; l.itemId = hit[0]; l.name = hit[1].name; l.cost = Math.round(D.avg[hit[0]]); l.price = x.type === 'purchase' || x.type === 'po' ? Math.round(D.avg[hit[0]]) : num(hit[1].price); $('#lp-' + el.dataset.i).value = l.price; }
-      else { l.itemId = ''; l.name = el.value; if(x.type !== 'purchase' && x.type !== 'po') l.cost = 0; }
+      if(hit){ delete l.manual; l.itemId = hit[0]; l.name = hit[1].name; l.cost = Math.round(D.avg[hit[0]]); l.price = x.type === 'purchase' || x.type === 'po' ? Math.round(D.avg[hit[0]]) : unitPrice(hit[1], x); if(x.type === 'sale' || x.type === 'quote'){ if(num(hit[1].core)) l.core = num(hit[1].core); else delete l.core; } $('#lp-' + el.dataset.i).value = l.price; paintLines(); const nn = $('#ln-' + el.dataset.i); if(nn){ nn.focus(); nn.setSelectionRange(nn.value.length, nn.value.length); } }
+      else { if(l.itemId){ l.itemId = ''; delete l.core; } l.name = el.value; if(x.type !== 'purchase' && x.type !== 'po') l.cost = 0; }
     } else { l[el.dataset.f] = num(el.value); if(el.dataset.f === 'price'){ l.manual = true; delete l.dealId; delete l.deal; delete l.list; } }
     if(x.type === 'purchase' || x.type === 'po') l.cost = num(l.price);
     if(!F.id) applyDeals(x);
     $('#lt-' + el.dataset.i).textContent = n0(num(l.qty) * num(l.price)); refreshLines(x);
-  } else if(el.name === 'discount') x.discount = num(el.value);
+  } else if(el.name === 'discount'){ x.discount = num(el.value); F.discEdited = true; }
   else if(el.name === 'tax') x.tax = el.checked;
   else if(el.name === 'paid'){ x.paid = num(el.value); F.full = false; }
   else return;
@@ -2170,15 +2215,53 @@ function viewDoc(id){
   const wa = !isBuy ? '<a class="btn" target="_blank" rel="noopener" href="https://wa.me/' + digits + '?text=' + encodeURIComponent(docText(id)) + '">' + esc(t('Send on WhatsApp')) + '</a>' : '';
   modal(title + ' ' + x.no, '<div class="db"><div class="docu"><div class="top"><div>' + (s.logo ? '<img class="logo" alt="" src="' + esc(s.logo) + '">' : '') + '<b style="font-family:var(--display);font-size:1.375rem">' + esc(s.name || '') + '</b><div class="sub">' + esc([s.address, s.phone].filter(Boolean).join(' · ')) + '</div><div class="sub">' + esc([s.ninea && 'NINEA ' + s.ninea, s.rccm && 'RCCM ' + s.rccm].filter(Boolean).join(' · ')) + '</div></div><div class="r"><span class="plate">' + esc(x.no) + '</span><div class="sub num">' + fdate(x.date) + '</div><span class="pill ' + st[0] + '">' + esc(st[1]) + '</span></div></div><div><span class="sub">' + esc(isBuy ? t('Supplier') : t('Customer')) + '</span><br><b>' + esc(partyName(x)) + '</b>' + (p && p.phone ? ' <span class="sub num">' + esc(p.phone) + '</span>' : !p && x.custPhone ? ' <span class="sub num">' + esc(x.custPhone) + '</span>' : '') + '</div>'
     + '<div class="tbl-wrap"><table><thead><tr><th>' + esc(t('Item')) + '</th><th class="r">' + esc(t('Qty')) + '</th><th class="r">' + esc(t('Price')) + '</th><th class="r">' + esc(t('Amount')) + '</th></tr></thead><tbody>' + (x.lines || []).map(l => '<tr><td>' + esc(l.name) + '</td><td class="r num">' + n0(l.qty) + '</td><td class="r num">' + n0(l.price) + '</td><td class="r num">' + n0(num(l.qty) * num(l.price)) + '</td></tr>').join('') + '</tbody></table></div>'
-    + '<dl class="kv" style="margin:0 0 0 auto;min-width:240px"><dt>' + esc(t('Subtotal')) + '</dt><dd class="num">' + n0(x.sub) + '</dd>' + (num(x.discount) ? '<dt>' + esc(t('Discount')) + '</dt><dd class="num">-' + n0(x.discount) + '</dd>' : '') + (num(x.taxAmt) ? '<dt>' + esc(t('VAT')) + ' ' + num(x.taxRate) + '%</dt><dd class="num">' + n0(x.taxAmt) + '</dd>' : '') + '<dt><b>' + esc(t('Total')) + '</b></dt><dd class="num"><b>' + esc(fmt(x.total)) + '</b></dd>' + (noPay ? '' : ret ? '<dt>' + esc(t('Refunded')) + '</dt><dd class="num">' + n0(x.paid) + '</dd><dt>' + esc(t('Credit to customer')) + '</dt><dd class="num">' + n0(num(x.total) - num(x.paid)) + '</dd>' : '<dt>' + esc(t('Paid')) + '</dt><dd class="num">' + n0(num(x.total) - due) + '</dd><dt>' + esc(t('Balance due')) + '</dt><dd class="num ' + (due ? 'neg' : '') + '">' + n0(due) + '</dd>') + '</dl>' + (srcD ? '<div class="sub">' + esc(t('From')) + ' <span class="plate">' + esc(srcD.no) + '</span></div>' : '') + (nextD ? '<div class="sub">' + esc(t('Continued in')) + ' <span class="plate">' + esc(nextD.no) + '</span></div>' : '') + (x.note ? '<div class="sub">' + esc(x.note) + '</div>' : '') + (x.by ? '<div class="sub">' + esc(t('Recorded by')) + ' ' + esc(x.by) + '</div>' : '') + '</div></div>',
+    + orderBlock(id, x) + '<dl class="kv" style="margin:0 0 0 auto;min-width:240px"><dt>' + esc(t('Subtotal')) + '</dt><dd class="num">' + n0(x.sub) + '</dd>' + (num(x.discount) ? '<dt>' + esc(t('Discount')) + '</dt><dd class="num">-' + n0(x.discount) + '</dd>' : '') + (num(x.taxAmt) ? '<dt>' + esc(t('VAT')) + ' ' + num(x.taxRate) + '%</dt><dd class="num">' + n0(x.taxAmt) + '</dd>' : '') + (num(x.coreAmt) ? '<dt>' + esc(t('Core deposit (refundable)')) + '</dt><dd class="num">' + n0(x.coreAmt) + '</dd>' : '') + '<dt><b>' + esc(t('Total')) + '</b></dt><dd class="num"><b>' + esc(fmt(x.total)) + '</b></dd>' + (noPay ? '' : ret ? '<dt>' + esc(t('Refunded')) + '</dt><dd class="num">' + n0(x.paid) + '</dd><dt>' + esc(t('Credit to customer')) + '</dt><dd class="num">' + n0(num(x.total) - num(x.paid)) + '</dd>' : '<dt>' + esc(t('Paid')) + '</dt><dd class="num">' + n0(num(x.total) - due) + '</dd><dt>' + esc(t('Balance due')) + '</dt><dd class="num ' + (due ? 'neg' : '') + '">' + n0(due) + '</dd>') + '</dl>' + (srcD ? '<div class="sub">' + esc(t('From')) + ' <span class="plate">' + esc(srcD.no) + '</span></div>' : '') + (nextD ? '<div class="sub">' + esc(t('Continued in')) + ' <span class="plate">' + esc(nextD.no) + '</span></div>' : '') + (x.note ? '<div class="sub">' + esc(x.note) + '</div>' : '') + (x.by ? '<div class="sub">' + esc(t('Recorded by')) + ' ' + esc(x.by) + '</div>' : '') + '</div></div>',
     '<div class="df">' + btn('delTxn', t('Void'), 'danger', id) + btn('editTxn', t('Edit'), '', id) + (dl ? btn('pdf', t('Download PDF'), '', id) + (x.type === 'sale' || x.type === 'return' ? btn('receipt', t('Receipt 80 mm'), '', id) : '') : '') + wa + (x.type === 'sale' ? btn('returnDoc', t('Return items'), '', id) : '') + (x.type === 'quote' ? (D.conv[id] ? '' : btn('convert', t('Convert to invoice'), 'pri', id)) : x.type === 'po' ? (D.conv[id] ? '' : btn('receivePo', t('Receive goods'), 'pri', id)) : !ret && due > 0 && x.partyId ? btn('payDoc', isBuy ? t('Record payment made') : t('Record payment received'), 'pri', id) : '') + '</div>');
 }
-const docTitle = ty => ({ sale:t('Invoice'), quote:t('Quote'), purchase:t('Purchase'), po:t('Purchase order'), return:t('Credit note') })[ty];
-function docText(id){
-  const x = S.txns[id], s = store(), fr = lang === 'fr', due = Math.max(0, dueOf(id, x));
-  const title = docTitle(x.type);
-  return [(s.name || '') + ' — ' + title + ' ' + x.no, fdate(x.date), '', ...(x.lines || []).map(l => n0(l.qty) + ' x ' + l.name + ' = ' + n0(num(l.qty) * num(l.price))), '', 'Total: ' + fmt(x.total), x.type === 'sale' ? (fr ? 'Reste à payer: ' : 'Balance due: ') + fmt(due) : '', s.phone || ''].filter((l, i, a) => l !== '' || a[i - 1] !== '').join('\n');
+/* ---------- counter builder helpers ---------- */
+const CHANNELS = ['WhatsApp', 'Phone', 'Email', 'Walk-In'];
+const STAGES = { confirmed:'Confirmed', packed:'Packed', delivery:'Out for delivery', done:'Completed' };
+function orderBlock(id, x){
+  if(x.type !== 'sale') return '';
+  const st = ordStage(x), keys = Object.keys(STAGES), at = keys.indexOf(st), nxt = { confirmed:[['packed', 'Mark packed']], packed:[['delivery', 'Out for delivery'], ['done', 'Mark completed']], delivery:[['done', 'Mark completed']] }[st] || [];
+  const meta = [x.channel && t('Channel') + ': ' + t(x.channel), x.vehicle && vehLabel(x.vehicle) ? t('Vehicle') + ': ' + vehLabel(x.vehicle) : '', x.by && t('Served by') + ': ' + x.by].filter(Boolean);
+  let core = '';
+  if(num(x.coreAmt)){
+    const cs = x.coreSt || 'pending', cr = x.coreRef || {};
+    core = '<div class="ob-core"><h3>' + esc(t('Core deposit')) + ' · ' + esc(fmt(x.coreAmt)) + '</h3><ol class="steps2"><li class="' + (cs !== 'pending' ? 'done' : '') + '"><b>' + esc(t('1. Warehouse: core inspected and received')) + '</b>' + (cr.recv ? '<div class="sub">' + esc(cr.recv.by || '') + ' · ' + esc(fdate(iso(new Date(cr.recv.at || 0)))) + '</div>' : (can('items') ? '<div>' + btn('coreRecv', t('Core physically inspected & received'), 'sm', id) + '</div>' : '<div class="sub">' + esc(t('Waiting for the warehouse')) + '</div>')) + '</li>'
+      + '<li class="' + (cs === 'refunded' ? 'done' : '') + '"><b>' + esc(t('2. Counter: issue the core refund')) + '</b>' + (cr.refund ? '<div class="sub">' + esc(fmt(cr.refund.amount)) + ' · ' + esc(cr.refund.by || '') + ' · ' + esc(fdate(iso(new Date(cr.refund.at || 0)))) + '</div>' : cs === 'received' && can('sell') ? '<div>' + btn('coreRefund', t('Issue core refund'), 'sm pri', id) + '</div>' : '<div class="sub">' + esc(cs === 'received' ? t('Waiting for the counter') : t('Unlocks after the warehouse step')) + '</div>') + '</li></ol></div>';
+  }
+  return '<div class="ob"><h3>' + esc(t('Order progress')) + '</h3><div class="pills">' + keys.map((k, i) => '<span class="pill ' + (i < at ? 'good' : i === at ? 'good strong' : 'mute') + '">' + esc(t(STAGES[k])) + '</span>').join('') + '</div>' + (nxt.length && can('sell') ? '<div class="pills" style="margin-top:8px">' + nxt.map(n => btn('stage', t(n[1]), 'sm', id + '|' + n[0])).join('') + '</div>' : '') + (meta.length ? '<div class="sub">' + esc(meta.join(' · ')) + '</div>' : '') + core + '</div>';
 }
+function paintChan(){ const el = $('#chan'); if(!el) return; el.innerHTML = CHANNELS.map(c => '<button type="button" class="chip" data-a="chan" data-id="' + c + '" aria-pressed="' + (F.x.channel === c) + '">' + esc(t(c)) + '</button>').join(''); }
+function paintCinfo(){
+  const el = $('#cinfo'); if(!el) return; const p = F.x.partyId && S.parties[F.x.partyId];
+  if(!p){ el.innerHTML = ''; return; }
+  const b = num(D.bal[F.x.partyId]), lim = num(p.limit);
+  el.innerHTML = '<span class="pill">' + esc(t(p.segment || 'Retail')) + '</span>' + (num(p.discPct) ? '<span class="pill good">' + esc(t('Tier discount')) + ' ' + num(p.discPct) + '%</span>' : '') + (lim ? '<span class="' + (b > lim ? 'neg' : '') + '">' + esc(t('Credit limit')) + ' ' + n0(lim) + ' · ' + esc(t('owes')) + ' ' + n0(Math.max(0, b)) + '</span>' : (b > 0 ? '<span>' + esc(t('owes')) + ' ' + n0(b) + '</span>' : ''));
+}
+const vehLabel = v => [v.year, v.make, v.model, v.engine].filter(Boolean).join(' ') + (v.vin ? ' · ' + v.vin : '');
+function paintGarage(){
+  const el = $('#garage'); if(!el) return; const p = F.x.partyId && S.parties[F.x.partyId], vs = p && p.vehicles || [], cur = F.x.vehicle;
+  const idx = cur ? vs.findIndex(v => vehLabel(v) === vehLabel(cur)) : -1;
+  el.innerHTML = (vs.length ? '<label class="f">' + esc(t('Saved garage')) + '<select id="vsel"><option value="">—</option>' + vs.map((v, i) => '<option value="' + i + '"' + (i === idx ? ' selected' : '') + '>' + esc(vehLabel(v)) + '</option>').join('') + '</select></label>' : '')
+    + (cur && idx < 0 ? '<div class="cinfo"><span class="pill">' + esc(vehLabel(cur)) + '</span></div>' : '')
+    + '<div><button type="button" class="btn sm" data-a="vToggle">+ ' + esc(t('Add vehicle')) + '</button></div>'
+    + '<div class="qadd" id="va" hidden><label class="f">' + esc(t('Year')) + '<input id="va-year" inputmode="numeric" maxlength="4" autocomplete="off"></label><label class="f">' + esc(t('Make')) + '<input id="va-make" list="dl-veh-make" autocomplete="off"></label><label class="f">' + esc(t('Model')) + '<input id="va-model" autocomplete="off"></label><label class="f">' + esc(t('Engine')) + '<input id="va-engine" autocomplete="off"></label><label class="f wide">VIN<input id="va-vin" autocomplete="off" autocapitalize="characters" maxlength="17"></label><div class="wide"><button type="button" class="btn sm pri" data-a="vSave">' + esc(t('Save vehicle')) + '</button></div></div><datalist id="dl-veh-make">' + [...new Set(VEHICLES.map(v => String(v).split(' ')[0]))].map(m => '<option value="' + esc(m) + '">').join('') + '</datalist>';
+}
+function pickCust(id){
+  const x = F.x; x.partyId = id || ''; const p = id && S.parties[id], se = $('#f-partyId'); if(se && se.value !== (id || '')) se.value = id || '';
+  const w = $('#walkin'); if(w) w.hidden = !!id;
+  if(x.vehicle && p && !(p.vehicles || []).some(v => vehLabel(v) === vehLabel(x.vehicle))) delete x.vehicle;
+  if(!F.id){ F.tier = p && num(p.discPct) > 0 ? num(p.discPct) : 0; if(!F.discEdited){ x.discount = 0; const di = $('#f-discount'); if(di) di.value = 0; } if(applyDeals(x)) { /* repriced */ } paintLines(); }
+  paintGarage(); paintCinfo(); paintTotals();
+}
+function docTextFor(x, due){
+  const s = store(), fr = lang === 'fr', title = docTitle(x.type);
+  return [(s.name || '') + ' — ' + title + (x.no ? ' ' + x.no : ''), fdate(x.date), x.vehicle && vehLabel(x.vehicle) ? '🚗 ' + vehLabel(x.vehicle) : '', '', ...(x.lines || []).map(l => n0(l.qty) + ' x ' + l.name + ' = ' + n0(num(l.qty) * num(l.price))), '', num(x.discount) ? (fr ? 'Remise: -' : 'Discount: -') + n0(x.discount) : '', num(x.coreAmt) ? (fr ? 'Consigne (remboursable): ' : 'Core deposit (refundable): ') + n0(x.coreAmt) : '', 'Total: ' + fmt(x.total), x.type === 'sale' ? (fr ? 'Reste à payer: ' : 'Balance due: ') + fmt(due) : '', s.phone || ''].filter((l, i, a) => l !== '' || (a[i - 1] !== '' && i > 0)).join('\n');
+}
+const docTitle = ty => ({ sale:t('Invoice'), quote:t('Quote'), purchase:t('Purchase'), po:t('Purchase order'), return:t('Credit note') })[ty];
+function docText(id){ const x = S.txns[id]; return docTextFor(x, Math.max(0, dueOf(id, x))); }
 function logoData(src){
   return new Promise(res => { if(!src) return res(null); const im = new Image();
     im.onload = () => { try{ const c = document.createElement('canvas'); c.width = im.naturalWidth; c.height = im.naturalHeight; const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(im, 0, 0); res({ url: c.toDataURL('image/png'), r: c.width / c.height }); }catch(e){ res(null); } };
@@ -2212,7 +2295,7 @@ async function makePdf(id){
   }
   if(y > 240){ doc.addPage(); y = 20; }
   y += 4; const row = (k, v, bold) => { doc.setFont('helvetica', bold ? 'bold' : 'normal').setFontSize(bold ? 12 : 10); doc.text(k, 130, y); doc.text(v, R - 2, y, { align:'right' }); y += bold ? 7 : 5.4; };
-  row(t('Subtotal'), n0(x.sub)); if(num(x.discount)) row(t('Discount'), '-' + n0(x.discount)); if(num(x.taxAmt)) row(t('VAT') + ' ' + num(x.taxRate) + '%', n0(x.taxAmt));
+  row(t('Subtotal'), n0(x.sub)); if(num(x.discount)) row(t('Discount'), '-' + n0(x.discount)); if(num(x.taxAmt)) row(t('VAT') + ' ' + num(x.taxRate) + '%', n0(x.taxAmt)); if(num(x.coreAmt)) row(t('Core deposit (refundable)'), n0(x.coreAmt));
   row(t('Total'), fmt(x.total), true);
   if(x.type === 'return'){ row(t('Refunded'), n0(x.paid)); row(t('Credit to customer'), fmt(num(x.total) - num(x.paid)), true); }
   else if(x.type !== 'quote' && x.type !== 'po'){ row(t('Paid'), n0(num(x.total) - due)); row(t('Balance due'), fmt(due), true); }
@@ -2244,7 +2327,7 @@ function makeReceipt(id){
     if(l.dealId){ doc.setFontSize(7).text('  ' + t('Deal') + ': ' + (l.deal || '') + ' (' + t('was') + ' ' + n0(l.list) + ')', M, y - 0.6); y += 3.4; }
   });
   rule();
-  lr(t('Subtotal'), n0(x.sub)); if(num(x.discount)) lr(t('Discount'), '-' + n0(x.discount)); if(num(x.taxAmt)) lr(t('VAT') + ' ' + num(x.taxRate) + '%', n0(x.taxAmt));
+  lr(t('Subtotal'), n0(x.sub)); if(num(x.discount)) lr(t('Discount'), '-' + n0(x.discount)); if(num(x.taxAmt)) lr(t('VAT') + ' ' + num(x.taxRate) + '%', n0(x.taxAmt)); if(num(x.coreAmt)) lr(t('Core deposit (refundable)'), n0(x.coreAmt));
   const saved = (x.lines || []).reduce((a, l) => a + (l.dealId ? (num(l.list) - num(l.price)) * num(l.qty) : 0), 0);
   lr(t('Total'), fmt(x.total), true, 11);
   if(x.type === 'sale'){ lr(t('Paid') + (x.method ? ' (' + t(x.method) + ')' : ''), n0(num(x.total) - due)); if(due) lr(t('Balance due'), fmt(due), true); }
@@ -2327,9 +2410,57 @@ const A = {
   payOutFor: id => openMoney('payout', { partyId:id, amount: D.bal[id] < 0 ? -D.bal[id] : '' }),
   payDoc: id => { const x = S.txns[id]; if(!can(x.type === 'purchase' ? 'payout' : 'payin')) return toast(t('Not allowed for your access level.')); openMoney(x.type === 'purchase' ? 'payout' : 'payin', { partyId:x.partyId, amount:Math.max(0, dueOf(id, x)), refId:id, note:x.no }); },
   editMoney: id => { const x = S.txns[id]; if(x.type === 'adjust') return; openMoney(x.type, null, id); },
+  async stage(arg){
+    const [id, to] = String(arg).split('|'), x = S.txns[id]; if(!x || x.type !== 'sale' || !STAGES[to]) return;
+    const d = clone(x); delete d.id; if(to === 'done') delete d.stage; else d.stage = to; if(to === 'done' && !d.stage) d.stage = 'done';
+    await put('txns', id, d, { act:'stage', reason:t(STAGES[to]) }); toast(t(STAGES[to])); if(dlg.open) viewDoc(id);
+  },
+  async coreRecv(id){
+    const x = S.txns[id]; if(!x || !num(x.coreAmt) || (x.coreSt || 'pending') !== 'pending') return;
+    const d = clone(x); delete d.id; d.coreSt = 'received'; d.coreRef = Object.assign({}, x.coreRef, { recv:{ by:me() ? me().name : '', at:Date.now() } });
+    await put('txns', id, d, { act:'core', reason:t('Core received') }); toast(t('Core received')); if(dlg.open) viewDoc(id);
+  },
+  coreRefund(id){
+    const x = S.txns[id]; if(!x || x.coreSt !== 'received') return toast(t('The warehouse must inspect the core first.'));
+    ask(t('Refund the core deposit of') + ' ' + fmt(x.coreAmt) + ' ' + t('in cash?'), t('Issue core refund'), async () => {
+      const pid = uid(), amt = num(x.coreAmt), by = me() ? me().name : '', od = clone(x); delete od.id; od.coreSt = 'refunded'; od.coreRef = Object.assign({}, x.coreRef, { refund:{ by, at:Date.now(), amount:amt, method:'Cash' } });
+      const pay = { type:'payout', date:today(), amount:amt, method:'Cash', note:t('Core refund') + ' ' + (x.no || ''), coreOf:id, partyId:x.partyId || '', createdAt:Date.now(), by, byUid:JB.uid() };
+      const log = logRef(logEntry('update', 'txns', id, x, od, { act:'core', reason:t('Core refund') + ' ' + n0(amt) })); pay.logId = log.id; od.logId = log.id;
+      try{ await JB.commit([{ path:dbPath('txns', pid), data:pay }, { path:dbPath('txns', id), data:od }], log); toast(t('Core refund issued.')); if(dlg.open) viewDoc(id); }catch(e){ fail(e); }
+    });
+  },
+  chan: id => { if(!F || F.kind !== 'txn') return; F.x.channel = F.x.channel === id ? '' : id; if(!F.x.channel) delete F.x.channel; paintChan(); },
+  qaToggle: () => { const q = $('#qa'); if(q){ q.hidden = !q.hidden; if(!q.hidden) $('#qa-name').focus(); } },
+  async qaSave(){
+    const name = $('#qa-name').value.trim(), ph = $('#qa-phone').value.trim(), dg = ph.replace(/\D/g, '');
+    if(!name) return toast(t('Enter the customer name.'));
+    if(ph && dg.length < 9) return toast(t('Phone numbers need 9 digits (e.g. 77 000 00 00).'));
+    const id = uid(), d = { name, segment:$('#qa-seg').value, phone: ph ? (dg.length === 9 ? '+221' + dg : '+' + dg) : '', city:'', limit:0, opening:0, createdAt:Date.now() };
+    await put('parties', id, d); if(!S.parties[id]) S.parties[id] = Object.assign({ id }, d);
+    const se = $('#f-partyId'), o = document.createElement('option'); o.value = id; o.textContent = name; se.appendChild(o);
+    $('#qa').hidden = true; $('#qa-name').value = ''; $('#qa-phone').value = ''; pickCust(id); toast(t('Customer added.'));
+  },
+  vToggle: () => { const q = $('#va'); if(q){ q.hidden = !q.hidden; if(!q.hidden) $('#va-year').focus(); } },
+  async vSave(){
+    const v = { year:$('#va-year').value.trim(), make:$('#va-make').value.trim(), model:$('#va-model').value.trim(), engine:$('#va-engine').value.trim(), vin:$('#va-vin').value.trim().toUpperCase() };
+    if(!v.make && !v.model && !v.vin) return toast(t('Enter at least the make, model or VIN.'));
+    if(v.year && !/^(19|20)\d\d$/.test(v.year)) return toast(t('Enter a four-digit year.'));
+    F.x.vehicle = v; const p = F.x.partyId && S.parties[F.x.partyId];
+    if(p && can('party') && !(p.vehicles || []).some(o => vehLabel(o) === vehLabel(v))){ const np = Object.assign({}, p, { vehicles:[...(p.vehicles || []), v].slice(-12) }); await put('parties', F.x.partyId, np); if(S.parties[F.x.partyId] === p) S.parties[F.x.partyId] = np; }
+    paintGarage();
+  },
+  waCopy: () => { const x = F.x, f = $('form[data-form=txn]'), v = {}; new FormData(f).forEach((val, k) => { v[k] = String(val).trim(); });
+    const lines = x.lines.filter(l => (l.name || '').trim() && num(l.qty) > 0), tmp = Object.assign({}, x, { lines, discount:num(x.discount), date:v.date || x.date });
+    const c = calc(tmp, store().taxRate == null ? 18 : store().taxRate); Object.assign(tmp, { total:c.total, coreAmt:c.coreAmt, taxAmt:c.taxAmt });
+    if(!lines.length) return toast(t('Add at least one line with a name and quantity.'));
+    copyText(docTextFor(tmp, c.total - num(x.paid))).then(ok => { if(ok) toast(t('Summary copied. Paste it into WhatsApp.')); }); },
+  saveAsQuote: () => { F.x.type = 'quote'; const f = $('form[data-form=txn]'); if(f) f.requestSubmit(); },
+  quoteSave: () => { const f = $('form[data-form=txn]'); if(f) f.requestSubmit(); },
+  toOrder: () => { F.x.type = 'sale'; F.full = true; const pf = $('#payfg'); if(pf) pf.hidden = false; const df = $('form[data-form=txn] .df'); if(df) df.innerHTML = (F.foot || '').replace(/<button[^>]*data-a="saveAsQuote">.*?<\/button>/, '') + '<button type="button" class="btn" data-a="close">' + esc(t('Cancel')) + '</button><button class="btn pri" data-save>' + esc(t('Convert to order')) + '</button>'; paintTotals(); const pa = $('#f-paid'); if(pa) pa.focus(); toast(t('Choose how it is paid, then confirm.')); },
   addLine: () => { F.x.lines.push({ itemId:'', name:'', qty:1, price:0, cost:0 }); paintLines(); const el = $('#ln-' + (F.x.lines.length - 1)); if(el) el.focus(); },
   rmLine: i => { F.x.lines.splice(+i, 1); if(!F.x.lines.length) F.x.lines.push({ itemId:'', name:'', qty:1, price:0, cost:0 }); paintLines(); paintTotals(); },
   go: id => { location.hash = id; }, itemCat: id => { itemCat = id || ''; render(); }, itemStock: id => { itemStock = id; savePrefs(); render(); }, partyTab: id => { partyTab = id; savePrefs(); render(); },
+  coreOnly: () => { coreOnly = !coreOnly; render(); },
   salesTab: id => { salesTab = id; savePrefs(); render(); }, moneyTab: id => { moneyTab = id; savePrefs(); render(); }, period: id => { period = id; savePrefs(); render(); },
   rmLogo: () => { const d = Object.assign({}, store()); delete d.logo; putStore(storeId, d).then(render, fail); },
   backup: () => { const st = Object.assign({}, store()); const strip = m => { const o = {}; for(const k in m) o[k] = m[k]; return o; };
@@ -2475,9 +2606,9 @@ const SUBMIT = {
   async labels(v){ if(!window.jspdf || !window.JsBarcode) return toast(t('The PDF tool is still loading. Try again in a moment.')); const ids = F.ids, copies = ids.length === 1 ? Math.max(1, Math.min(240, Math.round(num(v.copies)) || 1)) : 1, sp = v.lprice === 'on'; dlg.close(); try{ await saveFile('labels-' + today() + '.pdf', await makeLabels(ids, copies, sp)); }catch(e){ console.error(e); toast(t('The PDF could not be created. Try again.')); } },
   async item(v){ const id = F.id || uid(), old = F.id ? S.items[F.id] : {}; const code = v.code.toUpperCase().replace(/\s+/g, '');
     if(code && Object.entries(S.items).some(([k, it]) => k !== id && it.code === code)) return toast(t('That item code is already used.'));
-    const d = Object.assign({}, old, { name:v.name, sku:v.sku, category:v.category, brand:v.brand, fits:v.fits, loc:v.loc, cost:num(v.cost), price:num(v.price), opening:num(v.opening), min:num(v.min), reorderQty:num(v.reorderQty), supplierId:v.supplierId || '', note:v.note, code });
+    const d = Object.assign({}, old, { name:v.name, sku:v.sku, category:v.category, brand:v.brand, fits:v.fits, loc:v.loc, cost:num(v.cost), price:num(v.price), wholesale:num(v.wholesale), core:num(v.core), opening:num(v.opening), min:num(v.min), reorderQty:num(v.reorderQty), supplierId:v.supplierId || '', note:v.note, code });
     if(!d.code) d.code = genCode(d, new Set(Object.values(S.items).map(it => it.code).filter(Boolean))); if(!F.id) d.createdAt = Date.now(); dlg.close(); await put('items', id, d); toast(t('Saved.')); },
-  async party(v){ const id = F.id || uid(), old = F.id ? S.parties[F.id] : {}; const d = Object.assign({}, old, { name:v.name, segment:v.segment, phone:v.phone, city:v.city, limit:num(v.limit), opening:num(v.opening) }); if(!F.id) d.createdAt = Date.now(); dlg.close(); await put('parties', id, d); toast(t('Saved.')); },
+  async party(v){ const id = F.id || uid(), old = F.id ? S.parties[F.id] : {}; const d = Object.assign({}, old, { name:v.name, segment:v.segment, phone:v.phone, city:v.city, limit:num(v.limit), discPct:num(v.discPct), opening:num(v.opening) }); if(!F.id) d.createdAt = Date.now(); dlg.close(); await put('parties', id, d); toast(t('Saved.')); },
   async void(v){ const x = S.txns[F.id]; if(!x) return; if(String(v.reason || '').length < 3) return toast(t('Enter a reason.')); const id = F.id; dlg.close(); await put('txns', id, Object.assign({}, x, { voided:{ at:Date.now(), by:me() ? me().name : '', reason:v.reason } }), { act:'void', reason:v.reason }); toast(t('Voided. The record is kept in the Voided tab.')); },
   async flag(v){ const it = S.items[F.itemId]; if(!it) return; const have = num(D.stock[F.itemId]), got = num(v.counted); dlg.close(); await JB.commit([], logRef(logEntry('flag', 'items', F.itemId, null, null, { label:it.name, no:it.code || '', from:have, to:got, reason:v.note }))); toast(t('Sent to the manager.')); },
   async adjust(v){ if(!num(v.qty)) return toast(t('Enter a quantity to add or remove.')); if(String(v.note || '').length < 3) return toast(t('Add a note explaining the change.')); const have = num(D.stock[F.itemId]), d = { type:'adjust', itemId:F.itemId, qty:num(v.qty), date:v.date, note:v.note, reasonCode:v.code, createdAt:Date.now(), by:me() ? me().name : '' }; dlg.close(); await put('txns', uid(), d, { reason:v.code + ': ' + v.note, from:have, to:have + num(v.qty) }); toast(t('Stock updated.')); },
@@ -2545,11 +2676,15 @@ const SUBMIT = {
   async txn(v){
     const x = F.x, id = F.id || uid();
     if(!F.id) applyDeals(x);
-    x.lines = x.lines.filter(l => (l.name || '').trim() && num(l.qty) > 0).map(l => Object.assign({ itemId:l.itemId || '', name:l.name.trim(), qty:num(l.qty), price:num(l.price), cost:num(l.cost) }, l.dealId ? { dealId:l.dealId, deal:l.deal, list:num(l.list) } : {}));
+    x.lines = x.lines.filter(l => (l.name || '').trim() && num(l.qty) > 0).map(l => Object.assign({ itemId:l.itemId || '', name:l.name.trim(), qty:num(l.qty), price:num(l.price), cost:num(l.cost) }, num(l.core) ? { core:num(l.core) } : {}, l.dealId ? { dealId:l.dealId, deal:l.deal, list:num(l.list) } : {}));
     if(!x.lines.length){ x.lines.push({ itemId:'', name:'', qty:1, price:0, cost:0 }); paintLines(); return toast(t('Add at least one line with a name and quantity.')); }
     if((x.type === 'purchase' || x.type === 'po') && !v.partyId) return toast(t('Choose a supplier.'));
     if(!F.id && (x.type === 'sale' || x.type === 'quote')) for(const l of x.lines) if(l.itemId && l.itemId in D.avg) l.cost = Math.round(D.avg[l.itemId]);
     const rate = x.tax ? (F.id && x.taxRate ? x.taxRate : (store().taxRate == null ? 18 : store().taxRate)) : 0, c = calc(x, rate);
+    if(x.type === 'sale' && v.partyId && S.parties[v.partyId] && num(S.parties[v.partyId].limit) > 0){
+      const lim = num(S.parties[v.partyId].limit), prev = F.id && S.txns[F.id] ? Math.max(0, dueOf(F.id, S.txns[F.id])) : 0, paidNow = Math.min(num(v.paid), c.total), after = num(D.bal[v.partyId]) - prev + (c.total - paidNow);
+      if(after > lim){ if(!can('approve')) return toast(t('This sale would take the customer over their credit limit of') + ' ' + n0(lim) + '. ' + t('Take more payment now, or ask a manager to approve it.')); toast(t('Over the customer credit limit of') + ' ' + n0(lim) + ' · ' + t('approved by your role')); }
+    }
     if((x.type === 'sale' || x.type === 'quote') && !can('approve')){
       const cap = store().discCap == null ? 10 : num(store().discCap), pct = c.sub > 0 ? Math.round(num(v.discount) / c.sub * 1000) / 10 : 0, okPct = Math.max(cap, x.discOk ? num(x.discOk.pct) : 0);
       if(pct > okPct){
@@ -2563,8 +2698,10 @@ const SUBMIT = {
       x.partyName = String(v.partyName || '').trim(); x.custPhone = ph ? (String(ph).replace(/\D/g, '').length === 9 ? '+221' + ph.replace(/\D/g, '') : '+' + ph.replace(/\D/g, '')) : '';
       if(!x.partyName) delete x.partyName; if(!x.custPhone) delete x.custPhone;
     } else { delete x.partyName; delete x.custPhone; }
+    if(x.type === 'sale' && !F.id){ if(v.stage === 'confirmed') x.stage = 'confirmed'; else delete x.stage; } else if(x.type !== 'sale') delete x.stage;
+    if(x.vehicle && !(x.vehicle.make || x.vehicle.model || x.vehicle.vin) || (x.type !== 'sale' && x.type !== 'quote')) delete x.vehicle; if(x.channel && (!CHANNELS.includes(x.channel) || (x.type !== 'sale' && x.type !== 'quote'))) delete x.channel;
     if((x.type === 'sale' || x.type === 'quote') && v.cameFrom) x.cameFrom = String(v.cameFrom).slice(0, 20); else delete x.cameFrom;
-    Object.assign(x, { partyId:v.partyId || '', date:v.date, note:v.note || '', discount:num(v.discount), sub:c.sub, cogs:c.cogs, taxRate:c.taxRate, taxAmt:c.taxAmt, total:c.total });
+    Object.assign(x, { partyId:v.partyId || '', date:v.date, note:v.note || '', discount:num(v.discount), sub:c.sub, cogs:c.cogs, taxRate:c.taxRate, taxAmt:c.taxAmt, coreAmt:c.coreAmt, total:c.total }); if(!c.coreAmt) delete x.coreAmt; else if(!x.coreSt) x.coreSt = 'pending';
     if(x.type === 'quote' || x.type === 'po'){ x.paid = 0; } else { x.paid = Math.min(num(v.paid), c.total); x.method = v.method; }
     if(!x.partyId && x.type === 'sale' && x.paid < c.total) toast(t('Walk-in sale left unpaid. Add the customer as a party to track what they owe.'));
     if(!x.no){ x.no = nextNo(x.type); for(let g = 0; g < 50 && Object.entries(Object.assign({}, S.voided, S.txns)).some(([k, o]) => k !== id && o.type === x.type && o.no === x.no); g++){ const m = /^(.*?)(\d+)$/.exec(x.no); x.no = m ? m[1] + String(+m[2] + 1).padStart(m[2].length, '0') : x.no + '-2'; } }

@@ -146,8 +146,18 @@ service cloud.firestore {
             || (request.resource.data.type in ['return', 'payout', 'expense'] && hasRole(s, ['owner', 'manager']))
             // Cashiers can only submit expense requests; the owner or a manager approves them.
             || (request.resource.data.type == 'expense' && request.resource.data.status == 'pending' && hasRole(s, ['cashier']))
+            // Core deposit refund: the counter records the cash going out, tied to the order it refunds.
+            || (request.resource.data.type == 'payout' && request.resource.data.coreOf is string && hasRole(s, ['cashier']))
           );
-        allow update: if hasRole(s, ['owner', 'manager']) && logged(s);
+        allow update: if (hasRole(s, ['owner', 'manager']) && logged(s))
+          // Counter and warehouse staff may only move an order forward (stage) and do their own core-return step.
+          || (hasRole(s, ['cashier', 'stock']) && logged(s)
+              && resource.data.type == 'sale'
+              && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['stage', 'coreSt', 'coreRef', 'logId'])
+              && request.resource.data.get('stage', 'done') in ['confirmed', 'packed', 'delivery', 'done']
+              && (request.resource.data.get('coreSt', '') == resource.data.get('coreSt', '')
+                  || (request.resource.data.get('coreSt', '') == 'received' && resource.data.get('coreSt', '') == 'pending' && hasRole(s, ['stock']))
+                  || (request.resource.data.get('coreSt', '') == 'refunded' && resource.data.get('coreSt', '') == 'received' && hasRole(s, ['cashier']))));
         allow delete: if hasRole(s, ['owner', 'manager']);
       }
     }
