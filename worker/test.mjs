@@ -98,6 +98,18 @@ test('invitation answers: signed link records the answer; forged link does nothi
   await call('/optins/ack', { store: 'pah', ids: ['a3'] }, world()); assert.deepEqual((await call('/optins', { store: 'pah' }, world())).body.optins, []);
   assert.ok(v.status === 200);
 });
+test('test email may go to an address listed in TEST_EMAILS, and only to it', async () => {
+  const w = world();
+  assert.equal((await call('/test', { store: 'pah', subject: 'S', html: '<p>x {{unsubscribe}}</p>', to: 'owner@gmail.com' }, w)).status, 400);
+  env.TEST_EMAILS = ' Owner@Gmail.com , other@example.org ';
+  try{
+    const ok = await call('/test', { store: 'pah', subject: 'S', html: '<p>x {{unsubscribe}}</p>', to: 'OWNER@gmail.com' }, w);
+    assert.equal(ok.status, 200);
+    assert.equal(w.calls.find(c => c.url.endsWith('/smtp/email')).body.to[0].email, 'owner@gmail.com');
+    assert.equal((await call('/test', { store: 'pah', subject: 'S', html: '<p>x</p>', to: 'victim@example.com' }, world())).status, 400);
+    assert.equal((await call('/test', { store: 'pah', subject: 'S', html: '<p>x</p>', to: 'not-an-address' }, world())).status, 400);
+  } finally { delete env.TEST_EMAILS; }
+});
 test('test email goes only to the caller; stats and unsubscribes', async () => {
   const w = world();
   assert.equal((await call('/test', { store: 'pah', subject: 'S', html: '<p>{prénom} {{unsubscribe}}</p>', to: 'victim@example.com' }, w)).status, 400);

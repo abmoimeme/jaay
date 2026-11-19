@@ -172,7 +172,9 @@ async function sendCampaign(env, f, who, b){
 async function sendTest(env, f, who, b){
   const subject = String(b.subject || '').trim().slice(0, 200); if(!subject || !b.html) throw new HttpError(400, 'Subject or content missing');
   const to = String(b.to || who.email).toLowerCase();
-  if(to !== who.email) throw new HttpError(400, 'A test goes only to your own sign-in email');
+  // A test may go to the sign-in email, or to an address the owner listed in TEST_EMAILS (staff sign-ins can be placeholder addresses).
+  const allowed = String(env.TEST_EMAILS || '').split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
+  if(!EMAIL_RE.test(to) || (to !== who.email && !allowed.includes(to))) throw new HttpError(400, 'This address is not allowed for tests. Add it to TEST_EMAILS in the worker settings.');
   await brevo(env, f, 'POST', '/smtp/email', { sender: sender(env), to: [{ email: to }], subject: '[TEST] ' + subject, htmlContent: sample(b.html, 'Moussa'), tags: ['jaay-test'] });
   return { sent: 1, to };
 }

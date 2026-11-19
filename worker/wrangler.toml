@@ -9,6 +9,8 @@ SENDER_EMAIL = "contact@planetautohub.com"
 REPLY_TO = "contact@planetautohub.com"
 ALLOWED_ORIGINS = "https://app.planetautohub.com"
 DAILY_LIMIT = "300"
+# Addresses that may receive "Send me a test" besides the sign-in email (comma separated)
+TEST_EMAILS = ""
 # Set PUBLIC_URL to the worker address after the first deploy, e.g. https://jaay-email.<your-subdomain>.workers.dev
 PUBLIC_URL = ""
 
