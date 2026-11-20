@@ -1,0 +1,7 @@
+{
+  "appId": "com.niororesources.jaay.pah",
+  "appName": "Jaay PAH",
+  "webDir": "www",
+  "server": { "androidScheme": "https" },
+  "ios": { "contentInset": "always" }
+}

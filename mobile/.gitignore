@@ -1,0 +1,13 @@
+node_modules/
+www/
+android/app/build/
+android/.gradle/
+android/build/
+android/local.properties
+ios/App/App/public/
+android/app/src/main/assets/public/
+*.keystore
+*.jks
+*.p8
+*.p12
+*.mobileprovision

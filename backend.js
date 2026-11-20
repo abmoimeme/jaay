@@ -20,7 +20,7 @@ if(!window.JB && CFG && !/^REPLACE/.test(CFG.apiKey || '')){
   const plain = d => { if(d) for(const k in d){ if(d[k] && typeof d[k].toMillis === 'function') d[k] = d[k].toMillis(); } return d; };
   const snapDoc = s => ({ id: s.id, exists: s.exists(), data: () => plain(s.data({ serverTimestamps: 'estimate' })), metadata: s.metadata });
   // Reads counter (this page only): documents the server sent to this browser, by collection. Shown to the owner on Monitor.
-  const RD = { since: Date.now(), total: 0, by: {}, starts: 0, retries: 0 };
+  const RD = { since: Date.now(), total: 0, by: {}, starts: 0, retries: 0, refused: {} };
   const rdName = p => String(p).split('/').slice(-1)[0] || p;
   const rdAdd = (p, n) => { if(!n) return; const k = rdName(p); RD.total += n; RD.by[k] = (RD.by[k] || 0) + n; };
   const rdSnap = (p, s) => { if(s.metadata.fromCache) return; let n = 0; s.docChanges().forEach(c => { if(!c.doc.metadata.hasPendingWrites) n++; }); rdAdd(p, n); };
@@ -29,8 +29,9 @@ if(!window.JB && CFG && !/^REPLACE/.test(CFG.apiKey || '')){
   window.JB = {
     ready: setPersistence(auth, browserSessionPersistence).catch(e => console.warn(e)),
     uid: () => auth.currentUser ? auth.currentUser.uid : null,
-    reads: () => ({ since: RD.since, total: RD.total, starts: RD.starts, retries: RD.retries, by: Object.assign({}, RD.by) }),
-    noteRetry: () => { RD.retries++; },
+    reads: () => ({ since: RD.since, total: RD.total, starts: RD.starts, retries: RD.retries, by: Object.assign({}, RD.by), refused: Object.assign({}, RD.refused) }),
+    noteRetry: c => { RD.retries++; if(c) RD.refused[c] = 'retry ' + RD.retries; },
+    noteStop: (c, code) => { RD.refused[c] = String(code || 'stopped'); },
     token: () => auth.currentUser ? auth.currentUser.getIdToken() : Promise.reject(norm({ code: 'auth/no-current-user' })),
     onUser: cb => onAuthStateChanged(auth, u => cb(u ? { uid: u.uid, email: u.email } : null)),
     signIn: (email, pw) => wrap(signInWithEmailAndPassword(auth, email, pw)),
