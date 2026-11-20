@@ -1,0 +1,1449 @@
+{
+ "app": "jaay",
+ "version": 1,
+ "exportedAt": "2026-11-20T22:19:24.766145Z",
+ "storeId": "pahdemo",
+ "store": {
+  "name": "Demo Auto Parts (sample data)",
+  "address": "Sample address, Dakar",
+  "phone": "+221 77 000 01 00",
+  "currency": "FCFA",
+  "taxRate": 0,
+  "invPrefix": "DEMO",
+  "color": "#1E2A5A",
+  "footer": "Sample data for app review. Not a real business."
+ },
+ "items": {
+  "d001": {
+   "name": "Filtre à huile Toyota",
+   "sku": "D0001",
+   "category": "Filtres",
+   "brand": "Toyota",
+   "cost": 3500,
+   "price": 6000,
+   "opening": 14,
+   "min": 3
+  },
+  "d002": {
+   "name": "Filtre à air Kia",
+   "sku": "D0002",
+   "category": "Filtres",
+   "brand": "Kia",
+   "cost": 4000,
+   "price": 7000,
+   "opening": 24,
+   "min": 3
+  },
+  "d003": {
+   "name": "Filtre à air Nissan",
+   "sku": "D0003",
+   "category": "Filtres",
+   "brand": "Nissan",
+   "cost": 4000,
+   "price": 7000,
+   "opening": 7,
+   "min": 3
+  },
+  "d004": {
+   "name": "Filtre à carburant Peugeot",
+   "sku": "D0004",
+   "category": "Filtres",
+   "brand": "Peugeot",
+   "cost": 5000,
+   "price": 8500,
+   "opening": 23,
+   "min": 3
+  },
+  "d005": {
+   "name": "Filtre habitacle Kia",
+   "sku": "D0005",
+   "category": "Filtres",
+   "brand": "Kia",
+   "cost": 4500,
+   "price": 7500,
+   "opening": 17,
+   "min": 3
+  },
+  "d006": {
+   "name": "Filtre habitacle Nissan",
+   "sku": "D0006",
+   "category": "Filtres",
+   "brand": "Nissan",
+   "cost": 4500,
+   "price": 7500,
+   "opening": 29,
+   "min": 3
+  },
+  "d007": {
+   "name": "Plaquettes de frein avant Kia",
+   "sku": "D0007",
+   "category": "Freinage",
+   "brand": "Kia",
+   "cost": 9000,
+   "price": 15000,
+   "opening": 21,
+   "min": 3
+  },
+  "d008": {
+   "name": "Plaquettes de frein arrière Nissan",
+   "sku": "D0008",
+   "category": "Freinage",
+   "brand": "Nissan",
+   "cost": 8000,
+   "price": 13500,
+   "opening": 28,
+   "min": 3
+  },
+  "d009": {
+   "name": "Plaquettes de frein arrière Hyundai",
+   "sku": "D0009",
+   "category": "Freinage",
+   "brand": "Hyundai",
+   "cost": 8000,
+   "price": 13500,
+   "opening": 28,
+   "min": 3
+  },
+  "d010": {
+   "name": "Disque de frein Kia",
+   "sku": "D0010",
+   "category": "Freinage",
+   "brand": "Kia",
+   "cost": 14000,
+   "price": 22000,
+   "opening": 18,
+   "min": 3
+  },
+  "d011": {
+   "name": "Liquide de frein DOT4 500 ml Peugeot",
+   "sku": "D0011",
+   "category": "Freinage",
+   "brand": "Peugeot",
+   "cost": 2500,
+   "price": 4500,
+   "opening": 23,
+   "min": 3
+  },
+  "d012": {
+   "name": "Liquide de frein DOT4 500 ml Toyota",
+   "sku": "D0012",
+   "category": "Freinage",
+   "brand": "Toyota",
+   "cost": 2500,
+   "price": 4500,
+   "opening": 6,
+   "min": 3
+  },
+  "d013": {
+   "name": "Bougie d'allumage Toyota",
+   "sku": "D0013",
+   "category": "Moteur",
+   "brand": "Toyota",
+   "cost": 1800,
+   "price": 3500,
+   "opening": 13,
+   "min": 3
+  },
+  "d014": {
+   "name": "Courroie de distribution Toyota",
+   "sku": "D0014",
+   "category": "Moteur",
+   "brand": "Toyota",
+   "cost": 12000,
+   "price": 20000,
+   "opening": 4,
+   "min": 3
+  },
+  "d015": {
+   "name": "Courroie de distribution Hyundai",
+   "sku": "D0015",
+   "category": "Moteur",
+   "brand": "Hyundai",
+   "cost": 12000,
+   "price": 20000,
+   "opening": 30,
+   "min": 3
+  },
+  "d016": {
+   "name": "Pompe à eau Nissan",
+   "sku": "D0016",
+   "category": "Moteur",
+   "brand": "Nissan",
+   "cost": 16000,
+   "price": 26000,
+   "opening": 19,
+   "min": 3
+  },
+  "d017": {
+   "name": "Joint de culasse Nissan",
+   "sku": "D0017",
+   "category": "Moteur",
+   "brand": "Nissan",
+   "cost": 9000,
+   "price": 16000,
+   "opening": 10,
+   "min": 3
+  },
+  "d018": {
+   "name": "Joint de culasse Renault",
+   "sku": "D0018",
+   "category": "Moteur",
+   "brand": "Renault",
+   "cost": 9000,
+   "price": 16000,
+   "opening": 16,
+   "min": 3
+  },
+  "d019": {
+   "name": "Amortisseur avant Renault",
+   "sku": "D0019",
+   "category": "Suspension",
+   "brand": "Renault",
+   "cost": 18000,
+   "price": 30000,
+   "opening": 15,
+   "min": 3
+  },
+  "d020": {
+   "name": "Amortisseur arrière Renault",
+   "sku": "D0020",
+   "category": "Suspension",
+   "brand": "Renault",
+   "cost": 16000,
+   "price": 27000,
+   "opening": 27,
+   "min": 3
+  },
+  "d021": {
+   "name": "Amortisseur arrière Hyundai",
+   "sku": "D0021",
+   "category": "Suspension",
+   "brand": "Hyundai",
+   "cost": 16000,
+   "price": 27000,
+   "opening": 20,
+   "min": 3
+  },
+  "d022": {
+   "name": "Rotule de direction Nissan",
+   "sku": "D0022",
+   "category": "Suspension",
+   "brand": "Nissan",
+   "cost": 6000,
+   "price": 11000,
+   "opening": 6,
+   "min": 3
+  },
+  "d023": {
+   "name": "Silentbloc Nissan",
+   "sku": "D0023",
+   "category": "Suspension",
+   "brand": "Nissan",
+   "cost": 2500,
+   "price": 5000,
+   "opening": 6,
+   "min": 3
+  },
+  "d024": {
+   "name": "Silentbloc Renault",
+   "sku": "D0024",
+   "category": "Suspension",
+   "brand": "Renault",
+   "cost": 2500,
+   "price": 5000,
+   "opening": 21,
+   "min": 3
+  },
+  "d025": {
+   "name": "Batterie 12V 60Ah Kia",
+   "sku": "D0025",
+   "category": "Électricité",
+   "brand": "Kia",
+   "cost": 32000,
+   "price": 48000,
+   "opening": 13,
+   "min": 3
+  },
+  "d026": {
+   "name": "Alternateur Renault",
+   "sku": "D0026",
+   "category": "Électricité",
+   "brand": "Renault",
+   "cost": 45000,
+   "price": 70000,
+   "opening": 8,
+   "min": 3
+  },
+  "d027": {
+   "name": "Alternateur Hyundai",
+   "sku": "D0027",
+   "category": "Électricité",
+   "brand": "Hyundai",
+   "cost": 45000,
+   "price": 70000,
+   "opening": 24,
+   "min": 3
+  },
+  "d028": {
+   "name": "Ampoule H4 Nissan",
+   "sku": "D0028",
+   "category": "Électricité",
+   "brand": "Nissan",
+   "cost": 1200,
+   "price": 2500,
+   "opening": 26,
+   "min": 3
+  },
+  "d029": {
+   "name": "Démarreur Kia",
+   "sku": "D0029",
+   "category": "Électricité",
+   "brand": "Kia",
+   "cost": 40000,
+   "price": 62000,
+   "opening": 4,
+   "min": 3
+  },
+  "d030": {
+   "name": "Démarreur Renault",
+   "sku": "D0030",
+   "category": "Électricité",
+   "brand": "Renault",
+   "cost": 40000,
+   "price": 62000,
+   "opening": 26,
+   "min": 3
+  },
+  "d031": {
+   "name": "Huile moteur 5W30 4 L Renault",
+   "sku": "D0031",
+   "category": "Lubrifiants",
+   "brand": "Renault",
+   "cost": 14000,
+   "price": 21000,
+   "opening": 15,
+   "min": 3
+  },
+  "d032": {
+   "name": "Huile moteur 10W40 4 L Hyundai",
+   "sku": "D0032",
+   "category": "Lubrifiants",
+   "brand": "Hyundai",
+   "cost": 11000,
+   "price": 17000,
+   "opening": 6,
+   "min": 3
+  },
+  "d033": {
+   "name": "Huile moteur 10W40 4 L Nissan",
+   "sku": "D0033",
+   "category": "Lubrifiants",
+   "brand": "Nissan",
+   "cost": 11000,
+   "price": 17000,
+   "opening": 16,
+   "min": 3
+  },
+  "d034": {
+   "name": "Liquide de refroidissement 4 L Kia",
+   "sku": "D0034",
+   "category": "Lubrifiants",
+   "brand": "Kia",
+   "cost": 4000,
+   "price": 7000,
+   "opening": 21,
+   "min": 3
+  },
+  "d035": {
+   "name": "Huile de boîte 1 L Hyundai",
+   "sku": "D0035",
+   "category": "Lubrifiants",
+   "brand": "Hyundai",
+   "cost": 3500,
+   "price": 6000,
+   "opening": 17,
+   "min": 3
+  },
+  "d036": {
+   "name": "Huile de boîte 1 L Toyota",
+   "sku": "D0036",
+   "category": "Lubrifiants",
+   "brand": "Toyota",
+   "cost": 3500,
+   "price": 6000,
+   "opening": 20,
+   "min": 3
+  }
+ },
+ "parties": {
+  "dc1": {
+   "name": "Garage Démo Liberté",
+   "segment": "Mechanic",
+   "phone": "+221770000101"
+  },
+  "dc2": {
+   "name": "Taxi Démo Services",
+   "segment": "Fleet",
+   "phone": "+221770000102"
+  },
+  "dc3": {
+   "name": "Awa Démo",
+   "segment": "Retail",
+   "phone": "+221770000103"
+  },
+  "dc4": {
+   "name": "Atelier Démo Médina",
+   "segment": "Mechanic",
+   "phone": "+221770000104"
+  },
+  "dc5": {
+   "name": "Transport Démo Sahel",
+   "segment": "Fleet",
+   "phone": "+221770000105"
+  },
+  "ds1": {
+   "name": "Fournisseur Démo Pièces",
+   "segment": "Supplier",
+   "phone": "+221770000201"
+  },
+  "ds2": {
+   "name": "Import Démo Auto",
+   "segment": "Supplier",
+   "phone": "+221770000202"
+  }
+ },
+ "txns": {
+  "dt001": {
+   "type": "sale",
+   "no": "DEMO-0001",
+   "date": "2026-10-27",
+   "partyId": "dc5",
+   "lines": [
+    {
+     "itemId": "d026",
+     "name": "Alternateur Renault",
+     "qty": 2,
+     "price": 70000,
+     "cost": 45000
+    },
+    {
+     "itemId": "d034",
+     "name": "Liquide de refroidissement 4 L Kia",
+     "qty": 2,
+     "price": 7000,
+     "cost": 4000
+    }
+   ],
+   "sub": 154000,
+   "taxAmt": 0,
+   "cogs": 98000,
+   "total": 154000,
+   "paid": 154000,
+   "method": "Wave",
+   "note": "",
+   "createdAt": 1793120400001
+  },
+  "dt002": {
+   "type": "sale",
+   "no": "DEMO-0002",
+   "date": "2026-10-27",
+   "partyId": "dc5",
+   "lines": [
+    {
+     "itemId": "d034",
+     "name": "Liquide de refroidissement 4 L Kia",
+     "qty": 1,
+     "price": 7000,
+     "cost": 4000
+    },
+    {
+     "itemId": "d002",
+     "name": "Filtre à air Kia",
+     "qty": 1,
+     "price": 7000,
+     "cost": 4000
+    },
+    {
+     "itemId": "d015",
+     "name": "Courroie de distribution Hyundai",
+     "qty": 3,
+     "price": 20000,
+     "cost": 12000
+    }
+   ],
+   "sub": 74000,
+   "taxAmt": 0,
+   "cogs": 44000,
+   "total": 74000,
+   "paid": 74000,
+   "method": "Cash",
+   "note": "",
+   "createdAt": 1793120400002
+  },
+  "dt003": {
+   "type": "sale",
+   "no": "DEMO-0003",
+   "date": "2026-10-28",
+   "partyId": "",
+   "lines": [
+    {
+     "itemId": "d028",
+     "name": "Ampoule H4 Nissan",
+     "qty": 2,
+     "price": 2500,
+     "cost": 1200
+    },
+    {
+     "itemId": "d031",
+     "name": "Huile moteur 5W30 4 L Renault",
+     "qty": 1,
+     "price": 21000,
+     "cost": 14000
+    },
+    {
+     "itemId": "d010",
+     "name": "Disque de frein Kia",
+     "qty": 1,
+     "price": 22000,
+     "cost": 14000
+    }
+   ],
+   "sub": 48000,
+   "taxAmt": 0,
+   "cogs": 30400,
+   "total": 48000,
+   "paid": 48000,
+   "method": "Orange Money",
+   "note": "",
+   "createdAt": 1793206800003
+  },
+  "dt004": {
+   "type": "sale",
+   "no": "DEMO-0004",
+   "date": "2026-10-28",
+   "partyId": "dc4",
+   "lines": [
+    {
+     "itemId": "d031",
+     "name": "Huile moteur 5W30 4 L Renault",
+     "qty": 2,
+     "price": 21000,
+     "cost": 14000
+    },
+    {
+     "itemId": "d035",
+     "name": "Huile de boîte 1 L Hyundai",
+     "qty": 3,
+     "price": 6000,
+     "cost": 3500
+    }
+   ],
+   "sub": 60000,
+   "taxAmt": 0,
+   "cogs": 38500,
+   "total": 60000,
+   "paid": 60000,
+   "method": "Orange Money",
+   "note": "",
+   "createdAt": 1793206800004
+  },
+  "dt005": {
+   "type": "sale",
+   "no": "DEMO-0005",
+   "date": "2026-10-29",
+   "partyId": "dc3",
+   "lines": [
+    {
+     "itemId": "d033",
+     "name": "Huile moteur 10W40 4 L Nissan",
+     "qty": 2,
+     "price": 17000,
+     "cost": 11000
+    },
+    {
+     "itemId": "d031",
+     "name": "Huile moteur 5W30 4 L Renault",
+     "qty": 1,
+     "price": 21000,
+     "cost": 14000
+    },
+    {
+     "itemId": "d026",
+     "name": "Alternateur Renault",
+     "qty": 2,
+     "price": 70000,
+     "cost": 45000
+    }
+   ],
+   "sub": 195000,
+   "taxAmt": 0,
+   "cogs": 126000,
+   "total": 195000,
+   "paid": 195000,
+   "method": "Cash",
+   "note": "",
+   "createdAt": 1793293200005
+  },
+  "dt006": {
+   "type": "purchase",
+   "no": "DEMO-P006",
+   "date": "2026-10-31",
+   "partyId": "ds2",
+   "lines": [
+    {
+     "itemId": "d030",
+     "name": "Démarreur Renault",
+     "qty": 8,
+     "price": 40000,
+     "cost": 40000
+    },
+    {
+     "itemId": "d034",
+     "name": "Liquide de refroidissement 4 L Kia",
+     "qty": 11,
+     "price": 4000,
+     "cost": 4000
+    },
+    {
+     "itemId": "d032",
+     "name": "Huile moteur 10W40 4 L Hyundai",
+     "qty": 11,
+     "price": 11000,
+     "cost": 11000
+    },
+    {
+     "itemId": "d024",
+     "name": "Silentbloc Renault",
+     "qty": 12,
+     "price": 2500,
+     "cost": 2500
+    },
+    {
+     "itemId": "d013",
+     "name": "Bougie d'allumage Toyota",
+     "qty": 11,
+     "price": 1800,
+     "cost": 1800
+    }
+   ],
+   "sub": 534800,
+   "taxAmt": 0,
+   "cogs": 0,
+   "total": 534800,
+   "paid": 534800,
+   "method": "Cash",
+   "note": "",
+   "createdAt": 1793462400006
+  },
+  "dt007": {
+   "type": "sale",
+   "no": "DEMO-0007",
+   "date": "2026-11-01",
+   "partyId": "",
+   "lines": [
+    {
+     "itemId": "d003",
+     "name": "Filtre à air Nissan",
+     "qty": 2,
+     "price": 7000,
+     "cost": 4000
+    },
+    {
+     "itemId": "d019",
+     "name": "Amortisseur avant Renault",
+     "qty": 1,
+     "price": 30000,
+     "cost": 18000
+    },
+    {
+     "itemId": "d021",
+     "name": "Amortisseur arrière Hyundai",
+     "qty": 2,
+     "price": 27000,
+     "cost": 16000
+    }
+   ],
+   "sub": 98000,
+   "taxAmt": 0,
+   "cogs": 58000,
+   "total": 98000,
+   "paid": 98000,
+   "method": "Orange Money",
+   "note": "",
+   "createdAt": 1793552400007
+  },
+  "dt008": {
+   "type": "sale",
+   "no": "DEMO-0008",
+   "date": "2026-11-01",
+   "partyId": "dc1",
+   "lines": [
+    {
+     "itemId": "d017",
+     "name": "Joint de culasse Nissan",
+     "qty": 2,
+     "price": 16000,
+     "cost": 9000
+    },
+    {
+     "itemId": "d029",
+     "name": "Démarreur Kia",
+     "qty": 3,
+     "price": 62000,
+     "cost": 40000
+    },
+    {
+     "itemId": "d012",
+     "name": "Liquide de frein DOT4 500 ml Toyota",
+     "qty": 2,
+     "price": 4500,
+     "cost": 2500
+    }
+   ],
+   "sub": 227000,
+   "taxAmt": 0,
+   "cogs": 143000,
+   "total": 227000,
+   "paid": 227000,
+   "method": "Wave",
+   "note": "",
+   "createdAt": 1793552400008
+  },
+  "dt009": {
+   "type": "sale",
+   "no": "DEMO-0009",
+   "date": "2026-11-02",
+   "partyId": "dc4",
+   "lines": [
+    {
+     "itemId": "d013",
+     "name": "Bougie d'allumage Toyota",
+     "qty": 3,
+     "price": 3500,
+     "cost": 1800
+    }
+   ],
+   "sub": 10500,
+   "taxAmt": 0,
+   "cogs": 5400,
+   "total": 10500,
+   "paid": 10500,
+   "method": "Cash",
+   "note": "",
+   "createdAt": 1793638800009
+  },
+  "dt010": {
+   "type": "sale",
+   "no": "DEMO-0010",
+   "date": "2026-11-03",
+   "partyId": "dc4",
+   "lines": [
+    {
+     "itemId": "d006",
+     "name": "Filtre habitacle Nissan",
+     "qty": 1,
+     "price": 7500,
+     "cost": 4500
+    }
+   ],
+   "sub": 7500,
+   "taxAmt": 0,
+   "cogs": 4500,
+   "total": 7500,
+   "paid": 7500,
+   "method": "Orange Money",
+   "note": "",
+   "createdAt": 1793725200010
+  },
+  "dt011": {
+   "type": "sale",
+   "no": "DEMO-0011",
+   "date": "2026-11-04",
+   "partyId": "dc1",
+   "lines": [
+    {
+     "itemId": "d013",
+     "name": "Bougie d'allumage Toyota",
+     "qty": 1,
+     "price": 3500,
+     "cost": 1800
+    }
+   ],
+   "sub": 3500,
+   "taxAmt": 0,
+   "cogs": 1800,
+   "total": 3500,
+   "paid": 3500,
+   "method": "Orange Money",
+   "note": "",
+   "createdAt": 1793811600011
+  },
+  "dt012": {
+   "type": "sale",
+   "no": "DEMO-0012",
+   "date": "2026-11-04",
+   "partyId": "",
+   "lines": [
+    {
+     "itemId": "d023",
+     "name": "Silentbloc Nissan",
+     "qty": 1,
+     "price": 5000,
+     "cost": 2500
+    },
+    {
+     "itemId": "d010",
+     "name": "Disque de frein Kia",
+     "qty": 2,
+     "price": 22000,
+     "cost": 14000
+    }
+   ],
+   "sub": 49000,
+   "taxAmt": 0,
+   "cogs": 30500,
+   "total": 49000,
+   "paid": 49000,
+   "method": "Orange Money",
+   "note": "",
+   "createdAt": 1793811600012
+  },
+  "dt013": {
+   "type": "sale",
+   "no": "DEMO-0013",
+   "date": "2026-11-05",
+   "partyId": "dc5",
+   "lines": [
+    {
+     "itemId": "d009",
+     "name": "Plaquettes de frein arrière Hyundai",
+     "qty": 1,
+     "price": 13500,
+     "cost": 8000
+    },
+    {
+     "itemId": "d035",
+     "name": "Huile de boîte 1 L Hyundai",
+     "qty": 2,
+     "price": 6000,
+     "cost": 3500
+    }
+   ],
+   "sub": 25500,
+   "taxAmt": 0,
+   "cogs": 15000,
+   "total": 25500,
+   "paid": 0,
+   "method": "Orange Money",
+   "note": "",
+   "createdAt": 1793898000013
+  },
+  "dt014": {
+   "type": "sale",
+   "no": "DEMO-0014",
+   "date": "2026-11-05",
+   "partyId": "dc2",
+   "lines": [
+    {
+     "itemId": "d033",
+     "name": "Huile moteur 10W40 4 L Nissan",
+     "qty": 2,
+     "price": 17000,
+     "cost": 11000
+    },
+    {
+     "itemId": "d019",
+     "name": "Amortisseur avant Renault",
+     "qty": 3,
+     "price": 30000,
+     "cost": 18000
+    },
+    {
+     "itemId": "d006",
+     "name": "Filtre habitacle Nissan",
+     "qty": 1,
+     "price": 7500,
+     "cost": 4500
+    }
+   ],
+   "sub": 131500,
+   "taxAmt": 0,
+   "cogs": 80500,
+   "total": 131500,
+   "paid": 131500,
+   "method": "Orange Money",
+   "note": "",
+   "createdAt": 1793898000014
+  },
+  "dt015": {
+   "type": "sale",
+   "no": "DEMO-0015",
+   "date": "2026-11-06",
+   "partyId": "dc1",
+   "lines": [
+    {
+     "itemId": "d027",
+     "name": "Alternateur Hyundai",
+     "qty": 3,
+     "price": 70000,
+     "cost": 45000
+    },
+    {
+     "itemId": "d025",
+     "name": "Batterie 12V 60Ah Kia",
+     "qty": 1,
+     "price": 48000,
+     "cost": 32000
+    },
+    {
+     "itemId": "d010",
+     "name": "Disque de frein Kia",
+     "qty": 2,
+     "price": 22000,
+     "cost": 14000
+    }
+   ],
+   "sub": 302000,
+   "taxAmt": 0,
+   "cogs": 195000,
+   "total": 302000,
+   "paid": 302000,
+   "method": "Wave",
+   "note": "",
+   "createdAt": 1793984400015
+  },
+  "dt016": {
+   "type": "sale",
+   "no": "DEMO-0016",
+   "date": "2026-11-09",
+   "partyId": "dc3",
+   "lines": [
+    {
+     "itemId": "d023",
+     "name": "Silentbloc Nissan",
+     "qty": 2,
+     "price": 5000,
+     "cost": 2500
+    },
+    {
+     "itemId": "d002",
+     "name": "Filtre à air Kia",
+     "qty": 2,
+     "price": 7000,
+     "cost": 4000
+    },
+    {
+     "itemId": "d033",
+     "name": "Huile moteur 10W40 4 L Nissan",
+     "qty": 3,
+     "price": 17000,
+     "cost": 11000
+    }
+   ],
+   "sub": 75000,
+   "taxAmt": 0,
+   "cogs": 46000,
+   "total": 75000,
+   "paid": 75000,
+   "method": "Wave",
+   "note": "",
+   "createdAt": 1794243600016
+  },
+  "dt017": {
+   "type": "sale",
+   "no": "DEMO-0017",
+   "date": "2026-11-10",
+   "partyId": "dc5",
+   "lines": [
+    {
+     "itemId": "d032",
+     "name": "Huile moteur 10W40 4 L Hyundai",
+     "qty": 2,
+     "price": 17000,
+     "cost": 11000
+    }
+   ],
+   "sub": 34000,
+   "taxAmt": 0,
+   "cogs": 22000,
+   "total": 34000,
+   "paid": 34000,
+   "method": "Cash",
+   "note": "",
+   "createdAt": 1794330000017
+  },
+  "dt018": {
+   "type": "purchase",
+   "no": "DEMO-P018",
+   "date": "2026-11-11",
+   "partyId": "ds1",
+   "lines": [
+    {
+     "itemId": "d034",
+     "name": "Liquide de refroidissement 4 L Kia",
+     "qty": 7,
+     "price": 4000,
+     "cost": 4000
+    },
+    {
+     "itemId": "d014",
+     "name": "Courroie de distribution Toyota",
+     "qty": 5,
+     "price": 12000,
+     "cost": 12000
+    },
+    {
+     "itemId": "d028",
+     "name": "Ampoule H4 Nissan",
+     "qty": 12,
+     "price": 1200,
+     "cost": 1200
+    },
+    {
+     "itemId": "d022",
+     "name": "Rotule de direction Nissan",
+     "qty": 10,
+     "price": 6000,
+     "cost": 6000
+    },
+    {
+     "itemId": "d030",
+     "name": "Démarreur Renault",
+     "qty": 4,
+     "price": 40000,
+     "cost": 40000
+    }
+   ],
+   "sub": 322400,
+   "taxAmt": 0,
+   "cogs": 0,
+   "total": 322400,
+   "paid": 322400,
+   "method": "Cash",
+   "note": "",
+   "createdAt": 1794412800018
+  },
+  "dt019": {
+   "type": "sale",
+   "no": "DEMO-0019",
+   "date": "2026-11-12",
+   "partyId": "dc5",
+   "lines": [
+    {
+     "itemId": "d003",
+     "name": "Filtre à air Nissan",
+     "qty": 3,
+     "price": 7000,
+     "cost": 4000
+    }
+   ],
+   "sub": 21000,
+   "taxAmt": 0,
+   "cogs": 12000,
+   "total": 21000,
+   "paid": 21000,
+   "method": "Cash",
+   "note": "",
+   "createdAt": 1794502800019
+  },
+  "dt020": {
+   "type": "sale",
+   "no": "DEMO-0020",
+   "date": "2026-11-12",
+   "partyId": "dc1",
+   "lines": [
+    {
+     "itemId": "d013",
+     "name": "Bougie d'allumage Toyota",
+     "qty": 3,
+     "price": 3500,
+     "cost": 1800
+    },
+    {
+     "itemId": "d031",
+     "name": "Huile moteur 5W30 4 L Renault",
+     "qty": 3,
+     "price": 21000,
+     "cost": 14000
+    }
+   ],
+   "sub": 73500,
+   "taxAmt": 0,
+   "cogs": 47400,
+   "total": 73500,
+   "paid": 0,
+   "method": "Orange Money",
+   "note": "",
+   "createdAt": 1794502800020
+  },
+  "dt021": {
+   "type": "sale",
+   "no": "DEMO-0021",
+   "date": "2026-11-14",
+   "partyId": "dc2",
+   "lines": [
+    {
+     "itemId": "d011",
+     "name": "Liquide de frein DOT4 500 ml Peugeot",
+     "qty": 3,
+     "price": 4500,
+     "cost": 2500
+    }
+   ],
+   "sub": 13500,
+   "taxAmt": 0,
+   "cogs": 7500,
+   "total": 13500,
+   "paid": 13500,
+   "method": "Wave",
+   "note": "",
+   "createdAt": 1794675600021
+  },
+  "dt022": {
+   "type": "sale",
+   "no": "DEMO-0022",
+   "date": "2026-11-14",
+   "partyId": "dc4",
+   "lines": [
+    {
+     "itemId": "d028",
+     "name": "Ampoule H4 Nissan",
+     "qty": 2,
+     "price": 2500,
+     "cost": 1200
+    },
+    {
+     "itemId": "d035",
+     "name": "Huile de boîte 1 L Hyundai",
+     "qty": 1,
+     "price": 6000,
+     "cost": 3500
+    }
+   ],
+   "sub": 11000,
+   "taxAmt": 0,
+   "cogs": 5900,
+   "total": 11000,
+   "paid": 11000,
+   "method": "Wave",
+   "note": "",
+   "createdAt": 1794675600022
+  },
+  "dt023": {
+   "type": "sale",
+   "no": "DEMO-0023",
+   "date": "2026-11-16",
+   "partyId": "dc4",
+   "lines": [
+    {
+     "itemId": "d017",
+     "name": "Joint de culasse Nissan",
+     "qty": 2,
+     "price": 16000,
+     "cost": 9000
+    }
+   ],
+   "sub": 32000,
+   "taxAmt": 0,
+   "cogs": 18000,
+   "total": 32000,
+   "paid": 32000,
+   "method": "Wave",
+   "note": "",
+   "createdAt": 1794848400023
+  },
+  "dt024": {
+   "type": "sale",
+   "no": "DEMO-0024",
+   "date": "2026-11-17",
+   "partyId": "dc4",
+   "lines": [
+    {
+     "itemId": "d012",
+     "name": "Liquide de frein DOT4 500 ml Toyota",
+     "qty": 3,
+     "price": 4500,
+     "cost": 2500
+    },
+    {
+     "itemId": "d021",
+     "name": "Amortisseur arrière Hyundai",
+     "qty": 2,
+     "price": 27000,
+     "cost": 16000
+    }
+   ],
+   "sub": 67500,
+   "taxAmt": 0,
+   "cogs": 39500,
+   "total": 67500,
+   "paid": 67500,
+   "method": "Cash",
+   "note": "",
+   "createdAt": 1794934800024
+  },
+  "dt025": {
+   "type": "sale",
+   "no": "DEMO-0025",
+   "date": "2026-11-18",
+   "partyId": "dc4",
+   "lines": [
+    {
+     "itemId": "d018",
+     "name": "Joint de culasse Renault",
+     "qty": 1,
+     "price": 16000,
+     "cost": 9000
+    },
+    {
+     "itemId": "d007",
+     "name": "Plaquettes de frein avant Kia",
+     "qty": 1,
+     "price": 15000,
+     "cost": 9000
+    },
+    {
+     "itemId": "d014",
+     "name": "Courroie de distribution Toyota",
+     "qty": 1,
+     "price": 20000,
+     "cost": 12000
+    }
+   ],
+   "sub": 51000,
+   "taxAmt": 0,
+   "cogs": 30000,
+   "total": 51000,
+   "paid": 51000,
+   "method": "Orange Money",
+   "note": "",
+   "createdAt": 1795021200025
+  },
+  "dt026": {
+   "type": "sale",
+   "no": "DEMO-0026",
+   "date": "2026-11-18",
+   "partyId": "dc1",
+   "lines": [
+    {
+     "itemId": "d027",
+     "name": "Alternateur Hyundai",
+     "qty": 3,
+     "price": 70000,
+     "cost": 45000
+    },
+    {
+     "itemId": "d035",
+     "name": "Huile de boîte 1 L Hyundai",
+     "qty": 1,
+     "price": 6000,
+     "cost": 3500
+    }
+   ],
+   "sub": 216000,
+   "taxAmt": 0,
+   "cogs": 138500,
+   "total": 216000,
+   "paid": 216000,
+   "method": "Cash",
+   "note": "",
+   "createdAt": 1795021200026
+  },
+  "dt027": {
+   "type": "sale",
+   "no": "DEMO-0027",
+   "date": "2026-11-18",
+   "partyId": "dc5",
+   "lines": [
+    {
+     "itemId": "d036",
+     "name": "Huile de boîte 1 L Toyota",
+     "qty": 1,
+     "price": 6000,
+     "cost": 3500
+    },
+    {
+     "itemId": "d035",
+     "name": "Huile de boîte 1 L Hyundai",
+     "qty": 1,
+     "price": 6000,
+     "cost": 3500
+    }
+   ],
+   "sub": 12000,
+   "taxAmt": 0,
+   "cogs": 7000,
+   "total": 12000,
+   "paid": 12000,
+   "method": "Orange Money",
+   "note": "",
+   "createdAt": 1795021200027
+  },
+  "dt028": {
+   "type": "sale",
+   "no": "DEMO-0028",
+   "date": "2026-11-19",
+   "partyId": "dc1",
+   "lines": [
+    {
+     "itemId": "d014",
+     "name": "Courroie de distribution Toyota",
+     "qty": 3,
+     "price": 20000,
+     "cost": 12000
+    },
+    {
+     "itemId": "d019",
+     "name": "Amortisseur avant Renault",
+     "qty": 3,
+     "price": 30000,
+     "cost": 18000
+    },
+    {
+     "itemId": "d018",
+     "name": "Joint de culasse Renault",
+     "qty": 1,
+     "price": 16000,
+     "cost": 9000
+    }
+   ],
+   "sub": 166000,
+   "taxAmt": 0,
+   "cogs": 99000,
+   "total": 166000,
+   "paid": 166000,
+   "method": "Cash",
+   "note": "",
+   "createdAt": 1795107600028
+  },
+  "dt029": {
+   "type": "sale",
+   "no": "DEMO-0029",
+   "date": "2026-11-19",
+   "partyId": "dc3",
+   "lines": [
+    {
+     "itemId": "d011",
+     "name": "Liquide de frein DOT4 500 ml Peugeot",
+     "qty": 3,
+     "price": 4500,
+     "cost": 2500
+    },
+    {
+     "itemId": "d007",
+     "name": "Plaquettes de frein avant Kia",
+     "qty": 1,
+     "price": 15000,
+     "cost": 9000
+    }
+   ],
+   "sub": 28500,
+   "taxAmt": 0,
+   "cogs": 16500,
+   "total": 28500,
+   "paid": 28500,
+   "method": "Orange Money",
+   "note": "",
+   "createdAt": 1795107600029
+  },
+  "dt030": {
+   "type": "sale",
+   "no": "DEMO-0030",
+   "date": "2026-11-19",
+   "partyId": "dc3",
+   "lines": [
+    {
+     "itemId": "d007",
+     "name": "Plaquettes de frein avant Kia",
+     "qty": 3,
+     "price": 15000,
+     "cost": 9000
+    }
+   ],
+   "sub": 45000,
+   "taxAmt": 0,
+   "cogs": 27000,
+   "total": 45000,
+   "paid": 45000,
+   "method": "Wave",
+   "note": "",
+   "createdAt": 1795107600030
+  },
+  "dt031": {
+   "type": "sale",
+   "no": "DEMO-0031",
+   "date": "2026-11-20",
+   "partyId": "dc2",
+   "lines": [
+    {
+     "itemId": "d019",
+     "name": "Amortisseur avant Renault",
+     "qty": 2,
+     "price": 30000,
+     "cost": 18000
+    }
+   ],
+   "sub": 60000,
+   "taxAmt": 0,
+   "cogs": 36000,
+   "total": 60000,
+   "paid": 60000,
+   "method": "Wave",
+   "note": "",
+   "createdAt": 1795194000031
+  },
+  "dt032": {
+   "type": "sale",
+   "no": "DEMO-0032",
+   "date": "2026-11-20",
+   "partyId": "dc4",
+   "lines": [
+    {
+     "itemId": "d005",
+     "name": "Filtre habitacle Kia",
+     "qty": 2,
+     "price": 7500,
+     "cost": 4500
+    },
+    {
+     "itemId": "d001",
+     "name": "Filtre à huile Toyota",
+     "qty": 2,
+     "price": 6000,
+     "cost": 3500
+    }
+   ],
+   "sub": 27000,
+   "taxAmt": 0,
+   "cogs": 16000,
+   "total": 27000,
+   "paid": 27000,
+   "method": "Cash",
+   "note": "",
+   "createdAt": 1795194000032
+  },
+  "dt033": {
+   "type": "sale",
+   "no": "DEMO-0033",
+   "date": "2026-11-20",
+   "partyId": "dc1",
+   "lines": [
+    {
+     "itemId": "d007",
+     "name": "Plaquettes de frein avant Kia",
+     "qty": 1,
+     "price": 15000,
+     "cost": 9000
+    }
+   ],
+   "sub": 15000,
+   "taxAmt": 0,
+   "cogs": 9000,
+   "total": 15000,
+   "paid": 0,
+   "method": "Cash",
+   "note": "",
+   "createdAt": 1795194000033
+  }
+ }
+}

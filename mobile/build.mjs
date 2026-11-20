@@ -27,7 +27,7 @@ fs.rmSync(out + '/fonts-entry.css');
 // config.js: same Firebase project, store fixed.
 let cfg = fs.readFileSync(root + '/config.js', 'utf8');
 if(!/defaultStore:/.test(cfg)) throw new Error('config.js: defaultStore not found');
-cfg = cfg.replace(/defaultStore:\s*'[^']*',/, "defaultStore: '" + STORE + "',\n  lockStore: '" + STORE + "',\n  app: true,");
+cfg = cfg.replace(/defaultStore:\s*'[^']*',/, "defaultStore: '" + STORE + "',\n  lockStore: '" + STORE + "',\n  app: true,\n  demo: { user: 'reviewer', store: '" + STORE + "demo' },");
 fs.writeFileSync(out + '/config.js', cfg);
 
 let html = fs.readFileSync(root + '/index.html', 'utf8');

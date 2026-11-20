@@ -813,7 +813,7 @@ function start(){
   if(/^[a-z0-9]{3,20}$/.test(qs)) ls('store', qs);
   if(qu) inviteUser = qu;
   if(qs || qu) history.replaceState(null, '', location.pathname + location.hash);
-  storeId = LOCK() || ls('store') || (window.JAAY_CONFIG && window.JAAY_CONFIG.defaultStore) || 'pah';
+  storeId = (LOCK() && DEMO() && ls('store') === DEMO().store ? DEMO().store : LOCK()) || ls('store') || (window.JAAY_CONFIG && window.JAAY_CONFIG.defaultStore) || 'pah';
   // In the phone app a file cannot be "downloaded": it is written to the app's temporary folder and handed to the share sheet (save, print, WhatsApp, email).
   const nat = window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform() && window.Capacitor.Plugins;
   if(nat && nat.Filesystem && nat.Share) dl = { save: async ({ filename, data }) => {
@@ -879,6 +879,8 @@ const partyName = x => x.partyId && S.parties[x.partyId] ? S.parties[x.partyId].
 function lum(hex){ const m = /^#?([0-9a-f]{6})$/i.exec(hex || ''); if(!m) return 0; const n = parseInt(m[1], 16), f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }; return 0.2126 * f(n >> 16) + 0.7152 * f((n >> 8) & 255) + 0.0722 * f(n & 255); }
 // The phone app is built for one store: its code is fixed and nobody can create a store from it.
 const LOCK = () => (window.JAAY_CONFIG && /^[a-z0-9]{3,20}$/.test(window.JAAY_CONFIG.lockStore || '')) ? window.JAAY_CONFIG.lockStore : '';
+// App reviewers (Apple, Google) sign in with one set username that opens a separate demo store with sample data, never the real one.
+const DEMO = () => { const d = window.JAAY_CONFIG && window.JAAY_CONFIG.demo; return d && /^[a-z0-9]{3,20}$/.test(d.store || '') && d.user ? d : null; };
 function vLogin(){
   const s = store(), col = s.color || '#1E2A5A', create = !LOCK() && (storeMissing || loginMode === 'create');
   const info = [[t('Address'), s.address], [t('Phone'), s.phone], ['NINEA', s.ninea], ['RCCM', s.rccm]].filter(r => r[1]);
@@ -2972,7 +2974,7 @@ function formPerm(name){
 }
 const SUBMIT = {
   async login(v){
-    const code = LOCK() || String(v.store || '').trim().toLowerCase(), u = String(v.username || '').trim().toLowerCase();
+    const u = String(v.username || '').trim().toLowerCase(), code = (LOCK() && DEMO() && u === DEMO().user) ? DEMO().store : LOCK() || String(v.store || '').trim().toLowerCase();
     if(!CODE_OK(code)) return toast(t('The store code is 3 to 20 lowercase letters or numbers.'));
     accessNote = '';
     if(code !== storeId){ storeId = code; openStore(); }
